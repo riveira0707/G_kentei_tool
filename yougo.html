@@ -779,7 +779,7 @@ REINFORCE ★★★★<br>
 │ モンテカルロ法で方策勾配を推定<br>
 │ エピソード終了後に得られた報酬で方策を更新<br>
 │ シンプルだが分散が大きい<br>
-│ 「モンテカルロ方策勾配法」として出題
+│ 「モンテカルロ方策勾配法」として出題。レインフォース
 </div>
 
 <div class="term-block" data-title="Actor-Critic">
@@ -1416,7 +1416,7 @@ Dilated Convolution ★★<br>
 <div class="term-block" data-title="Atrous Convolution">
 Atrous Convolution ★★<br>
 │ │ └─ 定義：Dilated Convolutionと同義<br>
-│ │ └─ 関係：Atrous=Dilated、同じもの別名
+│ │ └─ 関係：Atrous=Dilated、同じもの別名　Atrous畳み込み
 </div>
 
 <div class="term-block" data-title="Depthwise Separable Convolution">
@@ -1849,6 +1849,363 @@ Paraphrasing ★★★★<br>
 │ Back Translationとセットで出題されやすい
 </div>
 
+<div class="term-block" data-title="画像分類">
+📚 画像分類（Image Classification）★★★★★<br>
+定義：画像全体にクラスラベルを付与するタスク<br>
+基本形：1枚の画像に1つの正解ラベル<br>
+入力：画像1枚<br>
+出力：各クラスの予測確率（例：猫95%、犬3%）<br>
+例：猫、犬、車、飛行機<br>
+代表データセット：ImageNet<br>
+ILSVRC：ImageNetを用いた大規模画像認識コンテスト<br>
+2012年：AlexNetが優勝し、深層学習による画像認識の躍進を象徴する出来事となった<br>
+ビジネス例：工場の不良品分類、医療画像の正常・異常判定<br>
+評価指標：正解率（Accuracy）、Top 1誤り率、Top 5誤り率<br>
+キーワード：画像全体を分類、物体の位置は特定しない
+</div>
+
+<div class="term-block" data-title="物体検出">
+📚 物体検出 Object Detection ★★★★★<br>
+定義：何がどこにあるかを検出。1枚に複数物体が存在可能。G検定最頻出<br>
+入力：画像1枚 / 出力：バウンディングボックス（矩形＋クラスラベル＋信頼度）<br>
+例：[x=120,y=80,w=200,h=300] 猫98%<br>
+仕組み：物体候補領域を提案 → 各領域を分類<br>
+代表手法：R CNNシリーズ、YOLO、SSD。小さい物体にも強い<br>
+ビジネス例：自動運転の歩行者・車両検出、監視カメラの侵入検知
+</div>
+
+<div class="term-block" data-title="IoU">
+🎯 IoU Intersection over Union ★★★★★<br>
+定義：予測BOXと正解BOXの重なり率。0.5以上で正解とみなすのが一般的<br>
+用途：物体検出の合否判定に使用
+</div>
+
+<div class="term-block" data-title="mAP">
+🎯 mAP mean Average Precision ★★★★★<br>
+定義：クラスごとのAP（適合率 再現率曲線下面積）を平均した値<br>
+用途：物体検出の標準評価指標
+</div>
+
+<div class="term-block" data-title="セマンティックセグメンテーション">
+📚 セマンティックセグメンテーション ★★★★★<br>
+定義：ピクセル単位でクラスを塗り分ける<br>
+入力：画像 / 出力：ピクセルごとのクラスIDマップ<br>
+例：空、道路、建物、人、車…と塗り分け<br>
+特徴：同じクラスの個体は区別しない。人が2人いても両方「人」クラス、別IDは振らない<br>
+代表手法：FCN、U Net、DeepLab、PSPNet<br>
+ビジネス例：自動運転の走行可能領域検出、医療画像の臓器領域抽出、衛星画像の土地被覆分類<br>
+評価指標：ピクセル精度、IoU、mean IoU<br>
+キーワード：ピクセル単位、個体は区別しない
+</div>
+
+<div class="term-block" data-title="インスタンスセグメンテーション">
+📚 インスタンスセグメンテーション ★★★★★<br>
+定義：個体まで区別して塗り分ける、セマンティックの発展版<br>
+入力：画像 / 出力：ピクセルごとのクラス＋個体ID<br>
+例：人2人 →「人1」「人2」と別IDで塗り分け<br>
+位置づけ：物体検出とセグメンテーションの統合タスク<br>
+代表手法：Mask R CNN ★★★★★。Faster R CNNにマスク予測ブランチ追加、物体検出と同時にマスク予測<br>
+ビジネス例：工場の部品個数カウント、細胞の個体カウント、人物の切り抜き<br>
+評価指標：mAPをマスクのIoUで算出<br>
+キーワード：個体まで区別、Mask R CNN<br>
+試験ポイント：セマンティックとの違いが必ず問われる
+</div>
+
+<div class="term-block" data-title="パノプティックセグメンテーション">
+📚 パノプティックセグメンテーション ★★★★<br>
+定義：セマンティック＋インスタンスを統合した最新タスク、2018年 Kirillov提案<br>
+特徴：画像の全ピクセルを漏れなく分割、最も情報量が多い<br>
+考え方：<br>
+Stuff：数えられないもの（空、道路、草）→ セマンティック的に塗り分け<br>
+Things：数えられるもの（人、車、犬）→ インスタンスとして区別<br>
+両者を統合し画像全体を完全に分割<br>
+入力：画像 / 出力：全ピクセルのクラス＋Thingsには個体ID<br>
+ビジネス例：自動運転の完全シーン理解、画像編集の完全な領域分割<br>
+評価指標：PQ Panoptic Quality<br>
+キーワード：全ピクセルを漏れなく、StuffとThings統合、2018年
+</div>
+
+<div class="term-block" data-title="姿勢推定">
+📚 姿勢推定 / OpenPose ★★★★<br>
+定義：人の関節位置を推定するタスク、人体姿勢推定 Human Pose Estimation<br>
+入力：画像または動画 / 出力：関節の2D/3D座標<br>
+例：肩、肘、手首、腰、膝、足首など18点など<br>
+種別：単一人姿勢推定、複数人姿勢推定（難易度高）<br>
+代表手法：OpenPose ★★★★、2017年 CMU提案、複数人リアルタイム姿勢推定の王道<br>
+仕組み：<br>
+① Part Confidence Mapsで関節位置を検出<br>
+② Part Affinity Fields PAFsで関節の繋がりを学習（例：肘と手首が同じ人のものか判定）<br>
+③ 二部グラフマッチングで個人に紐付け、ボトムアップ方式で人数に依らず高速<br>
+ビジネス例：スポーツフォーム解析、リハビリ動作解析、VTuberのモーションキャプチャ、監視カメラの転倒検知<br>
+評価指標：PCK、OKS Object Keypoint Similarity<br>
+キーワード：関節座標、PAFsで繋がり学習、OpenPoseは複数人リアルタイム
+</div>
+
+<div class="term-block" data-title="AlexNet">
+🧩 AlexNet 2012 ★★★★★<br>
+位置づけ：深層学習ブームの火付け役、ILSVRC 2012圧勝、SIFT＋SVM時代を終わらせた<br>
+構成：8層、5畳み込み＋3全結合<br>
+誤り率：Top 5 15.3%（前年25.8%から劇的改善）<br>
+革新点：<br>
+① ReLU本格採用、勾配消失緩和・高速化<br>
+② Dropoutで過学習防止、全結合で率0.5<br>
+③ GPU2枚で学習<br>
+④ データ拡張（クロップ、反転）活用<br>
+キーワード：2012、ReLU、Dropout
+</div>
+
+<div class="term-block" data-title="VGG">
+🧩 VGG 2014 ★★★★★<br>
+開発：Oxford VGG<br>
+構成：16層 VGG16、19層 VGG19、全て3×3の畳み込みを積み重ね<br>
+なぜ3×3？<br>
+① 2層3×3で5×5相当、パラメータ18＜25で少ない<br>
+② 3層3×3で7×7相当、パラメータ27＜49で少ない<br>
+③ ReLU回数増で表現力向上<br>
+特徴：転移学習で現役<br>
+弱点：パラメータ1.38億で巨大<br>
+キーワード：3×3積み重ね
+</div>
+
+<div class="term-block" data-title="GoogLeNet">
+🧩 GoogLeNet 2014優勝 ★★★★★<br>
+開発：Google、ILSVRC 2014優勝<br>
+構成：22層で深いがパラメータ約500万、AlexNetの1/12、VGGの1/27と極小<br>
+核心：Inceptionモジュール<br>
+├─ 1×1、3×3、5×5を並列実行、異なるスケールを同時取得<br>
+├─ 1×1で次元削減、ボトルネックの先駆け<br>
+└─ 補助損失で学習安定化<br>
+キーワード：Inception、1×1削減、並列、パラメータ極小
+</div>
+
+<div class="term-block" data-title="ResNet">
+🧩 ResNet 2015 ★★★★★<br>
+開発：Microsoft、ILSVRC 2015優勝、最重要・最頻出<br>
+成果：152層を実現、100層超を初めて可能にした<br>
+核心：スキップ結合、残差学習<br>
+├─ 通常：y = F(x)<br>
+├─ ResNet：y = F(x)＋x、残差F(x)を学習<br>
+└─ 効果：<br>
+① 勾配が直接伝播、勾配消失を根本解決<br>
+② 恒等写像が最低保証、深くしても性能が悪化しない<br>
+以降のほとんどのモデルがResNetベース<br>
+バリエーション：18、34、50、101、152<br>
+キーワード：スキップ、残差、F(x)＋x、152層
+</div>
+
+<div class="term-block" data-title="DenseNet">
+🧩 DenseNet 2017 ★★★★<br>
+位置づけ：ResNetの発展版<br>
+違い：ResNetは足し算、DenseNetは連結<br>
+仕組み：前方の全層を後方の全層へ連結<br>
+効果：特徴を再利用、パラメータ効率が良い、勾配が直接伝播<br>
+弱点：メモリ消費が大きい<br>
+キーワード：連結、全層を全層へ
+</div>
+
+<div class="term-block" data-title="Wide ResNet">
+🧩 Wide ResNet ★★★★<br>
+考え方：深くする代わりに幅（チャネル数）を増やして性能を高める、2016<br>
+仕組み：k＝1 → k＝2〜10倍に拡大<br>
+効果：同じパラメータなら深いより幅広の方が高精度、2倍高速なことも<br>
+キーワード：深さより幅
+</div>
+
+<div class="term-block" data-title="SENet">
+🧩 SENet 2017優勝 ★★★★<br>
+位置づけ：ILSVRC 2017優勝、Attentionの先駆け<br>
+核心：チャネルの重要度をAttentionで重み付け<br>
+手順：<br>
+① Squeeze：GAPで圧縮<br>
+② Excitation：全結合で重みを学習<br>
+③ Scale：重みを掛け算<br>
+例：猫ならヒゲの特徴を強調<br>
+特徴：汎用的なモジュールで、既存ネットワークへの挿入が簡単<br>
+キーワード：チャネル、Attention
+</div>
+
+<div class="term-block" data-title="EfficientNet">
+🧩 EfficientNet 2019 ★★★★★<br>
+開発：Google、効率最強、2019<br>
+問題点：従来は幅・深さ・解像度のいずれかだけを拡大していた<br>
+核心：複合スケーリング、幅w・深さd・解像度rを同時に拡大、係数φで一括制御<br>
+構成：B0をベースにB1〜B7<br>
+成果：従来の10倍効率、パラメータ1/10で同精度<br>
+B0はNASで自動探索された<br>
+キーワード：幅・深さ・解像度のバランス
+</div>
+
+<div class="term-block" data-title="MobileNet">
+🧩 MobileNet ★★★★<br>
+開発：Google、スマホ向け軽量モデル、2017、スマホでリアルタイム実行<br>
+核心：Depthwise Separable畳み込み<br>
+① Depthwise：チャネルごとに畳み込み<br>
+② Pointwise：1×1で統合<br>
+効果：計算量を1/8〜1/9に削減<br>
+v2では逆残差構造を導入<br>
+キーワード：Depthwise、軽量化、1/9削減
+</div>
+
+<div class="term-block" data-title="MnasNet">
+🧩 MnasNet ★★★★<br>
+開発：Google、NASで自動設計、2018<br>
+特徴：レイテンシ（実機速度）を報酬に含めて探索<br>
+課題：従来のNASはFLOPsだけで評価し実機と乖離があった<br>
+成果：MobileNet v2より同精度で2倍高速、Top 1 75.2%を79msで実行<br>
+キーワード：レイテンシ、実機速度を報酬にするNAS
+</div>
+
+<div class="term-block" data-title="ViT">
+🧩 ViT 2020 ★★★★★<br>
+開発：Google、畳み込みなしの革命、2020、G検定2024追加最重要<br>
+仕組み：<br>
+① 画像を16×16のパッチに分割、224→14×14＝196パッチ<br>
+② 各パッチを線形射影し単語のように扱う<br>
+③ 位置エンコーディングを付与しTransformerへ入力<br>
+④ 自己注意でパッチ同士の関係を学習<br>
+特徴：データが膨大な場合CNNを超える（JFT 300MでSOTA）、データが少ない場合はCNNに劣る、帰納バイアスが少ない<br>
+その後Swin Transformerが主流に<br>
+ビジネス例：CLIPの画像側の基礎モデル<br>
+キーワード：パッチ分割、16×16、畳み込みなし、データ膨大でCNN超え
+</div>
+
+<div class="term-block" data-title="2段階検出 vs 1段階検出">
+🎯 2段階検出 vs 1段階検出 違い ★★★★★<br>
+試験鉄板：この違いは必ず出る<br>
+2段階検出：<br>
+① 領域提案で物体がありそうな場所を約2000個探す<br>
+② その領域を1つずつ分類し矩形を補正<br>
+代表：Fast R CNN、Faster R CNN<br>
+特徴：高精度だが低速、医療画像や工場検査など精度必須の現場で現役<br>
+1段階検出：<br>
+領域提案を飛ばし、1回のCNNで矩形と分類を同時に予測<br>
+代表：YOLO、SSD<br>
+特徴：超高速だが2段階よりやや低精度、自動運転や監視カメラなどリアルタイム必須の現場で採用<br>
+キーワード：2段階は高精度低速、1段階は高速やや低精度
+</div>
+
+<div class="term-block" data-title="Fast R-CNN">
+🧩 Fast R CNN 2段階の高速化 ★★★★<br>
+旧R CNNの欠点：領域提案2000個を2000回CNNに通すため遅すぎる（47秒/枚）<br>
+革新点：<br>
+① 画像1枚を1回だけCNNで特徴抽出<br>
+② RoIプーリングで2000個の領域を特徴マップから切り出し<br>
+③ 全結合層で分類＋矩形補正<br>
+成果：学習も推論も約100倍高速化<br>
+課題：領域提案はまだSelective Searchに依存<br>
+キーワード：画像1回CNN、RoIプーリング、100倍高速
+</div>
+
+<div class="term-block" data-title="Faster R-CNN">
+🧩 Faster R CNN 2段階の完成形 ★★★★★<br>
+開発：2015年 Shaoqing Ren氏ら、2段階法の完成形<br>
+革新点：RPN（Region Proposal Network）で物体がありそうな場所を自ら予測<br>
+仕組み：アンカーボックスを多数配置し、物体らしさと矩形補正を出力<br>
+効果：Selective Searchが不要、完全エンドツーエンド学習可能<br>
+現在でも医療・工場検査で現役<br>
+キーワード：RPN、領域提案もニューラルネットワーク、試験鉄板
+</div>
+
+<div class="term-block" data-title="FPN">
+⚙️ FPN 特徴ピラミッド ★★★★★<br>
+開発：2017年 Tsung Yi Lin氏ら、現在ほとんどの検出器に標準装備<br>
+問題点：大きな特徴マップは高解像だが浅い、小さな特徴マップは低解像だが深い。従来は小物体の検出が苦手<br>
+解決策：トップダウン経路と横方向結合、深い小さなマップを拡大し浅い大きなマップと足し算<br>
+効果：小物体の検出性能が劇的に改善、COCOで数％向上<br>
+キーワード：トップダウン＋横結合、小物体改善、標準装備
+</div>
+
+<div class="term-block" data-title="YOLO">
+🧩 YOLO ★★★★★<br>
+開発：2015年 Joseph Redmon氏ら、1段階検出の代表<br>
+核心：画像をグリッドに分割し、各セルで直接矩形とクラスを予測<br>
+特徴：領域提案なし、1回のCNNで全て終わる<br>
+効果：超高速（45fps〜155fps）、自動運転・監視カメラで採用<br>
+バージョン：v2でアンカー導入、v3でFPN導入<br>
+キーワード：1回だけ見る、グリッド分割、超高速
+</div>
+
+<div class="term-block" data-title="SSD">
+🧩 SSD ★★★★<br>
+開発：2015年 Wei Liu氏ら、1段階検出の代表<br>
+核心：複数スケールの特徴マップを使い、異なる大きさの物体を検出<br>
+仕組み：小さい特徴マップで大きな物体、大きな特徴マップで小さな物体を検出、アンカーを多スケールに配置<br>
+効果：YOLOより高精度、Faster R CNNより高速、バランス型<br>
+キーワード：多スケール特徴マップ
+</div>
+
+<div class="term-block" data-title="FCN">
+🧩 FCN 全畳み込み ★★★★★<br>
+開発：2014年 Jonathan Long氏ら、セグメンテーションの原点<br>
+核心：全結合層を畳み込み層に置換<br>
+特徴：任意サイズの画像を入力し、ピクセル単位の出力を得られる<br>
+位置づけ：以降のほとんどのセグメンテーションモデルはFCNをベースにしている<br>
+キーワード：全結合を畳み込みに、セグメンテーションの原点
+</div>
+
+<div class="term-block" data-title="U-Net">
+🧩 U Net 医療最強 ★★★★★<br>
+開発：2015年 Olaf Ronneberger氏ら<br>
+構成：U字型のエンコーダ・デコーダ<br>
+仕組み：スキップ結合で高解像度の情報を復元<br>
+特徴：少量のデータでも高精度、医療画像で圧倒的なシェア<br>
+キーワード：U字型、スキップ結合、医療最強
+</div>
+
+<div class="term-block" data-title="DeepLab">
+🧩 DeepLab + Atrous畳み込み ★★★★★<br>
+開発：2015年〜 Liang Chieh Chen氏ら、高精度セグメンテーションの完成形<br>
+核心：Atrous畳み込み（Dilated Convolution）<br>
+仕組み：フィルタの間に穴を空ける、rate＝2なら1つ飛ばしに畳み込み<br>
+効果：<br>
+① 受容野を広げ、広い文脈を捉えられる<br>
+② 解像度を下げずに受容野を拡大できる<br>
+③ パラメータ数は増えない<br>
+v3+ではASPPで多スケールの文脈を取得<br>
+試験鉄板：解像度を下げずに受容野を拡大するのがAtrous（穴空き畳み込み）
+</div>
+
+<div class="term-block" data-title="PSPNet">
+🧩 PSPNet ★★★★<br>
+開発：2016年 Hengshuang Zhao氏ら、全体の文脈を捉える<br>
+核心：Pyramid Pooling Module<br>
+仕組み：1×1、2×2、3×3、6×6のプーリングを並列実行し連結<br>
+効果：画像全体を見て判断するため誤分類が減少<br>
+キーワード：ピラミッドプーリング、全体文脈
+</div>
+
+<div class="term-block" data-title="Mask R-CNN">
+🧩 Mask R CNN ★★★★★<br>
+開発：2017年 Kaiming He氏ら、インスタンスセグメンテーションの王道<br>
+核心：Faster R CNNにマスク予測ブランチを追加<br>
+仕組み：RPN → RoIAlign → ①分類 ②矩形補正 ③マスク予測を同時実行<br>
+RoIAlign：量子化誤差を解消し、ピクセル精度を向上<br>
+成果：COCOで検出とセグメンテーションを同時にSOTA<br>
+キーワード：Faster＋マスク、RoIAlign
+</div>
+
+<div class="term-block" data-title="OpenPose 詳細">
+🧩 OpenPose 詳細 ★★★★<br>
+開発：2017年 CMU Zhe Cao氏ら、複数人リアルタイム姿勢推定の王道<br>
+仕組み：<br>
+① Part Confidence Mapsで関節位置を検出<br>
+② Part Affinity Fields PAFsで関節の繋がりを学習（例：肘と手首が同じ人か判定）<br>
+③ 二部グラフマッチングで個人に紐付け、ボトムアップ方式で人数に依らず高速<br>
+ビジネス例：スポーツ解析、VTuberのモーションキャプチャ、転倒検知<br>
+キーワード：PAFsで繋がり学習、複数人リアルタイム
+</div>
+
+<div class="term-block" data-title="NAS">
+📚 NAS ★★★★<br>
+定義：Neural Architecture Search、ニューラルネットワークがニューラルネットワークを自動設計する技術<br>
+3要素：探索空間・探索戦略・評価戦略<br>
+代表成果：EfficientNet B0、MnasNetはNASで生まれたモデル<br>
+効果：人手を超える高効率モデルを発見できる<br>
+弱点：膨大な計算資源が必要<br>
+キーワード：NNがNNを設計、自動設計
+</div>
+
+
 <div class="term-block" data-title="形態素解析">
 形態素解析 ★★★★ 頻出<br>
 │ └─ 🎯 NLPの最初の関門<br>
@@ -2095,14 +2452,6 @@ ELMo ★★★★<br>
 │ 📜 RNN時代の最終形態、思想はBERTに影響を与えたが構造は別
 </div>
 
-<div class="term-block" data-title="Transformer">
-Transformer ★★★★★<br>
-│ 2017年 Google Vaswani<br>
-│ Attention is All you Need<br>
-│ RNNを捨てAttentionのみの革命<br>
-│ 現代NLPの親
-</div>
-
 <div class="term-block" data-title="BERT">
 BERT ★★★★★<br>
 │ 2018年 Google Devlin<br>
@@ -2188,7 +2537,7 @@ GLUE ★★★<br>
 </div>
 
 <div class="term-block" data-title="音声の感情分析">
-音声の感情分析 ★★★<br>
+感情分析 ★★★<br>
 │ └─ 声から感情<br>
 │ ⚙️ 特徴：ピッチ パワー エネルギー 韻律特徴<br>
 │ 🌐 ビジネス：コールセンター怒り検知 メンタルモニタリング
@@ -2519,7 +2868,7 @@ WaveNet ★★★★★<br>
 
 <div class="term-block" data-title="AutoEncoder オートエンコーダ">
 ├─ 🧩 AutoEncoder オートエンコーダ ★★★★<br>
-│ └─ 教師なし代表 入力自身が正解 Encoder x→z圧縮 Decoder z→x'復元<br>
+│ └─ 教師なし学習が代表 入力自身が正解 Encoder x→z圧縮 Decoder z→x'復元<br>
 │ 再構成誤差||x-x'||最小化 zが本質特徴<br>
 │ 用途：次元削減 特徴抽出 異常検知 正常のみ学習 誤差大で異常判定
 </div>
