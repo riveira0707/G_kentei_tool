@@ -1,0 +1,3804 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G検定　シラバス記載用語確認ツール</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Meiryo",sans-serif;}
+body{padding:30px 20px;background:#f4f7f6;}
+.wrap{max-width:700px;margin:0 auto;}
+
+/* メインに戻るボタン */
+.back{display:inline-block;margin-bottom:20px;padding:10px 16px;border-radius:8px;border:2px solid #b8b8b8;background:#e6e6e6;color:#374b46;text-decoration:none;}
+.back:hover{background:#d9d9d9;}
+
+/* タイトル */
+h1{text-align:center;margin-bottom:30px;color:#374b46;font-size:22px;}
+
+/* 検索欄 + クリアボタン（高さをそろえる） */
+#searchRow{
+  display:flex;
+  align-items:stretch;
+  gap:8px;
+  margin-bottom:12px;
+}
+#searchInput{
+  flex:1;
+  min-width:0;
+  height:44px;
+  font-size:18px;
+  padding:8px 12px;
+  border:2px solid #b4c4c0;
+  border-radius:8px;
+  background:#fff;
+  color:#374b46;
+}
+#clearBtn{
+  height:44px;
+  font-size:18px;
+  padding:8px 16px;
+  border:2px solid #b4c4c0;
+  border-radius:8px;
+  background:#dde8e4;
+  color:#374b46;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:0.2s;
+}
+#clearBtn:hover{background:#c5d8d2;}
+
+/* プルダウン（検索欄の下） */
+#selectTerm{
+  display:block;
+  width:100%;
+  height:44px;
+  font-size:18px;
+  padding:8px 12px;
+  border:2px solid #b4c4c0;
+  border-radius:8px;
+  background:#fff;
+  color:#374b46;
+  margin-bottom:20px;
+}
+
+/* 用語ブロック */
+.term-block{
+  background:#fff;
+  border:1px solid #dde8e4;
+  border-radius:8px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  line-height:1.8;
+  color:#374b46;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<a href="index.html" class="back">← メインに戻る</a>
+<h1>G検定　シラバス用語確認ツール</h1>
+
+<!-- 検索入力欄 + クリアボタン -->
+<div id="searchRow">
+  <input type="search" id="searchInput" placeholder="キーワードを入力">
+  <button id="clearBtn">クリア</button>
+</div>
+
+<!-- プルダウンで絞り込み（検索欄の下） -->
+<select id="selectTerm">
+  <option value="">ここから用語を選択</option>
+</select>
+
+<!-- 用語ブロック -->
+<div class="term-block" data-title="人工知能">
+🎯 人工知能 ★★★★★<br>
+定義：人間の知的能力を人工的に実現する技術・研究分野<br>
+ポイント：統一された定義は存在しない、研究者や時代で定義が異なる<br>
+レベル分類：①制御プログラム ②古典的AI ③機械学習 ④深層学習<br>
+区別：AI＝知能（ソフト）、ロボット＝身体（ハード）
+</div>
+
+<div class="term-block" data-title="機械学習">
+📚 機械学習 ★★★★★<br>
+定義：AIを実現する手法の一つ、データからルールを自動学習<br>
+パラダイムシフト：人間がルールを教える → 機械がデータから学ぶ<br>
+大別：教師あり学習・教師なし学習・強化学習の3種類<br>
+意義：知識獲得のボトルネックを解消<br>
+包含関係：AI ＞ 機械学習 ＞ ディープラーニング（最頻出）
+</div>
+
+<div class="term-block" data-title="ディープラーニング">
+🧩 ディープラーニング ★★★★★<br>
+定義：機械学習の一手法、多層ニューラルネットワークを用いる<br>
+最大の特徴：特徴表現学習を実現、人間による特徴量設計が不要<br>
+歴史：2012年 AlexNet が第三次AIブームの起爆剤<br>
+試験ポイント：「DLは機械学習に含まれる」は○、「AIと同義」は×
+</div>
+
+<div class="term-block" data-title="AI効果">
+🌐 AI効果 ★★★★<br>
+定義：AIが実現すると、もはやAIと呼ばれなくなる現象<br>
+事例：チェスAIが人間を超えた途端「ただの探索だ」と言われる<br>
+試験ポイント：「AIの定義が変遷する理由」として出題
+</div>
+
+<div class="term-block" data-title="エージェント">
+⚙️ エージェント ★★★<br>
+定義：環境を認識し自律的に行動する主体<br>
+仕組み：センサーで感知、アクチュエータで環境に働きかける<br>
+事例：自動運転車、ゲームAI、チャットボット<br>
+キーワード：環境と相互作用する
+</div>
+
+<div class="term-block" data-title="強いAIと弱いAI">
+🎯 強いAIと弱いAI ★★★★★<br>
+弱いAI：特定タスクのみ実行、現在実現しているAIはすべてこれ。翻訳AI、囲碁AI<br>
+特徴：見かけ上知的だが、理解はしていない（中国語の部屋が示す）<br>
+強いAI（AGI）：人間のような汎用的知能・意識を持つ。現時点では未実現<br>
+試験鉄板：現在実現しているのは弱いAI
+</div>
+
+<div class="term-block" data-title="チューリングテスト">
+📚 チューリングテスト ★★★★★<br>
+定義：機械が人間と区別できないほど自然に会話できれば知能があるとみなす<br>
+判定方法：審査員がテキストチャットで人間か機械か区別できるか<br>
+ポイント：内容の正しさではなく「人間らしく振る舞えるか」で判定<br>
+歴史：1950年 アラン・チューリングが提唱
+</div>
+
+<div class="term-block" data-title="中国語の部屋">
+⚠️ 中国語の部屋 ★★★★★<br>
+定義：チューリングテストへの反論、ジョン・サールによる思考実験<br>
+内容：中国語が分からない人がマニュアル通りに返答する<br>
+外からは理解しているように見えるが、本人は理解していない<br>
+核心：正しく答えられることと理解することは同じではない<br>
+意味：弱いAIの限界を示す
+</div>
+
+<div class="term-block" data-title="フレーム問題">
+⚠️ フレーム問題 ★★★★★<br>
+定義：現実で起きる無限の可能性の中から、何を考慮すべきか判断が困難な問題<br>
+本質：有限の計算資源で無限の事象を扱えない<br>
+歴史：第一次AIブーム終焉の最大原因<br>
+試験ポイント：「性能が上がれば解決する」は×、本質的に無限の問題
+</div>
+
+<div class="term-block" data-title="シンボルグラウンディング問題">
+⚠️ シンボルグラウンディング問題 ★★★★★<br>
+定義：記号と現実世界の意味をどう結びつけるかの問題<br>
+例：AIは「リンゴ」という文字列を処理できても、実体と結びついていない<br>
+ジレンマ：辞書を引いてもまた別の記号しか出てこず無限ループ<br>
+意味：身体性を持たないAIの根本的限界<br>
+解決策の例：CLIPのようなマルチモーダル
+</div>
+
+<div class="term-block" data-title="身体性">
+⚙️ 身体性 ★★★★<br>
+考え方：知能は身体を持ち環境と相互作用することで発達する<br>
+位置づけ：フレーム問題・シンボルグラウンディング問題へのアプローチ<br>
+核心：身体を持たず記号だけでは真の理解に至らない
+</div>
+
+<div class="term-block" data-title="知識獲得のボトルネック">
+⚠️ 知識獲得のボトルネック ★★★★★<br>
+定義：エキスパートシステム最大の弱点<br>
+内容：人間の専門知識をIF THENルールに落とし込むのが困難でコストが大きい<br>
+理由：専門家は暗黙知で判断しており、単純なルールにできない<br>
+歴史：第二次AIブーム終焉の直接的原因<br>
+キーワード：人間がルールを教えるアプローチの限界
+</div>
+
+<div class="term-block" data-title="トイ・プロブレム">
+🎯 トイ・プロブレム ★★★★<br>
+定義：おもちゃのように単純化された問題<br>
+事例：迷路、8パズル、ハノイの塔、ブロック積み<br>
+課題：単純な問題は解けるが、現実の複雑な問題には対応できない<br>
+試験ポイント：「トイ・プロブレムは解けるが現実は解けない」がAIの限界
+</div>
+
+<div class="term-block" data-title="ルールベース機械翻訳">
+💻 ルールベース機械翻訳 ★★★<br>
+定義：人間が作成した文法ルールと辞書に基づく古典的な機械翻訳手法<br>
+課題：大量のルール作成が必要、知識獲得のボトルネックにより衰退
+</div>
+
+<div class="term-block" data-title="統計的機械翻訳">
+📚 統計的機械翻訳 ★★★<br>
+定義：大量の対訳データから統計的に翻訳パターンを学習する<br>
+意義：ルールベースのボトルネックを解消<br>
+位置づけ：現在はニューラル機械翻訳に置き換わったが橋渡しとなった技術
+</div>
+
+<div class="term-block" data-title="シンギュラリティ">
+🌐 シンギュラリティ ★★★★<br>
+定義：技術的特異点。AIが人間の知能を超え、自らより賢いAIを作り始める転換点<br>
+予測：カーツワイルは2045年と予測（あくまで予測、確定ではない）<br>
+試験ポイント：「AIが人間を支配する日」ではなく「技術進歩が爆発的に加速する点」
+</div>
+
+<div class="term-block" data-title="ダートマス会議">
+📜 ダートマス会議 ★★★★<br>
+歴史：1956年夏、米ダートマス大学で開催<br>
+意義：「AI」という言葉が初めて使われた歴史的会議。ジョン・マッカーシーらが主催<br>
+位置づけ：第一次AIブームの始まり。年号とマッカーシーがセットで出題
+</div>
+
+<div class="term-block" data-title="ローブナーコンテスト">
+📜 ローブナーコンテスト ★★<br>
+定義：チューリングテストの大会。最も人間らしく会話できたAIに賞<br>
+課題：表面的な会話テクニックで審査員を騙すことも可能<br>
+批判：知能の本質的な評価にはならない
+</div>
+
+<div class="term-block" data-title="探索木">
+⚙️ 探索木 ★★★★★<br>
+定義：問題の状態空間を木構造で表現<br>
+要素：ノード＝状態、枝＝行動<br>
+位置づけ：全ての探索の前提となる最重要基礎概念<br>
+キーワード：状態空間を木で表現
+</div>
+
+<div class="term-block" data-title="幅優先探索">
+📚 幅優先探索 ★★★★★<br>
+考え方：浅い階層から順に全て調べる、同じ深さを全て見てから次の深さへ<br>
+データ構造：キュー（FIFO）を使用<br>
+長所：最短経路を保証する<br>
+短所：メモリを大量に消費し爆発しやすい<br>
+キーワード：浅い順、キュー、最短保証だがメモリ大
+</div>
+
+<div class="term-block" data-title="深さ優先探索">
+📚 深さ優先探索 ★★★★<br>
+考え方：一本の道を可能な限り深く進み、行き止まりでバックトラックする<br>
+データ構造：スタック（LIFO）を使用<br>
+長所：メモリ効率が良い<br>
+短所：最短経路は保証されない
+</div>
+
+<div class="term-block" data-title="ブルートフォース">
+📚 ブルートフォース ★★★<br>
+定義：総当たり・しらみつぶし・力任せの探索<br>
+内容：全ての可能性を試す<br>
+長所：確実<br>
+短所：組合せ爆発が起き非効率
+</div>
+
+<div class="term-block" data-title="モンテカルロ法">
+📚 モンテカルロ法 ★★★★<br>
+定義：乱数を大量に用いて近似解を推定する手法<br>
+仕組み：ランダムに試行を繰り返し、結果の平均から解を推定<br>
+応用例：MCTSとしてAlphaGoにも応用<br>
+キーワード：乱数、試行繰り返し、近似解
+</div>
+
+<div class="term-block" data-title="Mini-Max法">
+🧩 Mini Max法 ★★★★<br>
+用途：二人零和ゲームの定石<br>
+考え方：相手の最善手を考慮し、自分の利益を最大化する<br>
+ルール：自分はMax、相手はMinと仮定<br>
+事例：三目並べ、チェス、将棋などゲームAIの基礎
+</div>
+
+<div class="term-block" data-title="αβ法">
+⚙️ αβ法 ★★★★<br>
+定義：Mini Max法を効率化する枝刈り手法<br>
+仕組み：探索不要な枝を早めに刈り、少ない計算量でMini Maxと同じ結果を得る<br>
+用語：α＝自分の最善手の下限、β＝相手の最善手の上限<br>
+キーワード：枝刈りで高速化、結果はMini Maxと同じ
+</div>
+
+<div class="term-block" data-title="SHRDLU">
+📜 SHRDLU ★★★<br>
+歴史：1972年に開発された自然言語理解システム<br>
+内容：積み木の世界という限定された仮想世界で、自然言語の指示に従いブロックを操作<br>
+意味：限定環境だから動いた、トイ・プロブレムの事例
+</div>
+
+<div class="term-block" data-title="STRIPS">
+📜 STRIPS ★★★<br>
+用途：ロボットの行動計画を記述する手法<br>
+構成：前提条件・行動・効果の3つで記述<br>
+目的：初期状態から目標状態への手順を自動導出<br>
+位置づけ：自動計画の基礎
+</div>
+
+<div class="term-block" data-title="ハノイの塔">
+🎯 ハノイの塔 ★★★<br>
+内容：探索・推論の例題として頻出のパズル。3本の棒と複数の円盤<br>
+ルール：小さい円盤の上に大きい円盤を置けない<br>
+最少手数：2ⁿ − 1<br>
+意味：組合せ爆発と再帰の例
+</div>
+
+<div class="term-block" data-title="is-a has-a part-of">
+⚙️ is a / has a / part of ★★★★★<br>
+位置づけ：知識表現の最も基本的な関係性<br>
+is a：継承「カナリア is a 鳥」<br>
+has a：所有「鳥 has a 翼」<br>
+part of：部分「タイヤ part of 車」
+</div>
+
+<div class="term-block" data-title="意味ネットワーク">
+⚙️ 意味ネットワーク ★★★★<br>
+表現方法：概念＝ノード、関係＝リンクで表現するグラフ構造<br>
+例：[カナリア]  is a  >[鳥]  has a  >[翼]<br>
+特徴：継承推論が可能
+</div>
+
+<div class="term-block" data-title="オントロジー">
+⚙️ オントロジー ★★★★<br>
+定義：概念化の明示的仕様<br>
+位置づけ：意味ネットワークの発展形、体系的・形式的・明示的<br>
+事例：WordNet、Gene Ontology<br>
+意味：知識グラフの基礎
+</div>
+
+<div class="term-block" data-title="エキスパートシステム">
+🧩 エキスパートシステム ★<br>
+目標：専門家の知識をIF THENルール化して推論するシステム<br>
+構成：知識ベース ＋ 推論エンジン
+</div>
+
+<div class="term-block" data-title="DENDRAL">
+📜 DENDRAL ★★★★★<br>
+歴史：1965年、世界初のエキスパートシステム<br>
+分野：化学。質量分析の結果から分子構造を推定<br>
+試験ポイント：最初のエキスパートシステム＝化学
+</div>
+
+<div class="term-block" data-title="MYCIN">
+📜 マイシン(MYCIN) ★★★★★<br>
+歴史：1972年、感染症診断を行うエキスパートシステム<br>
+仕組み：約600個のIF THENルールに加え、信頼度(Certainty Factor)を導入<br>
+試験ポイント：MYCIN＝医療、信頼度
+</div>
+
+<div class="term-block" data-title="ワトソン">
+💻 ワトソン ★★★<br>
+開発：IBM<br>
+歴史：2011年、クイズ番組Jeopardy!で人間王者に勝利<br>
+仕組み：自然言語で質問応答、大量の非構造データから推論<br>
+位置づけ：ディープラーニング以前のNLPの金字塔
+</div>
+
+<div class="term-block" data-title="東ロボくん">
+⚠️ 東ロボくん ★★<br>
+開発：NII、2016年。偏差値57.8、東大には不合格<br>
+示した課題：膨大な知識を蓄積しても読解力を実現するのは困難<br>
+意味：シンボルグラウンディング問題の事例
+</div>
+
+<div class="term-block" data-title="ELIZA">
+📜 イライザ(ELIZA) ★★★<br>
+歴史：1966年、世界初のチャットボット<br>
+仕組み：パターンマッチングで定型文を返す<br>
+特徴：理解しているように見えるだけ、中国語の部屋の事例
+</div>
+
+<div class="term-block" data-title="Question-Answering">
+🎯 Question Answering ★★★<br>
+定義：質問に対して答えを返すタスク<br>
+進化の流れ：ELIZA → ワトソン → LLM
+</div>
+
+<div class="term-block" data-title="Cycプロジェクト">
+⚠️ Cycプロジェクト ★★★<br>
+歴史：1984年に開始、常識をすべて手入力しようとした試み<br>
+例：「水は濡れている」といった常識文を人間が入力<br>
+結果：40年経っても未完、知識獲得のボトルネックの象徴
+</div>
+
+<div class="term-block" data-title="セマンティックWeb">
+🌐 セマンティックWeb ★★★<br>
+提唱者：ティム・バーナーズ＝リー<br>
+構想：Webに意味を持たせる<br>
+基盤技術：RDF、OWL → 知識グラフへとつながる
+</div>
+
+<div class="term-block" data-title="データマイニング">
+📚 データマイニング ★★★<br>
+定義：大量データから知識を自動発見する技術<br>
+意味：Cycのような手入力から、知識を自動発見する方向への転換<br>
+事例：ビールとおむつが一緒に買われるという発見
+</div>
+
+<div class="term-block" data-title="ウェブマイニング">
+📚 ウェブマイニング ★★<br>
+定義：Web上のデータから知識を発見する技術<br>
+3種類：テキストマイニング、リンクマイニング、利用状況マイニング<br>
+応用例：PageRankなど
+</div>
+
+<div class="term-block" data-title="インタビューシステム">
+⚙️ インタビューシステム ★★<br>
+目的：専門家から知識を聞き出す作業を支援するツール<br>
+評価：知識獲得のボトルネックを解消しようとした試みだが、根本解決には至らなかった
+</div>
+
+<div class="term-block" data-title="ビッグデータ">
+🌐 ビッグデータ ★★★★★<br>
+定義：Volume・Velocity・Varietyの3V<br>
+背景：ビッグデータ＋計算機性能向上＋アルゴリズム進化で注目<br>
+きっかけ：2010年代のスマホ・SNSによる大量データ蓄積、ImageNet1400万枚がブレイクのきっかけ
+</div>
+
+<div class="term-block" data-title="次元の呪い">
+⚠️ 次元の呪い ★★★★<br>
+定義：特徴量の次元が増えると必要なデータ量が指数関数的に増大し、学習が困難になる現象<br>
+例：1次元では10個で十分だが、10次元では10¹⁰個必要になる<br>
+対策：PCAによる次元削減、特徴量選択、正則化<br>
+試験ポイント：特徴量を闇雲に増やすと精度が低下する
+</div>
+
+<div class="term-block" data-title="スパムフィルタ">
+🧩 スパムフィルタ ★★★★<br>
+定義：迷惑メールを自動判定する代表的な機械学習の例<br>
+仕組み：ベイズ分類を用い、単語の出現確率で判定<br>
+例：「Viagra」が多いとスパム確率が高い<br>
+ルールベースとの違い：ルールベースは人間がルールを記述、機械学習は自動学習でゆらぎに対応可能
+</div>
+
+<div class="term-block" data-title="レコメンデーションエンジン">
+🧩 レコメンデーションエンジン ★★★★<br>
+定義：ユーザに合った商品・コンテンツを推薦する仕組み<br>
+手法：<br>
+協調フィルタリング：似たユーザの行動から推薦「これを買った人はこれも買う」<br>
+コンテンツベース：コンテンツの内容から似たものを推薦<br>
+事例：Amazon、Netflix、YouTube
+</div>
+
+<div class="term-block" data-title="統計的自然言語処理">
+🧩 統計的自然言語処理 ★★★★<br>
+定義：大量のテキストから統計的に言語を処理する<br>
+歴史の流れ：ルールベース → 統計的 → ニューラルへ<br>
+例：Google翻訳が統計的からニューラルへ移行した
+</div>
+
+<div class="term-block" data-title="人間の神経回路">
+🌐 人間の神経回路 ★★<br>
+生物学的モデル：ニューロンがシナプスで結合し、発火して信号を伝達する<br>
+歴史：1943年 McCulloch & Pitts が数理モデルを提案
+</div>
+
+<div class="term-block" data-title="ネオコグニトロン">
+🧩 ネオコグニトロン ★★★<br>
+提唱者：福島邦彦、1979年、日本発<br>
+構造：S細胞（特徴抽出）＋ C細胞（位置許容）の階層構造<br>
+意義：畳み込みの原型となり、CNNの直接の祖先
+</div>
+
+<div class="term-block" data-title="LeNet">
+🧩 LeNet ★★★★<br>
+提唱者：Yann LeCun、1998年<br>
+構造：畳み込み層 ＋ プーリング層 ＋ 全結合層<br>
+応用：手書き数字MNISTの認識、郵便番号読み取り、銀行の小切手認識で実用化<br>
+意義：CNN実用化の始まり、誤差逆伝播で学習
+</div>
+
+<div class="term-block" data-title="ImageNet">
+🌐 ImageNet ★★★★★<br>
+定義：1400万枚、2万カテゴリの大規模画像データセット<br>
+意義：大量データがブレイクスルーに必須であることを示した<br>
+位置づけ：ILSVRCの基盤データ
+</div>
+
+<div class="term-block" data-title="ILSVRC">
+🌐 ILSVRC ★★★★★<br>
+定義：ImageNetを用いた画像認識コンペティション（2010 2017）<br>
+歴史：2012年 AlexNetが誤り率26%→15%に圧勝し革命が起きた。2015年 ResNetは人間の認識精度を超えた<br>
+親：ImageNetを基盤とした大会
+</div>
+
+<div class="term-block" data-title="アルファ碁">
+🧩 アルファ碁 ★★★★★<br>
+開発：DeepMind<br>
+技術構成：プロ棋譜による教師あり学習 ＋ 強化学習による自己対局 ＋ モンテカルロ木探索<br>
+成果：李世ドルに4勝1敗<br>
+意義：探索空間が膨大な囲碁を攻略、社会的インパクトが非常に大きい
+</div>
+
+<div class="term-block" data-title="生成AI">
+💻 生成AI ★★★★★<br>
+定義：画像・文章・音声などを新たに生成するAI<br>
+代表モデル：<br>
+GAN（2014年 Goodfellow：敵対的生成）<br>
+Diffusion（Stable Diffusion、DALL E 2など）<br>
+LLM（ChatGPT、GPT 3/4、BERTなど）<br>
+位置づけ：ディープラーニングの応用例、大量データ・大規模モデルで実現<br>
+事例：Midjourneyによる画像生成、ChatGPTによる文章生成<br>
+課題：著作権、フェイクニュース
+</div>
+
+<div class="term-block" data-title="回帰問題">
+回帰問題 ★★★★★<br>
+│ └─ 連続値を予測。例：家の広さから価格を予測<br>
+│ 出力が数値。誤差関数はMSE
+</div>
+
+<div class="term-block" data-title="分類問題">
+分類問題 ★★★★★<br>
+│ └─ 離散的なラベルを予測。例：スパムか否か<br>
+│ 出力がクラス。誤差関数は交差エントロピー
+</div>
+
+<div class="term-block" data-title="多クラス分類">
+多クラス分類 ★★★★<br>
+│ └─ 3つ以上のクラスに分類<br>
+│ 例：手書き数字0-9の10クラス分類<br>
+│ ソフトマックス関数を使うのが主流
+</div>
+
+<div class="term-block" data-title="単回帰分析">
+単回帰分析 ★★★★<br>
+│ └─ 説明変数1つで予測。y = ax + b<br>
+│ 最も基本的な回帰
+</div>
+
+<div class="term-block" data-title="重回帰分析">
+重回帰分析 ★★★★<br>
+│ └─ 説明変数が複数。y = a1x1 + a2x2 + ... + b
+</div>
+
+<div class="term-block" data-title="線形回帰">
+線形回帰 ★★★★★<br>
+│ └─ 単回帰・重回帰の総称。最小二乗法で解く
+</div>
+
+<div class="term-block" data-title="ロジスティック回帰">
+ロジスティック回帰 ★★★★★<br>
+│ └─ 名前に回帰と付くが分類モデル<br>
+│ シグモイド関数で0-1の確率を出力<br>
+│ 回帰なのに分類が最頻出ひっかけ
+</div>
+
+<div class="term-block" data-title="決定木">
+決定木 ★★★★<br>
+│ └─ 木構造で条件分岐。解釈性が高い<br>
+│ 過学習しやすい。アンサンブルの部品
+</div>
+
+<div class="term-block" data-title="SVM">
+SVM ★★★★★<br>
+│ └─ マージン最大化で分離する超平面を求める<br>
+│ カーネルトリックで非線形も可能
+</div>
+
+<div class="term-block" data-title="カーネル / カーネルトリック">
+カーネル / カーネルトリック ★★★★<br>
+│ └─ 低次元で分離できないデータを高次元に写像して線形分離<br>
+│ 高次元で直接計算せず内積だけで効率化
+</div>
+
+<div class="term-block" data-title="マージン最大化">
+マージン最大化 ★★★★<br>
+│ └─ SVMの核心。境界のマージンを最大にして汎化性能向上
+</div>
+
+<div class="term-block" data-title="自己回帰モデル(ARモデル)">
+自己回帰モデル(ARモデル) ★★★<br>
+│ └─ 過去の自分の値で未来を予測<br>
+│ Xt = c + φ1*Xt-1 + φ2*Xt-2 + ...
+</div>
+
+<div class="term-block" data-title="ベクトル自己回帰(VARモデル)">
+ベクトル自己回帰(VARモデル) ★★★<br>
+│ └─ ARの多変量版。複数の時系列が相互に影響
+</div>
+
+<div class="term-block" data-title="アンサンブル学習">
+アンサンブル学習 ★★★★★<br>
+   └─ 複数の弱い学習器を組み合わせて強い学習器を作る
+</div>
+
+<div class="term-block" data-title="バギング">
+バギング ★★★★★<br>
+   └─ 並列型。データを複製して並列学習して多数決<br>
+      分散を減らし過学習抑制
+</div>
+
+<div class="term-block" data-title="ブートストラップサンプリング">
+ブートストラップサンプリング ★★★★<br>
+   └─ 重複を許してランダムにサンプリング<br>
+      バギングの核となる仕組み
+</div>
+
+<div class="term-block" data-title="ランダムフォレスト">
+ランダムフォレスト ★★★★★<br>
+      └─ バギングの代表。決定木を多数作り多数決<br>
+         過学習しにくく高精度
+</div>
+
+<div class="term-block" data-title="ブースティング">
+ブースティング ★★★★★<br>
+      └─ 直列型。前の誤りを次が重点的に学習<br>
+         バイアスを減らす
+</div>
+
+<div class="term-block" data-title="勾配ブースティング">
+勾配ブースティング ★★★★★<br>
+         └─ ブースティングの代表。勾配で前の誤りを修正<br>
+            XGBoost, LightGBMが有名。Kaggle最強
+</div>
+
+<div class="term-block" data-title="クラスタリング">
+クラスタリング ★★★★★<br>
+│ └─ 教師なし学習の代表<br>
+│ 似たデータを自動でグループ分け<br>
+│ ラベルなし。顧客セグメント分け、異常検知
+</div>
+
+<div class="term-block" data-title="k-means法">
+k-means法 ★★★★★<br>
+│ └─ 最も有名なクラスタリング<br>
+│ k個のクラスタに分ける<br>
+│ ①k個の重心をランダム初期化<br>
+│ ②各データを最も近い重心に割当<br>
+│ ③重心を再計算 ②③を収束まで繰り返す<br>
+│ シンプルで高速<br>
+│ 弱点：kを事前決定、初期値依存、球状のみ得意
+</div>
+
+<div class="term-block" data-title="ウォード法">
+ウォード法 ★★★★<br>
+│ └─ 階層的クラスタリング 凝集型ボトムアップ<br>
+│ 最も分散増加が少ないクラスタ同士を併合<br>
+│ k-meansと違いクラスタ数を後から決められる<br>
+│ デンドログラムで可視化可能
+</div>
+
+<div class="term-block" data-title="デンドログラム(樹形図)">
+デンドログラム(樹形図) ★★★★<br>
+│ └─ 階層的クラスタリングの結果を木構造で可視化<br>
+│ 縦軸が距離、横軸がデータ<br>
+│ どの高さで切るかでクラスタ数が決まる<br>
+│ 「切断高さでクラスタ数が決まる」が試験ポイント
+</div>
+
+<div class="term-block" data-title="次元削減">
+次元削減 ★★★★★<br>
+│ └─ 高次元データを低次元に圧縮しつつ情報は保持<br>
+│ 次元の呪い対策、可視化、計算量削減
+</div>
+
+<div class="term-block" data-title="主成分分析(PCA)">
+主成分分析(PCA) ★★★★★<br>
+│ └─ 線形の次元削減の王道<br>
+│ 分散が最大になる方向を見つける<br>
+│ 寄与率で情報保持量が分かる<br>
+│ 可視化で2次元に落とすのによく使う<br>
+│ 「線形変換」「分散最大」「寄与率」
+</div>
+
+<div class="term-block" data-title="特異値分解(SVD)">
+特異値分解(SVD) ★★★★<br>
+│ └─ 行列を U Σ V^T に分解<br>
+│ PCAの計算の中核<br>
+│ レコメンデーションや次元削減の基礎<br>
+│ 「行列分解の一種」「PCAと密接に関連」
+</div>
+
+<div class="term-block" data-title="t-SNE">
+t-SNE ★★★★<br>
+│ └─ 非線形の次元削減・可視化手法<br>
+│ 高次元を2-3次元に落として可視化が得意<br>
+│ 局所的な構造を保持、クラスタが綺麗に分かれる<br>
+│ PCAより可視化性能高いが計算コスト大<br>
+│ あくまで可視化用
+</div>
+
+<div class="term-block" data-title="多次元尺度構成法(MDS)">
+多次元尺度構成法(MDS) ★★★<br>
+│ └─ データ間の距離をなるべく保持したまま低次元に配置<br>
+│ 「距離を保持して次元削減」がキーワード
+</div>
+
+<div class="term-block" data-title="トピックモデル">
+トピックモデル ★★★★<br>
+│ └─ 文書の潜在的なトピックを発見<br>
+│ 文書は複数トピックの混合と仮定<br>
+│ 例：ニュース記事が政治30%+経済70%に分解
+</div>
+
+<div class="term-block" data-title="潜在的ディリクレ配分法(LDA)">
+潜在的ディリクレ配分法(LDA) ★★★★<br>
+│ └─ トピックモデルの代表手法<br>
+│ 文書→トピック分布、トピック→単語分布をディリクレ分布でモデル化<br>
+│ 大量文書から自動でトピック抽出、ラベル不要
+</div>
+
+<div class="term-block" data-title="協調フィルタリング">
+協調フィルタリング ★★★★★<br>
+   └─ 似たユーザーは似たものを好むに基づく推薦<br>
+      行動履歴から推薦 例：Amazon<br>
+      「この商品を買った人はこんな商品も買っています」<br>
+      SVDやk-NNが使われる G検定最頻出
+</div>
+
+<div class="term-block" data-title="コンテンツベースフィルタリング">
+コンテンツベースフィルタリング ★★★★<br>
+   └─ アイテムの特徴に基づく推薦<br>
+      例：アクション映画好きにアクション映画を推薦<br>
+      協調フィルタリングと対比「アイテムの特徴を使う」
+</div>
+
+<div class="term-block" data-title="コールドスタート問題">
+コールドスタート問題 ★★★★<br>
+      └─ 協調フィルタリング最大の弱点<br>
+         新規ユーザーや新規アイテムは履歴がないため推薦不可<br>
+         対策：コンテンツベースと組み合わせるハイブリッド<br>
+         「履歴がないと推薦できない」
+</div>
+
+<div class="term-block" data-title="マルコフ決定過程">
+マルコフ決定過程 ★★★★★<br>
+│ └─ 強化学習を定式化する数学的枠組み MDP<br>
+│ 要素：状態S、行動A、報酬R、遷移確率P、割引率γ<br>
+│ 「次の状態は現在の状態と行動のみで決まるマルコフ性」が前提<br>
+│ エージェントは環境と相互作用し報酬を最大化<br>
+│ 「S,A,R,P,γの5要素」が頻出
+</div>
+
+<div class="term-block" data-title="状態価値関数">
+状態価値関数 ★★★★★<br>
+│ └─ V(s)：状態sにいる時に得られる将来の報酬の期待値<br>
+│ 「その場所がどれだけ良いか」を表す<br>
+│ 良い状態なら価値が高い、ベルマン方程式で更新
+</div>
+
+<div class="term-block" data-title="行動価値関数">
+行動価値関数 ★★★★★<br>
+│ └─ Q(s,a)：状態sで行動aを取った時に得られる将来の報酬の期待値<br>
+│ Q関数とも「その状態でその行動を取るのがどれだけ良いか」<br>
+│ Q学習で学習する対象<br>
+│ 「Q(s,a)は状態と行動のペアの価値」がキーワード
+</div>
+
+<div class="term-block" data-title="割引率">
+割引率 ★★★★<br>
+│ └─ γ：将来の報酬をどれだけ割り引くか 0〜1の値<br>
+│ γ=0 目先の報酬のみ重視、γ=1 将来も同等に重視<br>
+│ 「遠い将来の報酬は不確実なので割り引く」<br>
+│ MDPの重要パラメータ
+</div>
+
+<div class="term-block" data-title="方策勾配法">
+方策勾配法 ★★★★★<br>
+│ └─ 方策Policy πを直接学習するアプローチ<br>
+│ 方策＝状態から行動への確率分布<br>
+│ 価値関数を経由せず報酬が高くなるように勾配上昇で更新<br>
+│ 連続行動や確率的方策が扱いやすい<br>
+│ REINFORCE, Actor-Criticの基礎
+</div>
+
+<div class="term-block" data-title="REINFORCE">
+REINFORCE ★★★★<br>
+│ └─ 方策勾配法の最も基本的なアルゴリズム<br>
+│ モンテカルロ法で方策勾配を推定<br>
+│ エピソード終了後に得られた報酬で方策を更新<br>
+│ シンプルだが分散が大きい<br>
+│ 「モンテカルロ方策勾配法」として出題
+</div>
+
+<div class="term-block" data-title="Actor-Critic">
+Actor-Critic ★★★★<br>
+│ └─ 方策勾配法 + 価値関数を組み合わせたハイブリッド<br>
+│ Actor：方策を担当 行動を決める役者<br>
+│ Critic：価値関数を担当 評価する批評家<br>
+│ REINFORCEの分散が大きい問題をCriticで低減<br>
+│ 現在の強化学習の主流アーキテクチャ
+</div>
+
+<div class="term-block" data-title="Q学習">
+Q学習 ★★★★★<br>
+│ └─ 行動価値関数Qを学習する代表的手法 オフポリシー<br>
+│ Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]<br>
+│ 「maxを取る」ので実際に取った行動と関係なく最適Qを学習<br>
+│ DQNの基礎、G検定最頻出の強化学習アルゴリズム
+</div>
+
+<div class="term-block" data-title="SARSA">
+SARSA ★★★★<br>
+│ └─ Q学習と似るがオン・ポリシー<br>
+│ Q(s,a) ← Q(s,a) + α[r + γ Q(s',a') - Q(s,a)]<br>
+│ maxではなく実際に次の行動a'のQを使う<br>
+│ 名前の由来 S,A,R,S',A'の5つ組で更新<br>
+│ Q学習(オフポリシー) vs SARSA(オン・ポリシー)がひっかけ最頻出
+</div>
+
+<div class="term-block" data-title="バンディットアルゴリズム">
+バンディットアルゴリズム ★★★★<br>
+   └─ 多腕バンディット問題を解くアルゴリズム群の総称<br>
+      複数のスロットマシンからどれを引くか<br>
+      「探索(まだ試していない腕を試す)」と<br>
+      「活用(今一番良い腕を引き続ける)」のバランスが核心
+</div>
+
+<div class="term-block" data-title="ε-greedy方策">
+ε-greedy方策 ★★★★★<br>
+   └─ 最も基本的な探索手法<br>
+      εの確率でランダム行動(探索)、1-εで最良行動(活用)<br>
+      例：ε=0.1なら10%ランダム、90%貪欲に最良手<br>
+      「εでランダム探索」がキーワード
+</div>
+
+<div class="term-block" data-title="UCB方策">
+UCB方策 ★★★★<br>
+      └─ Upper Confidence Bound<br>
+         不確実性が高い行動を優先的に探索<br>
+         「まだ試していない=不確実性が高い」行動にボーナスを与えて探索を促す<br>
+         ε-greedyより賢い探索、理論的に優れた手法
+</div>
+
+<div class="term-block" data-title="ホールドアウト検証">
+ホールドアウト検証 ★★★★★<br>
+│ └─ データを訓練:検証:テストに分割、例 6:2:2<br>
+│ 親：最も基本的な検証方法<br>
+│ 課題：データ量少ないと分割で偏りが生じる
+</div>
+
+<div class="term-block" data-title="交差検証">
+交差検証 ★★★★★<br>
+│ └─ 定義：データを分割して複数回評価する方法の総称
+</div>
+
+<div class="term-block" data-title="k-分割交差検証">
+k-分割交差検証 ★★★★★<br>
+│ └─ 定義：k個に分割し k-1個で学習1個で評価をk回繰り返し平均を取る<br>
+│ 例：5分割なら4:1で5回<br>
+│ 利点：データ効率的 小データで有効
+</div>
+
+<div class="term-block" data-title="オッカムの剃刀">
+オッカムの剃刀 ★★★★<br>
+│ └─ 定義：同じ精度なら単純なモデルを選ぶべきという原則<br>
+│ 親：モデル複雑さ上げるメリットは表現力向上、デメリットは過学習リスク
+</div>
+
+<div class="term-block" data-title="混同行列">
+混同行列 ★★★★★<br>
+│ └─ 定義：予測と正解の組み合わせ 2x2表で整理
+</div>
+
+<div class="term-block" data-title="真陽性・真陰性">
+真陽性・真陰性 ★★★★★<br>
+│ └─ 真陽性TP：正を正と予測<br>
+│ 真陰性TN：負を負と予測<br>
+│ 正解に該当
+</div>
+
+<div class="term-block" data-title="偽陽性・偽陰性">
+偽陽性・偽陰性 ★★★★★<br>
+│ └─ 偽陽性FP：負を正と誤予測 第一種過誤、空振り<br>
+│ 偽陰性FN：正を負と誤予測 第二種過誤、見逃し<br>
+│ 例：がん検診で偽陽性は健康な人を患者と誤診、偽陰性は患者を見逃す
+</div>
+
+<div class="term-block" data-title="正解率・適合率・再現率・F値">
+正解率・適合率・再現率・F値 ★★★★★<br>
+│ └─ 正解率Accuracy：(TP+TN)/全体 全体でどれだけ正解か<br>
+│ 適合率Precision：TP/(TP+FP) 正と予測した中で本当に正の割合<br>
+│ 再現率Recall：TP/(TP+FN) 本当は正のうち正と予測できた割合<br>
+│ F値：適合率と再現率の調和平均、両方考慮<br>
+│ 例：スパム検出は適合率重視、がん検診は再現率重視
+</div>
+
+<div class="term-block" data-title="ROC曲線・AUC">
+ROC曲線・AUC ★★★★<br>
+│ └─ ROC：横軸偽陽性率、縦軸真陽性率で閾値変化をプロット<br>
+│ AUC：ROC曲線下面積 1に近いほど良いモデル<br>
+│ 親：閾値に依存しない評価
+</div>
+
+<div class="term-block" data-title="平均二乗誤差 MSE">
+平均二乗誤差 MSE ★★★★★<br>
+│ └─ 定義：(予測-正解)2乗の平均<br>
+│ 特徴：外れ値に弱い、大きく罰する
+</div>
+
+<div class="term-block" data-title="二乗平均平方根誤差 RMSE">
+二乗平均平方根誤差 RMSE ★★★★<br>
+│ └─ 定義：MSEの平方根<br>
+│ 特徴：元の単位に戻る、解釈しやすい
+</div>
+
+<div class="term-block" data-title="平均絶対値誤差 MAE">
+平均絶対値誤差 MAE ★★★★<br>
+│ └─ 定義：(予測-正解)絶対値の平均<br>
+│ 特徴：外れ値に強い、中央値に対応
+</div>
+
+<div class="term-block" data-title="赤池情報量規準 AIC">
+赤池情報量規準 AIC ★★★★<br>
+│ └─ 定義：-2*対数尤度+2*パラメータ数<br>
+│ 特徴：小さいほど良い、予測精度重視<br>
+│ 親：複雑さにペナルティ与える
+</div>
+
+<div class="term-block" data-title="ベイズ情報量規準 BIC">
+ベイズ情報量規準 BIC ★★★★<br>
+│ └─ 定義：-2*対数尤度+log(n)*パラメータ数<br>
+│ 特徴：AICよりペナルティ大きい 単純なモデル選びやすい<br>
+│ 親：データ数nが増えるとペナルティ増
+</div>
+
+<div class="term-block" data-title="過学習">
+過学習 ★★★★★<br>
+      └─ 定義：訓練データに適合しすぎて汎化性能が低下する現象<br>
+         原因：モデル複雑すぎ、データ少なすぎ<br>
+         具体例：訓練誤差0.01だがテスト誤差0.5のように乖離<br>
+         対策：正則化、交差検証、早期終了、データ拡張、ドロップアウト
+</div>
+
+<div class="term-block" data-title="単純パーセプトロン">
+単純パーセプトロン ★★★<br>
+│ └─ 定義：入力層+出力層のみ 単層のニューラルネット<br>
+│ できること：線形分離可能な問題のみ、AND ORは可<br>
+│ できないこと：XORは不可 1969年Minsky指摘で冬の時代へ
+</div>
+
+<div class="term-block" data-title="隠れ層・入力層・出力層">
+隠れ層・入力層・出力層 ★★★★★<br>
+│ └─ 入力層：データ受け取る層<br>
+│ 隠れ層：中間層、特徴抽出を担う 層が増えると表現力向上<br>
+│ 出力層：結果を出力する層<br>
+│ 流れ：入力→隠れ→出力の順に情報伝達
+</div>
+
+<div class="term-block" data-title="多層パーセプトロン MLP">
+多層パーセプトロン MLP ★★★★★<br>
+│ └─ 定義：隠れ層を1層以上持つニューラルネット、3層以上でディープラーニングと呼ぶ<br>
+│ 特徴：非線形分離可能、XORも可 隠れ層増やすと複雑な関数近似可能<br>
+│ 関係：単純パーセプトロンに隠れ層追加
+</div>
+
+<div class="term-block" data-title="CPU">
+CPU ★★★<br>
+│ └─ 特徴：汎用プロセッサ、逐次処理得意 制御が複雑な処理向け<br>
+│ 前処理などに使用
+</div>
+
+<div class="term-block" data-title="GPU">
+GPU ★★★★★<br>
+│ └─ 特徴：並列処理得意、数千コア持つ 行列演算が高速<br>
+│ 理由：ニューラルネットは行列積大量 GPUが学習・推論に適する<br>
+│ 例：NVIDIA製、2012年AlexNetで使用し革命
+</div>
+
+<div class="term-block" data-title="TPU">
+TPU ★★★★<br>
+│ └─ 定義：Google開発、Tensor Processing Unit<br>
+│ 特徴：ディープラーニング専用、さらに高速 行列演算に特化<br>
+│ 関係：GPUよりさらに特化、クラウド提供
+</div>
+
+<div class="term-block" data-title="シグモイド関数">
+シグモイド関数 ★★★★<br>
+│ └─ 定義：0-1に出力、S字カーブ<br>
+│ 式：1/(1+exp(-x))<br>
+│ └─ 用途：二値分類の出力層で使用<br>
+│ └─ 課題：勾配消失問題起きやすい<br>
+│ 出力が0か1付近で勾配ほぼ0になる
+</div>
+
+<div class="term-block" data-title="tanh関数">
+tanh関数 ★★★★<br>
+│ └─ 定義：-1から1に出力、シグモイドの拡張<br>
+│ └─ 特徴：0中心で学習しやすい<br>
+│ └─ 課題：シグモイド同様勾配消失は起きる<br>
+│ └─ 関係：シグモイドの改良版
+</div>
+
+<div class="term-block" data-title="ReLU関数">
+ReLU関数 ★★★★★<br>
+│ └─ 定義：x>0ならx、0以下なら0<br>
+│ 最も使われる活性化関数<br>
+│ └─ 利点：計算高速、勾配消失しにくい<br>
+│ 2012年AlexNetで使用され普及<br>
+│ └─ 課題：負の領域で勾配0、死んだReLU問題<br>
+│ └─ 関係：シグモイド・tanhの問題解決
+</div>
+
+<div class="term-block" data-title="Leaky ReLU関数">
+Leaky ReLU関数 ★★★<br>
+│ └─ 定義：x>0はx、0以下は0.01xなど小さな勾配<br>
+│ └─ 特徴：ReLUの改良、負でも勾配0にならない<br>
+│ └─ 関係：ReLUの弱点解決、死んだReLU対策
+</div>
+
+<div class="term-block" data-title="ソフトマックス関数">
+ソフトマックス関数 ★★★★★<br>
+│ └─ 定義：出力を確率に変換、合計1になる<br>
+│ └─ 用途：多クラス分類の出力層<br>
+│ 例：3クラスなら0.7,0.2,0.1のように出力
+</div>
+
+<div class="term-block" data-title="勾配消失問題">
+勾配消失問題 ★★★★★<br>
+│ └─ 定義：層が深くなると勾配が0に近づき<br>
+│ 学習進まなくなる現象<br>
+│ └─ 原因：シグモイド・tanhは両端で勾配小さい<br>
+│ それが積み重なると消失<br>
+│ └─ 対策：ReLU使用、バッチ正規化、ResNetの<br>
+│ スキップ結合、適切な初期化
+</div>
+
+<div class="term-block" data-title="平均二乗誤差関数 MSE">
+平均二乗誤差関数 MSE ★★★★★<br>
+│ └─ 定義：(予測-正解)2乗平均<br>
+│ └─ 用途：回帰問題で使用<br>
+│ └─ 特徴：外れ値に弱い、微分可能
+</div>
+
+<div class="term-block" data-title="交差エントロピー">
+交差エントロピー ★★★★★<br>
+│ └─ 定義：-Σ正解*log(予測)<br>
+│ └─ 用途：分類問題で最も使用される<br>
+│ └─ 特徴：確率分布のずれを測る<br>
+│ 予測が外れるほど大きく罰する<br>
+│ └─ 例：正解1で予測0.1なら-log0.1=2.3で大
+</div>
+
+<div class="term-block" data-title="カルバック・ライブラー情報量 KL">
+カルバック・ライブラー情報量 KL ★★★★<br>
+│ └─ 定義：2つの確率分布の違いを測る<br>
+│ └─ 用途：VAE、情報理論で使用<br>
+│ └─ 特徴：非対称、KL(P||Q)とKL(Q||P)は異なる<br>
+│ └─ 関係：交差エントロピー=H(P)+KL(P||Q)
+</div>
+
+<div class="term-block" data-title="Contrastive Loss">
+Contrastive Loss ★★★<br>
+│ │ └─ 定義：似たペアは近く、異なるペアは遠く<br>
+│ │ └─ 用途：顔認証、類似画像検索<br>
+│ │ └─ 仕組み：同じ人は距離小さく、違う人は<br>
+│ │ マージン以上離す
+</div>
+
+<div class="term-block" data-title="Triplet Loss">
+Triplet Loss ★★★<br>
+│ └─ 定義：アンカー、ポジティブ、ネガティブの<br>
+│ 3つ組で学習<br>
+│ └─ 用途：顔認証FaceNetで使用<br>
+│ └─ 仕組み：アンカーとポジティブは近く<br>
+│ アンカーとネガティブは遠くする<br>
+│ └─ 関係：Contrastive Lossの発展版
+</div>
+
+<div class="term-block" data-title="正則化">
+正則化 ★★★★★<br>
+│ └─ 定義：過学習防ぐための汎用手法総称
+</div>
+
+<div class="term-block" data-title="L0正則化">
+L0正則化 ★★<br>
+│ └─ 定義：0でないパラメータ数を罰する<br>
+│ └─ 特徴：最も直接的だが計算困難NP困難<br>
+│ └─ 用途：理論的には理想だが実用少
+</div>
+
+<div class="term-block" data-title="L1正則化">
+L1正則化 ★★★★★<br>
+│ └─ 定義：重み絶対値和を罰する項追加<br>
+│ └─ 特徴：スパースになる、不要な重み0になる
+</div>
+
+<div class="term-block" data-title="ラッソ回帰">
+ラッソ回帰 ★★★★<br>
+│ └─ 定義：L1正則化を用いた線形回帰<br>
+│ └─ 特徴：特徴量選択効果、自動で不要特徴削除<br>
+│ └─ 例：100特徴量→10特徴量のみ残る
+</div>
+
+<div class="term-block" data-title="L2正則化">
+L2正則化 ★★★★★<br>
+│ └─ 定義：重み2乗和を罰する項追加<br>
+│ └─ 特徴：重みを小さくする、0にはならない
+</div>
+
+<div class="term-block" data-title="リッジ回帰">
+リッジ回帰 ★★★★<br>
+│ └─ 定義：L2正則化を用いた線形回帰<br>
+│ └─ 特徴：重みを小さく、多重共線性対策<br>
+│ └─ 例：相関高い特徴量あっても安定<br>
+│ └─ 比較：ラッソは0にする、リッジは小さくする
+</div>
+
+<div class="term-block" data-title="ドロップアウト">
+ドロップアウト ★★★★★<br>
+│ └─ 定義：学習時にランダムにノードを無効化<br>
+│ └─ 仕組み：例えば50%の確率でノード削除<br>
+│ 毎回異なるネットワークで学習<br>
+│ └─ 効果：アンサンブル効果、過学習防止<br>
+│ └─ 推論時は全ノード使用、出力は確率で調整<br>
+│ └─ 関係：ニューラルネット特有の正則化
+</div>
+
+<div class="term-block" data-title="誤差逆伝播法">
+誤差逆伝播法 ★<br>
+│ └─ 目的・役割<br>
+│ └─ ニューラルネットの重みを効率的に<br>
+│ 更新するための手法<br>
+│ └─ 順伝播で予測→誤差計算→逆伝播で<br>
+│ 勾配計算→重み更新という流れ
+</div>
+
+<div class="term-block" data-title="連鎖律">
+連鎖律 ★★★★★<br>
+│ │ └─ 定義：合成関数の微分法則<br>
+│ │ dy/dx = dy/du * du/dx<br>
+│ │ └─ 役割：誤差逆伝播の数学的基礎<br>
+│ │ 層が深くても微分を効率的に計算可能<br>
+│ │ └─ 例：3層あれば各層の微分を掛け合わせて<br>
+│ │ 入力層までの勾配を求める
+</div>
+
+<div class="term-block" data-title="信用割当問題">
+信用割当問題 ★★★★<br>
+│ └─ 定義：出力の誤差に対して各隠れ層の<br>
+│ 責任がどれくらいかを割り当てる問題<br>
+│ └─ 解決：誤差逆伝播法が解決、連鎖律で<br>
+│ 各層の寄与を計算<br>
+│ └─ 例：出力が間違ったときどの隠れ層の<br>
+│ 重みが悪かったかを特定
+</div>
+
+<div class="term-block" data-title="勾配爆発問題">
+勾配爆発問題 ★★★★<br>
+│ └─ 定義：勾配が指数的に大きくなり発散する現象<br>
+│ └─ 原因：重み初期値大きい、RNNで起きやすい<br>
+│ └─ 対策：勾配クリッピング、適切な初期化<br>
+│ LSTM・GRU使用
+</div>
+
+<div class="term-block" data-title="勾配降下法">
+勾配降下法 ★★★★★<br>
+│ └─ 定義：勾配の逆方向に重みを更新<br>
+│ w = w - η*勾配<br>
+│ └─ 学習率η：更新幅、大きいと発散<br>
+│ 小さいと学習遅い<br>
+│ └─ 課題：局所最適解にハマる、鞍点で止まる<br>
+│ 計算コスト高い
+</div>
+
+<div class="term-block" data-title="学習率">
+学習率 ★★★★★<br>
+│ └─ 定義：重み更新のステップ幅<br>
+│ └─ 重要：大きすぎると発散、小さすぎると<br>
+│ 学習遅く局所解にハマる<br>
+│ └─ 調整：最初大きく徐々に小さくするのが定石<br>
+│ 学習率スケジューリング
+</div>
+
+<div class="term-block" data-title="イテレーション">
+イテレーション ★★★<br>
+│ └─ 定義：1回の重み更新
+</div>
+
+<div class="term-block" data-title="エポック">
+エポック ★★★★<br>
+│ └─ 定義：全データを1回使い切ること<br>
+│ └─ 関係：エポックは複数イテレーションから成る<br>
+│ 例：1000データ、バッチ100なら1エポック10イテレーション
+</div>
+
+<div class="term-block" data-title="局所最適解">
+局所最適解 ★★★★<br>
+│ └─ 定義：近傍では最小だが全体では最小でない解<br>
+│ └─ 問題：そこにハマると抜け出せない<br>
+│ └─ 対策：モーメンタム、異なる初期値、SGDのノイズ
+</div>
+
+<div class="term-block" data-title="大域最適解">
+大域最適解 ★★★★<br>
+│ └─ 定義：全体で最も小さい解、真の最適解<br>
+│ └─ 特徴：ディープラーニングでは大域最適解でなくても<br>
+│ 良い解で十分なことが多い
+</div>
+
+<div class="term-block" data-title="鞍点">
+鞍点 ★★★★<br>
+│ └─ 定義：ある方向では極小、別方向では極大の点<br>
+│ └─ 問題：勾配0だが最適解ではない、高次元で多数存在<br>
+│ └─ 特徴：ディープラーニングでは局所最適解より<br>
+│ 鞍点が問題になること多い
+</div>
+
+<div class="term-block" data-title="ハイパーパラメータ">
+ハイパーパラメータ ★★★★★<br>
+│ └─ 定義：人間が設定するパラメータ、学習率や<br>
+│ バッチサイズなど、重みはパラメータ
+</div>
+
+<div class="term-block" data-title="グリッドサーチ">
+グリッドサーチ ★★★<br>
+│ └─ ハイパーパラメータの全組み合わせ試す<br>
+│ 確実だが計算コスト大
+</div>
+
+<div class="term-block" data-title="ランダムサーチ">
+ランダムサーチ ★★★★<br>
+│ └─ ハイパーパラメータをランダムに試す<br>
+│ 効率的、広い範囲探索可能<br>
+│ └─ その他：ベイズ最適化が効率的
+</div>
+
+<div class="term-block" data-title="バッチ学習">
+バッチ学習 ★★★<br>
+│ └─ 定義：全データで勾配計算して更新<br>
+│ └─ 特徴：安定だが計算コスト大、メモリ大
+</div>
+
+<div class="term-block" data-title="確率的勾配降下法 SGD">
+確率的勾配降下法 SGD ★★★★★<br>
+│ └─ 定義：1データごとに勾配計算して更新<br>
+│ └─ 特徴：高速、ノイズで局所解脱出可能<br>
+│ ただし収束不安定<br>
+│ └─ 関係：バッチ学習の改良
+</div>
+
+<div class="term-block" data-title="ミニバッチ学習">
+ミニバッチ学習 ★★★★★<br>
+│ └─ 定義：数十〜数百データごとに更新<br>
+│ 現在の主流、バッチとSGDの中間<br>
+│ └─ 特徴：計算効率と安定性のバランス良い<br>
+│ 例：バッチサイズ32,64,128がよく使われる<br>
+│ └─ 関係：バッチとSGDの良いとこ取り
+</div>
+
+<div class="term-block" data-title="オンライン学習">
+オンライン学習 ★★★<br>
+│ └─ 定義：データが逐次来るたびに学習<br>
+│ └─ 用途：ストリーミングデータ、逐次更新必要<br>
+│ └─ 関係：SGDと似るがデータが時間と共に来る
+</div>
+
+<div class="term-block" data-title="モーメンタム">
+モーメンタム ★★★★<br>
+│ └─ 定義：過去の勾配の移動平均を考慮<br>
+│ 慣性のように振る舞う<br>
+│ └─ 効果：局所解脱出、収束加速、振動抑制<br>
+│ └─ 式：v = μv - η*勾配、μは慣性係数0.9など
+</div>
+
+<div class="term-block" data-title="AdaGrad">
+AdaGrad ★★★★<br>
+│ └─ 定義：パラメータごとに学習率自動調整<br>
+│ よく更新されるパラメータは小さく<br>
+│ あまり更新されないパラメータは大きく<br>
+│ └─ 課題：学習進むと学習率が0に近づき止まる
+</div>
+
+<div class="term-block" data-title="RMSprop">
+RMSprop ★★★★<br>
+│ └─ 定義：AdaGradの改良、勾配2乗の移動平均で調整<br>
+│ └─ 特徴：学習率が小さくなりすぎない<br>
+│ └─ 関係：AdaGradの課題解決
+</div>
+
+<div class="term-block" data-title="AdaDelta">
+AdaDelta ★★★<br>
+│ └─ 定義：AdaGradの改良、学習率設定不要<br>
+│ └─ 特徴：ハイパーパラメータ少ない
+</div>
+
+<div class="term-block" data-title="Adam">
+Adam ★★★★★<br>
+│ └─ 定義：モーメンタム+RMSpropの組み合わせ<br>
+│ 現在最も使われる最適化手法<br>
+│ └─ 特徴：学習速い、多くのタスクで良い性能<br>
+│ └─ 関係：モーメンタムとRMSpropの良いとこ取り
+</div>
+
+<div class="term-block" data-title="AMSBound">
+AMSBound ★★<br>
+│ └─ 定義：Adamの改良版
+</div>
+
+<div class="term-block" data-title="AdaBound">
+AdaBound ★★<br>
+│ └─ 定義：AdamからSGDへ徐々に移行<br>
+│ └─ 特徴：Adamの速さとSGDの最終精度の両立狙う
+</div>
+
+<div class="term-block" data-title="早期終了">
+早期終了 ★★★★<br>
+│ └─ 定義：検証誤差が悪化したら学習止める<br>
+│ └─ 効果：過学習防止、計算コスト削減<br>
+│ └─ 関係：正則化の1つと見なせる
+</div>
+
+<div class="term-block" data-title="二重降下現象">
+二重降下現象 ★★★<br>
+│ └─ 定義：モデル複雑さ増すと一度汎化誤差上がるが<br>
+│ さらに複雑にすると再び下がる現象<br>
+│ └─ 特徴：古典的バイアス・バリアンス<br>
+│ トレードオフと異なる、過剰パラメータ領域
+</div>
+
+<div class="term-block" data-title="ノーフリーランチの定理">
+ノーフリーランチの定理 ★★★<br>
+│ └─ 定義：すべての問題で万能なアルゴリズムは存在しない<br>
+│ └─ 意味：問題に応じて適切な手法選ぶ必要ある<br>
+│ └─ 関係：ハイパーパラメータ調整や手法選択が重要
+</div>
+
+<div class="term-block" data-title="全結合層">
+全結合層 ★<br>
+│ └─ 目的・役割<br>
+│ └─ すべての入力と出力を結合<br>
+│ 最終的な判断を担う層
+</div>
+
+<div class="term-block" data-title="重み">
+重み ★★★★★<br>
+│ │ └─ 定義：入力と出力を繋ぐパラメータ<br>
+│ │ └─ 仕組み：重み*入力の総和を計算<br>
+│ │ └─ 例：入力3出力2なら重みは3x2=6個<br>
+│ │ └─ 学習：誤差逆伝播で更新される
+</div>
+
+<div class="term-block" data-title="線形関数">
+線形関数 ★★★<br>
+│ │ └─ 定義：重み付き和、y=Wx+b<br>
+│ │ └─ 役割：活性化関数と組み合わせて非線形に<br>
+│ │ └─ 関係：線形関数+活性化関数で1層構成
+</div>
+
+<div class="term-block" data-title="パラメータ数">
+パラメータ数 ★★★★<br>
+│ └─ 計算：入力数×出力数+バイアス<br>
+│ └─ 例：入力1000出力100なら100000+100=100100個<br>
+│ └─ 課題：パラメータ数多く過学習しやすい<br>
+│ 畳み込み層より多い
+</div>
+
+<div class="term-block" data-title="畳み込み操作">
+畳み込み操作 ★★★★★<br>
+│ │ └─ 定義：フィルタを画像上でスライドさせて<br>
+│ │ 内積を計算する操作<br>
+│ │ └─ 効果：エッジや模様を検出<br>
+│ │ └─ 例：3x3フィルタで縦線・横線検出
+</div>
+
+<div class="term-block" data-title="フィルタ">
+フィルタ ★★★★★<br>
+│ │ └─ 定義：特徴検出する小さな重み行列<br>
+│ │ └─ 別名：カーネル、カーネルとフィルタは同義<br>
+│ │ └─ 例：32個のフィルタなら32種類の特徴抽出<br>
+│ │ └─ 学習：誤差逆伝播でフィルタの中身学習
+</div>
+
+<div class="term-block" data-title="カーネル">
+カーネル ★★★★★<br>
+│ │ └─ 定義：フィルタと同義、畳み込みに使う重み<br>
+│ │ └─ 関係：カーネル=フィルタ、同じもの
+</div>
+
+<div class="term-block" data-title="特徴マップ">
+特徴マップ ★★★★★<br>
+│ │ └─ 定義：畳み込み結果の2次元マップ<br>
+│ │ └─ 仕組み：1フィルタで1特徴マップ生成<br>
+│ │ フィルタ32個なら特徴マップ32枚<br>
+│ │ └─ 例：縦線検出フィルタなら縦線部分が強調されたマップ
+</div>
+
+<div class="term-block" data-title="ストライド">
+ストライド ★★★★<br>
+│ │ └─ 定義：フィルタを動かす幅<br>
+│ │ └─ 例：ストライド1なら1ピクセルずつ、2なら2ずつ<br>
+│ │ └─ 効果：大きいと出力サイズ小さくなる、計算量削減
+</div>
+
+<div class="term-block" data-title="パディング">
+パディング ★★★★<br>
+│ │ └─ 定義：画像周囲を0で埋める操作<br>
+│ │ └─ 目的：出力サイズ維持、端の情報保持<br>
+│ │ └─ 例：1ピクセルパディングで3x3フィルタでもサイズ維持
+</div>
+
+<div class="term-block" data-title="畳み込みニューラルネットワーク CNN">
+畳み込みニューラルネットワーク CNN ★★★★★<br>
+│ └─ 定義：畳み込み層を含むネットワーク<br>
+│ └─ 構成：畳み込み→活性化→プーリング→全結合の繰り返し<br>
+│ └─ 用途：画像認識で主流、AlexNet・VGG・ResNetなど
+</div>
+
+<div class="term-block" data-title="Dilated Convolution">
+Dilated Convolution ★★<br>
+│ │ └─ 定義：フィルタ間に隙間を空ける畳み込み<br>
+│ │ └─ 効果：パラメータ増やさず受容野広げる<br>
+│ │ └─ 用途：セマンティックセグメンテーションで使用
+</div>
+
+<div class="term-block" data-title="Atrous Convolution">
+Atrous Convolution ★★<br>
+│ │ └─ 定義：Dilated Convolutionと同義<br>
+│ │ └─ 関係：Atrous=Dilated、同じもの別名
+</div>
+
+<div class="term-block" data-title="Depthwise Separable Convolution">
+Depthwise Separable Convolution ★★★<br>
+│ └─ 定義：Depthwise畳み込み+Pointwise畳み込みに分離<br>
+│ └─ 効果：パラメータ大幅削減、高速化<br>
+│ └─ 用途：MobileNetで使用、スマホ向け軽量化
+</div>
+
+<div class="term-block" data-title="全結合と畳み込みの差異">
+全結合と畳み込みの差異 ★<br>
+│ ├─ 全結合：全入力と全出力結合、パラメータ多い<br>
+│ 位置情報失う、画像では非効率<br>
+│ └─ 畳み込み：局所結合+重み共有、パラメータ少ない<br>
+│ 位置情報保持、画像の空間性活用、並進不変性
+</div>
+
+<div class="term-block" data-title="バッチ正規化">
+バッチ正規化 ★★★★★<br>
+│ │ └─ 定義：ミニバッチごとに平均0分散1に正規化<br>
+│ │ └─ 仕組み：バッチ内の平均・分散で正規化<br>
+│ │ 学習時はバッチ統計、推論時は移動平均使用<br>
+│ │ └─ 効果：学習高速化、初期値依存緩和、過学習抑制<br>
+│ │ └─ 発表：2015年Ioffe&Szegedy、革命的手法<br>
+│ │ └─ 課題：バッチサイズ小さいと統計不安定
+</div>
+
+<div class="term-block" data-title="レイヤー正規化">
+レイヤー正規化 ★★★★<br>
+│ │ └─ 定義：1サンプル内の全特徴で正規化<br>
+│ │ └─ 特徴：バッチサイズに依存しない<br>
+│ │ └─ 用途：RNN・Transformerで使用、バッチ正規化の欠点解決<br>
+│ │ └─ 関係：バッチ正規化の代替
+</div>
+
+<div class="term-block" data-title="インスタンス正規化">
+インスタンス正規化 ★★★<br>
+│ │ └─ 定義：1サンプル1チャネルごとに正規化<br>
+│ │ └─ 特徴：チャネルごとに独立に正規化<br>
+│ │ └─ 用途：スタイル変換で使用、画像のスタイル情報除去
+</div>
+
+<div class="term-block" data-title="グループ正規化">
+グループ正規化 ★★★<br>
+│ └─ 定義：チャネルをグループ分けして正規化<br>
+│ └─ 特徴：バッチ正規化とインスタンス正規化の中間<br>
+│ └─ 用途：バッチサイズ小さい物体検出で有効<br>
+│ └─ 発表：2018年Heら、バッチ正規化の代替として
+</div>
+
+<div class="term-block" data-title="正規化の使い分け">
+正規化の使い分け ★<br>
+│ ├─ 画像分類でバッチ大→バッチ正規化<br>
+│ ├─ RNN・Transformer→レイヤー正規化<br>
+│ ├─ スタイル変換→インスタンス正規化<br>
+│ └─ 物体検出でバッチ小→グループ正規化
+</div>
+
+<div class="term-block" data-title="プーリング層">
+プーリング層 ★<br>
+│ └─ 目的・役割<br>
+│ └─ 特徴マップを縮小、計算量削減<br>
+│ └─ 位置ずれに対する不変性獲得
+</div>
+
+<div class="term-block" data-title="最大値プーリング">
+最大値プーリング ★★★★★<br>
+│ │ └─ 定義：領域内の最大値を取る<br>
+│ │ └─ 特徴：最も使われる、エッジなど強い特徴保持<br>
+│ │ └─ 例：2x2領域なら4つの中で最大値1つ残す
+</div>
+
+<div class="term-block" data-title="平均値プーリング">
+平均値プーリング ★★★★<br>
+│ │ └─ 定義：領域内の平均を取る<br>
+│ │ └─ 特徴：全体の情報を保持、背景情報も残る<br>
+│ │ └─ 例：2x2領域なら4つの平均を1つに
+</div>
+
+<div class="term-block" data-title="グローバルアベレージプーリング GAP">
+グローバルアベレージプーリング GAP ★★★★<br>
+│ └─ 定義：特徴マップ全体の平均を取る<br>
+│ └─ 効果：全結合層の代わり、パラメータ削減<br>
+│ └─ 用途：ResNetなどで最終層で使用、過学習抑制<br>
+│ └─ 関係：平均値プーリングの全体版
+</div>
+
+<div class="term-block" data-title="不変性の獲得">
+不変性の獲得 ★★★★<br>
+│ └─ 定義：少し位置ずれても同じ特徴と認識<br>
+│ └─ 仕組み：プーリングで位置情報が曖昧になることで<br>
+│ 多少ずれても同じ出力<br>
+│ └─ 例：猫が2ピクセルずれても猫と認識<br>
+│ └─ 関係：畳み込みの並進不変性と合わせて重要
+</div>
+
+<div class="term-block" data-title="スキップ結合">
+スキップ結合 ★<br>
+│ └─ 目的・役割<br>
+│ └─ 勾配消失問題解決、深いネットワーク学習可能に<br>
+│ └─ 情報のショートカット、直接伝達
+</div>
+
+<div class="term-block" data-title="ResNet">
+ResNet ★★★★★<br>
+│ └─ 発表：2015年Heら、ILSVRC優勝<br>
+│ └─ 定義：スキップ結合を用いた152層の深いネットワーク<br>
+│ └─ 特徴：152層でも学習可能、勾配消失解決<br>
+│ └─ 効果：層を深くするほど精度向上、従来は深くすると劣化<br>
+│ └─ 構造：残差ブロックの積み重ね、2-3層ごとにスキップ<br>
+│ └─ 影響：以降のディープラーニングはResNetベースが主流
+</div>
+
+<div class="term-block" data-title="回帰結合層">
+回帰結合層 ★★★<br>
+│ │ └─ 定義：出力が再び入力に戻る結合を持つ層<br>
+│ │ └─ 特徴：過去の情報を保持可能、メモリ的役割
+</div>
+
+<div class="term-block" data-title="リカレントニューラルネットワーク RNN">
+リカレントニューラルネットワーク RNN ★★★★★<br>
+│ │ └─ 定義：回帰結合層を含むネットワークの総称<br>
+│ │ └─ 仕組み：時刻tの出力が時刻t+1の入力に使われる<br>
+│ │ 過去の情報を隠れ状態に保持<br>
+│ │ └─ 用途：時系列データ、自然言語処理、音声認識<br>
+│ │ └─ 例：「私は昨日〜」の後に「食べた」が来ると予測
+</div>
+
+<div class="term-block" data-title="時系列データ">
+時系列データ ★★★★★<br>
+│ │ └─ 定義：時間順序に並んだデータ<br>
+│ │ └─ 例：株価、気温、文章、音声、動画<br>
+│ │ └─ 特徴：順序が重要、過去が未来に影響<br>
+│ │ └─ RNNが適する理由：過去の情報を活用できる
+</div>
+
+<div class="term-block" data-title="教師強制">
+教師強制 ★★★<br>
+│ └─ 定義：学習時に正解を次の入力として使う手法<br>
+│ └─ 効果：学習安定化、収束速くなる<br>
+│ └─ 課題：推論時は正解使えないので性能差出る<br>
+│ 暴露バイアスとも呼ぶ
+</div>
+
+<div class="term-block" data-title="BPTT">
+BPTT ★★★★<br>
+│ └─ 定義：Backpropagation Through Time<br>
+│ 時間方向に展開して誤差逆伝播<br>
+│ └─ 仕組み：RNNを時間方向に展開して<br>
+│ 通常の誤差逆伝播を適用<br>
+│ └─ 課題：長い時系列で勾配消失・爆発起きやすい
+</div>
+
+<div class="term-block" data-title="エルマンネットワーク">
+エルマンネットワーク ★★★<br>
+│ │ └─ 定義：隠れ層の出力が次時刻の入力に戻る<br>
+│ │ └─ 発表：1990年Elman、最も基本的なRNN<br>
+│ │ └─ 構造：隠れ層→コンテキスト層→隠れ層というループ
+</div>
+
+<div class="term-block" data-title="ジョルダンネットワーク">
+ジョルダンネットワーク ★★★<br>
+│ │ └─ 定義：出力層の出力が次時刻の入力に戻る<br>
+│ │ └─ 発表：1986年Jordan<br>
+│ │ └─ 違い：エルマンは隠れ層、ジョルダンは出力層が戻る
+</div>
+
+<div class="term-block" data-title="双方向RNN Bidirectional RNN">
+双方向RNN Bidirectional RNN ★★★★<br>
+│ │ └─ 定義：過去→未来と未来→過去の2方向から学習<br>
+│ │ └─ 効果：前後の文脈両方活用、精度向上<br>
+│ │ └─ 例：「銀行」という単語、前が「川の」なら土手<br>
+│ │ 前が「お金の」なら金融機関と判断<br>
+│ │ └─ 用途：自然言語処理、音声認識で有効
+</div>
+
+
+<div class="term-block" data-title="ゲート機構">
+ゲート機構 ★★★★★<br>
+│ │ └─ 定義：情報の流れを制御する仕組み<br>
+│ │ └─ 役割：覚えるべきか忘れるべきか制御<br>
+│ │ └─ 効果：勾配消失解決、長期記憶可能
+</div>
+
+<div class="term-block" data-title="LSTM">
+LSTM ★★★★★<br>
+│ │ └─ 定義：Long Short Term Memory<br>
+│ │ └─ 発表：1997年Hochreiter&Schmidhuber<br>
+│ │ └─ 構造：<br>
+│ │ ├─ 入力ゲート：何を記憶するか制御<br>
+│ │ ├─ 忘却ゲート：何を忘れるか制御<br>
+│ │ └─ 出力ゲート：何を出力するか制御<br>
+│ │ └─ 特徴：長期記憶可能、RNNの課題解決<br>
+│ │ └─ 用途：機械翻訳、音声認識で長年主流
+</div>
+
+<div class="term-block" data-title="GRU">
+GRU ★★★★<br>
+│ └─ 定義：Gated Recurrent Unit<br>
+│ └─ 発表：2014年Choら、LSTMの簡略版<br>
+│ └─ 構造：リセットゲートと更新ゲートの2つ<br>
+│ LSTMよりパラメータ少ない<br>
+│ └─ 特徴：LSTMと同等性能で計算効率良い<br>
+│ └─ 関係：LSTMの改良・簡略版
+</div>
+
+<div class="term-block" data-title="Attention">
+Attention ★★★★★<br>
+│ └─ 定義：入力のどこに注目すべきかを重み付け<br>
+│ └─ 仕組み：注目度を確率で表現、重要な部分重み大<br>
+│ └─ 例：翻訳で「私は」を訳すとき「I」に強く注目<br>
+│ └─ 効果：長期依存関係の学習改善、解釈性向上
+</div>
+
+<div class="term-block" data-title="キー・クエリ・バリュー">
+キー・クエリ・バリュー ★★★★★<br>
+│ ├─ クエリ Query：検索したいもの、質問<br>
+│ 例：翻訳で次に訳したい単語の情報<br>
+│ ├─ キー Key：検索対象のラベル、照合用<br>
+│ 例：原文の各単語の情報<br>
+│ └─ バリュー Value：実際の情報、取り出す内容<br>
+│ 例：原文の各単語の意味内容<br>
+│ └─ 仕組み：クエリとキーの類似度計算→重み→<br>
+│ バリューの重み付き和がAttention出力
+</div>
+
+<div class="term-block" data-title="Seq2Seq">
+Seq2Seq ★★★★<br>
+│ └─ 定義：Sequence to Sequence、系列を系列に変換<br>
+│ └─ 構造：エンコーダで入力をベクトル化→<br>
+│ デコーダで出力生成<br>
+│ └─ 課題：長い系列で情報圧縮がボトルネック<br>
+│ 固定長ベクトルに全部詰め込むので情報損失<br>
+│ └─ 解決：Attentionでこの課題解決<br>
+│ エンコーダの各時刻出力に直接注目可能に
+</div>
+
+<div class="term-block" data-title="Source Target Attention">
+Source Target Attention ★★★★<br>
+│ └─ 定義：Encoder Decoder Attentionとも呼ぶ<br>
+│ └─ 仕組み：デコーダがエンコーダの出力に注目<br>
+│ └─ 用途：機械翻訳で訳すときに原文のどこに注目か<br>
+│ └─ 例：英訳生成時に日本語原文の対応単語に注目
+</div>
+
+<div class="term-block" data-title="Self Attention">
+Self Attention ★★★★★<br>
+│ └─ 定義：同じ系列内で自分自身に注目する仕組み<br>
+│ └─ 仕組み：系列内の各要素が他の要素との関係計算<br>
+│ └─ 効果：並列処理可能、長期依存関係得意<br>
+│ └─ 例：「彼は」という代名詞が「太郎」を指す関係学習
+</div>
+
+<div class="term-block" data-title="Multi Head Attention">
+Multi Head Attention ★★★★★<br>
+│ └─ 定義：複数のAttentionを並列に実行<br>
+│ └─ 仕組み：異なる観点から注目を計算して統合<br>
+│ └─ 効果：多様な関係性学習可能<br>
+│ └─ 例：1つは文法関係、1つは意味関係など<br>
+│ 複数観点で注目
+</div>
+
+<div class="term-block" data-title="Transformer">
+Transformer ★★★★★<br>
+│ └─ 発表：2017年Vaswaniら Attention Is All You Need<br>
+│ └─ 定義：Attentionのみで構成されたモデル<br>
+│ └─ 構造：<br>
+│ ├─ エンコーダ：Self Attention+フィードフォワード<br>
+│ └─ デコーダ：Self Attention+Source Target Attention<br>
+│ └─ 特徴：<br>
+│ ├─ RNN使わず並列処理可能で高速学習<br>
+│ ├─ 長期依存関係得意<br>
+│ └─ 現在の自然言語処理の主流、BERT・GPTの基礎<br>
+│ └─ 影響：2017年以降自然言語処理革命
+</div>
+
+<div class="term-block" data-title="位置エンコーディング">
+位置エンコーディング ★★★★<br>
+│ └─ 定義：単語の位置情報をベクトルに追加<br>
+│ └─ 理由：TransformerはRNNと違い順序情報持たない<br>
+│ 位置情報ないと「太郎は花子を」が<br>
+│ 「花子は太郎を」と同じになってしまう<br>
+│ └─ 方法：sin・cos関数で位置を表現<br>
+│ 学習可能な場合もあり
+</div>
+
+<div class="term-block" data-title="オートエンコーダ">
+オートエンコーダ ★★★★★<br>
+│ └─ 自分自身を正解にして学習<br>
+│ 構造：入力→Encoder（低次元化）→潜在空間→Decoder→出力<br>
+│ 狙い：潜在空間に重要な特徴だけを詰め込む<br>
+│ 例：784次元→10次元に圧縮して復元
+</div>
+
+<div class="term-block" data-title="オートエンコーダによる次元削減">
+オートエンコーダによる次元削減 ★★★★<br>
+│ └─ オートエンコーダの主な使い道<br>
+│ 従来：PCA 線形のみ<br>
+│ AE：非線形な削減が可能<br>
+│ 可視化・クラスタリングに使える
+</div>
+
+<div class="term-block" data-title="事前学習">
+事前学習 ★★★★<br>
+│ └─ 2010年頃の裏技<br>
+│ 深いNNが学習できない時代に<br>
+│ AEで層ごとに事前学習→重みを初期値に<br>
+│ 勾配消失を緩和に貢献<br>
+│ 本来のタスクの前に学習し、その学習済みの重みを利用すること
+</div>
+
+<div class="term-block" data-title="積層オートエンコーダ">
+積層オートエンコーダ ★★★<br>
+│ └─ Stacked Autoencoder<br>
+│ AEを積み重ねる<br>
+│ 1段目の潜在空間を入力に2段目を学習<br>
+│ 事前学習の主役だった歴史的モデル
+</div>
+
+<div class="term-block" data-title="変分オートエンコーダ VAE">
+変分オートエンコーダ VAE ★★★★★ 最重要<br>
+│ └─ 生成モデルとしてのAE<br>
+│ 通常AE：潜在空間はただの数値<br>
+│ VAE：潜在空間を確率分布(正規分布)にする<br>
+│ 損失：再構成誤差 + KLダイバージェンス<br>
+│ 結果：連続補間・生成が可能
+</div>
+
+<div class="term-block" data-title="β VAE">
+β VAE ★★★★ 公式必須<br>
+│ └─ VAEの改良版 2017年<br>
+│ 損失：再構成誤差 + β*KLダイバージェンス<br>
+│ β>1で正規分布に強く近づける<br>
+│ 効果：Disentangled表現 獲得<br>
+│ 1次元=角度 2次元=太さ のように意味が分離
+</div>
+
+<div class="term-block" data-title="VQ VAE・info VAE">
+VQ VAE・info VAE ★★★★<br>
+│ └─ VQ VAE：潜在空間を離散化<br>
+│ コードブック512個に量子化<br>
+│ 高品質生成 DALL Eの根幹技術<br>
+│ info VAE：相互情報量を最大化<br>
+│ VAEの情報が消える問題を防ぐ
+</div>
+
+<div class="term-block" data-title="データ拡張とは">
+データ拡張とは ★★★★★<br>
+│ └─ Data Augmentation<br>
+│ データを水増しして過学習を防ぐ<br>
+│ 画像とテキストで手法が違うのが試験ポイント
+</div>
+
+<div class="term-block" data-title="Crop">
+Crop ★<br>
+│ └─ 切り抜き ズレに強く<br>
+│ 目的：不変性の獲得 最も基本
+</div>
+
+<div class="term-block" data-title="Random Flip">
+Random Flip ★<br>
+│ └─ 左右反転 対称物体に有効<br>
+│ 目的：不変性の獲得 最も基本
+</div>
+
+<div class="term-block" data-title="Rotate">
+Rotate ★<br>
+│ └─ 回転 傾きに強く<br>
+│ 目的：不変性の獲得 最も基本
+</div>
+
+<div class="term-block" data-title="Contrast">
+Contrast ★<br>
+│ └─ 明暗の差を変える
+</div>
+
+<div class="term-block" data-title="Brightness">
+Brightness ★<br>
+│ └─ 明るさ自体を変える
+</div>
+
+<div class="term-block" data-title="Cutout / Random Erasing">
+Cutout / Random Erasing ★★★★<br>
+│ └─ 画像の一部を四角く塗りつぶす<br>
+│ オクルージョン(隠蔽)に強くなる<br>
+│ Random Erasingはノイズで埋める亜種<br>
+│ 2017年提案 シンプルで効果高
+</div>
+
+<div class="term-block" data-title="Mixup">
+Mixup ★★★★★<br>
+│ └─ 2017年 2枚を混ぜる<br>
+│ 画像A0.7 + 画像B0.3 = 新画像<br>
+│ ラベルも0.7:0.3で混ぜる<br>
+│ 効果：決定境界が滑らか 過学習防止<br>
+│ 試験頻出「画像とラベル両方を混ぜる」
+</div>
+
+<div class="term-block" data-title="CutMix">
+CutMix ★★★★★<br>
+│ └─ 2019年 MixupとCutoutの良いとこ取り<br>
+│ 画像Aの一部を切り取ってBに貼付<br>
+│ ラベルは面積比で混ぜる 7:3<br>
+│ Mixup=画素ブレンド CutMix=領域置換
+</div>
+
+<div class="term-block" data-title="Noising">
+Noising ★★★★<br>
+│ └─ noising 画像にザラザラノイズを足す<br>
+│ カメラノイズに強くなる<br>
+│ テキストでは単語をランダム入れ替え/削除<br>
+│ スペルミスに強くなる効果
+</div>
+
+<div class="term-block" data-title="RandAugment">
+RandAugment ★★★★<br>
+│ └─ 2020年 Google 自動最適化<br>
+│ N個の拡張をMの強さでランダム適用<br>
+│ パラメータはNとMだけ<br>
+│ 手動より高性能で探索が超簡単<br>
+│ AutoAugmentの改良で計算コスト1/100
+</div>
+
+<div class="term-block" data-title="Paraphrasing">
+Paraphrasing ★★★★<br>
+│ └─ paraphrasing 言い換え<br>
+│ 自然言語のデータ拡張の定番<br>
+│ 同じ意味で違う表現に置き換え水増し<br>
+│ 例：この映画は面白い→この作品は楽しい<br>
+│ Back Translationとセットで出題されやすい
+</div>
+
+<div class="term-block" data-title="形態素解析">
+形態素解析 ★★★★ 頻出<br>
+│ └─ 🎯 NLPの最初の関門<br>
+│ 文を単語に切るタスク<br>
+│ 例：私は学生です→私/は/学生/です<br>
+│ 日本語は英語と違い分かち書き<br>
+│ スペース区切りなしのため必須処理<br>
+│ ⚙️ 仕組み：辞書と統計的モデルで<br>
+│ 最尤な分割を探索<br>
+│ 🧩 代表ツール：MeCab ★★★★★<br>
+│ 形態素解析のデファクト<br>
+│ 京都大学由来 辞書はIPAdic, NEologd<br>
+│ 他：JUMAN, Sudachi, Janome<br>
+│ 💻 形態素解析後は品詞タグ付与も行う<br>
+│ 💻 ビジネス：日本語検索<br>
+│ チャットボット前処理で必須<br>
+│ 試験鉄板：日本語は分かち書きなし<br>
+│ →形態素解析必須 MeCab
+</div>
+
+<div class="term-block" data-title="構文解析">
+構文解析 ★★★<br>
+│ └─ 🎯 文の構造を解析<br>
+│ 主語・述語・修飾関係・係り受けを解析<br>
+│ 文を木構造 構文木で表現<br>
+│ 例：私は公園で本を読む<br>
+│ 読むが述語 主語は私 場所は公園で<br>
+│ 目的語は本 どの単語がどれに係るかを木で表現<br>
+│ ⚙️ 種類：<br>
+│ ①句構造解析：文を名詞句・動詞句など句に分解<br>
+│ ②依存関係解析：単語間の係り受け関係を解析 現在主流<br>
+│ 💻 用途：機械翻訳・質問応答の前処理<br>
+│ 意味解析の基礎<br>
+│ キーワード：文を木構造で 係り受け
+</div>
+
+<div class="term-block" data-title="機械翻訳">
+機械翻訳 ★★★★★<br>
+│ └─ 🎯 ある言語を別言語へ翻訳<br>
+│ NLPの代表的応用<br>
+│ 昔：📚 統計的機械翻訳 SMT ★★★<br>
+│ 単語や句の翻訳確率を統計的に学習<br>
+│ 例：Bonjourの次はHelloが高確率<br>
+│ フレーズベース 大量の対訳コーパス必要<br>
+│ 2000年代までの主流<br>
+│ 今：🧩 ニューラル機械翻訳 NMT ★★★★★<br>
+│ Seq2Seq, Attention, Transformerで翻訳<br>
+│ 2014年 Seq2Seq登場で劇的改善<br>
+│ 2017年 Transformer登場でSOTA達成<br>
+│ Google翻訳は2016年からNMTへ完全移行<br>
+│ ⚙️ 評価指標：BLEUスコア<br>
+│ 試験：機械翻訳の代表タスク<br>
+│ 統計的→ニューラルへ進化
+</div>
+
+<div class="term-block" data-title="情報検索">
+情報検索 ★★★<br>
+│ └─ 🎯 大量文書から欲しい文書を探す<br>
+│ 例：Google検索 社内文書検索<br>
+│ ⚙️ 仕組み：クエリ検索語と文書の類似度を計算しランキング<br>
+│ 類似度計算にTF-IDF, BM25<br>
+│ 近年はBERTなど分散表現を使用<br>
+│ ⚙️ 評価指標：適合率Precision<br>
+│ 再現率Recall MAP<br>
+│ 💻 ビジネス：検索エンジン FAQ検索 類似文書検索<br>
+│ キーワード：欲しい文書を探す TF-IDF使う
+</div>
+
+<div class="term-block" data-title="質問応答">
+質問応答 ★★★★<br>
+│ └─ 🎯 質問に対して答えを返すAIタスク<br>
+│ 例：Q日本の首都は？→A東京です<br>
+│ ⚙️ 種類：<br>
+│ ①抽出型：文書中から答えの箇所を抽出<br>
+│ ②生成型：新たに文章を生成して回答<br>
+│ 📜 歴史：BERT以降で激変 精度が人間超え<br>
+│ 🧩 SQuAD ★★★★<br>
+│ Stanford Question Answering Dataset（データセット）<br>
+│ Wikipedia記事から質問応答を学習・評価<br>
+│ SQuAD1.1は抽出型<br>
+│ SQuAD2.0は答えなし問題も含む<br>
+│ 💻 ビジネス：チャットボット<br>
+│ カスタマーサポート自動化<br>
+│ ポイント：BERT以降で激変 SQuADで評価
+</div>
+
+<div class="term-block" data-title="感情分析">
+感情分析 ★★★★<br>
+│ └─ 🎯 文のポジティブ/ネガティブを判定<br>
+│ 別名：センチメント分析 評判分析<br>
+│ 例：この映画最高！→ポジ 最悪だった→ネガ<br>
+│ 3値：ポジ/ネガ/中立 5段階評価なども<br>
+│ ⚙️ 仕組み：辞書ベース 機械学習 近年はBERTで高精度<br>
+│ 💻 ビジネス：レビュー分析 アンケート分析 SNS炎上検知<br>
+│ 企業が顧客の声を自動集計<br>
+│ G検定頻出のNLP応用例<br>
+│ キーワード：ポジ/ネガ判定 レビュー分析
+</div>
+
+<div class="term-block" data-title="文書要約">
+文書要約 ★★★<br>
+│ └─ 🎯 長い文書を短く要約<br>
+│ ⚙️ 種類：<br>
+│ ①抽出型要約：重要文を原文から抜き出し繋げる<br>
+│ 例：10文から重要3文を抽出<br>
+│ 比較的容易 文法破綻なし<br>
+│ ②生成型要約：新たに文章を生成して要約<br>
+│ 例：文章を読んで自分の言葉で要約<br>
+│ 難易度高 近年Transformerで高精度化<br>
+│ 💻 ビジネス：ニュース要約 議事録要約 論文要約<br>
+│ ⚙️ 評価指標：ROUGEスコア<br>
+│ ポイント：抽出型と生成型 長い文を短く
+</div>
+
+<div class="term-block" data-title="ワンホットベクトル">
+ワンホットベクトル ★★★★<br>
+│ └─ 🎯 単語表現の最も原始的な方法<br>
+│ ⚙️ 仕組み：語彙数=ベクトルの次元数<br>
+│ 1箇所だけ1 他は0<br>
+│ 例：語彙[私,は,学生,猫,犬] 5次元<br>
+│ 私=[1,0,0,0,0] 学生=[0,0,1,0,0]<br>
+│ ⚠️ 欠点：<br>
+│ ①次元が語彙数依存で巨大 数万〜数十万次元で疎<br>
+│ ②意味の近さが分からない<br>
+│ 猫と犬は意味近いがベクトルは直交 内積0<br>
+│ 意味的類似度を全く表現できない致命的欠点<br>
+│ 📜 現代では使われないが基礎として重要<br>
+│ 試験：1箇所だけ1 意味の近さ分からない
+</div>
+
+<div class="term-block" data-title="BoW Bag of Words">
+BoW Bag of Words ★★★<br>
+│ └─ 🎯 文書表現の基礎 単語の出現回数で文書を表現<br>
+│ ⚙️ 仕組み：文書を単語の出現回数ベクトルで表現<br>
+│ 例：文書 猫が好き 犬が好き→猫:1 犬:1 好き:2<br>
+│ 特徴：単語の集合 袋として扱う 順序情報は無視<br>
+│ 私は犬が好きと犬は私が好きが同じ表現になる<br>
+│ ⚠️ 欠点：順序無視 意味の近さ考慮なし 次元巨大<br>
+│ 改良版がTF-IDF<br>
+│ キーワード：出現回数で表現 順序無視
+</div>
+
+<div class="term-block" data-title="n-gram">
+n-gram ★★★<br>
+│ └─ 🎯 BoWの順序無視欠点を緩和<br>
+│ ⚙️ n個連続の単語を1単位として扱う<br>
+│ 例：文 私は学生です<br>
+│ 1-gram：私/は/学生/です<br>
+│ 2-gram bigram：私は/は学生/学生です<br>
+│ 3-gram trigram：私は学生/は学生です<br>
+│ 特徴：順序をある程度保持可能<br>
+│ n大きいほど文脈考慮だがデータ疎性増大<br>
+│ 💻 用途：言語モデル 機械翻訳 スペルチェック<br>
+│ ポイント：n個連続を1単位 順序をある程度保持
+</div>
+
+<div class="term-block" data-title="TF-IDF">
+TF-IDF ★★★★★<br>
+│ └─ 🎯 情報検索・文書表現の最重要基礎 G検定最頻出<br>
+│ ⚙️ TF-IDF = TF × IDF<br>
+│ TF Term Frequency：単語の出現頻度<br>
+│ 文書内でよく出るほど高い<br>
+│ IDF Inverse Document Frequency：逆文書頻度<br>
+│ 珍しい単語ほど高い<br>
+│ ⚙️ 数式：IDF = log 全文書数 / その単語を含む文書数<br>
+│ 例：the は など全ての文書に出る→IDF低<br>
+│ 深層学習など特定文書のみ→IDF高<br>
+│ 効果：珍しい単語ほど高スコア 重要単語を強調<br>
+│ 単なる回数 BoWより文書特徴を的確に表現<br>
+│ 💻 用途：情報検索のランキング<br>
+│ 文書類似度 キーワード抽出<br>
+│ 試験鉄板：珍しい単語ほど高スコア→TF-IDF<br>
+│ TFは出現頻度 IDFは逆文書頻度
+</div>
+
+<div class="term-block" data-title="分散表現 / 単語埋め込み">
+分散表現 / 単語埋め込み ★★★★★<br>
+│ └─ 🎯 現代NLPの土台 全ての基礎 2013年Word2Vecで革命<br>
+│ 旧手法ワンホットの欠点 意味の近さ分からないを解決<br>
+│ ⚙️ 仕組み：単語を低次元 例100〜300次元の<br>
+│ 密な実数ベクトルで表現<br>
+│ 特徴：意味近い単語はベクトル空間で距離近い<br>
+│ 例：猫と犬は近く 猫と机は遠い<br>
+│ 王 - 男性 + 女性 = 女王 などの類推も可能<br>
+│ 📚 学習：周辺単語から予測する 分布仮説<br>
+│ 似た文脈に現れる単語は似た意味<br>
+│ 🧩 代表手法：Word2Vec, GloVe, fastTextが基礎<br>
+│ ELMo, BERTで文脈考慮へ進化<br>
+│ 現代NLPは全て分散表現から始まる<br>
+│ 最重要：意味近いと距離近い 現代NLPの土台<br>
+│ G検定で最も問われるNLP基礎概念
+</div>
+
+<div class="term-block" data-title="Word2Vec">
+Word2Vec ★★★★★<br>
+│ 2013年 Google Mikolov<br>
+│ 分散表現の革命、現代NLPの出発点<br>
+│ 単語を低次元密ベクトル300次元へ<br>
+│ ⚙️ 分布仮説「似た文脈は似た意味」<br>
+│ 🎯 King-Man+Woman=Queenが演算で成立<br>
+│ 📜 2013年 Google 鉄板
+</div>
+
+<div class="term-block" data-title="CBOW">
+CBOW ★★★★★<br>
+│ Continuous Bag-of-Words<br>
+│ ⚙️ 周囲から中心を予測<br>
+│ 例：私 は です → 学生 を予測<br>
+│ 🎯 学習が速い、頻出単語で高精度<br>
+│ キーワード：周囲から中心、速い
+</div>
+
+<div class="term-block" data-title="スキップグラム">
+スキップグラム ★★★★★<br>
+│ Word2Vec学習法2、CBOWの逆<br>
+│ ⚙️ 中心から周囲を予測<br>
+│ 例：学生 → 私 は です を予測<br>
+│ 🎯 精度はCBOWより高い、低頻出に強い<br>
+│ 現在主流 +Negative Sampling<br>
+│ キーワード：中心から周囲、精度重視
+</div>
+
+<div class="term-block" data-title="fastText">
+fastText ★★★★<br>
+│ 2016年 Facebook Bojanowski<br>
+│ ⚠️ Word2Vecは未知語に弱い<br>
+│ ⚙️ 文字n-gramに分解<br>
+│ apple → &lt;ap app ppl ple le&gt;<br>
+│ 🎯 未知語 綴り間違いに強い<br>
+│ 走る 走った 走ればの類似性<br>
+│ キーワード：文字n-gram 未知語に強い<br>
+│ 補足：Word2Vecの子、CBOW版とスキップグラム版あり<br>
+│ スキップグラム版が有名
+</div>
+
+<div class="term-block" data-title="ELMo">
+ELMo ★★★★<br>
+│ 2018年 AllenNLP Peters<br>
+│ ⚠️ 単語1つにベクトル1つ固定の限界<br>
+│ bank=銀行/土手で同じベクトルの問題<br>
+│ ⚙️ 文脈でベクトル変わる動的表現<br>
+│ ⚙️ 双方向LSTM BiLSTMで実現<br>
+│ 🎯 多義性解消、SOTA大幅更新<br>
+│ 📜 RNN時代の最終形態、思想はBERTに影響を与えたが構造は別
+</div>
+
+<div class="term-block" data-title="Transformer">
+Transformer ★★★★★<br>
+│ 2017年 Google Vaswani<br>
+│ Attention is All you Need<br>
+│ RNNを捨てAttentionのみの革命<br>
+│ 現代NLPの親
+</div>
+
+<div class="term-block" data-title="BERT">
+BERT ★★★★★<br>
+│ 2018年 Google Devlin<br>
+│ 現在のNLPはほぼBERT系<br>
+│ ⚙️ Transformer Encoderのみ<br>
+│ 📚 事前学習<br>
+│ ①Masked LM 15%を[MASK]で隠して当てる　MLM<br>
+│ 例：私は[MASK]です→学生<br>
+│ ②Next Sentence Prediction NSP（2文が連続しているかを判定）<br>
+│ 📚 ファインチューニングで少量データ学習<br>
+│ 🎯 GLUEで人間超え SQuADでも人間超え<br>
+│ 💻 検索エンジン チャットボットで標準<br>
+│ 試験：Masked LM Encoderのみ GLUE人間超え<br>
+│ 📜 構造はELMoとは無関係、思想のみ継承
+</div>
+
+<div class="term-block" data-title="LLM 大規模言語モデル">
+LLM 大規模言語モデル ★★★★★<br>
+│ 数百億〜数千億パラメータ規模<br>
+│ 2024年最重要追加 ChatGPTで必須<br>
+│ ⚙️ ①スケール則 パラメータ増で性能向上<br>
+│ ②創発的能力 ある規模超えると新能力獲得<br>
+│ ③Few-shot 例数個提示でタスク対応<br>
+│ ⚙️ Transformer Decoder系の系統<br>
+│ ⚠️ LLM共通のリスク・課題<br>
+│ ハルシネーション 嘘生成<br>
+│ バイアス 著作権 計算コスト<br>
+│ 全LLM共通 PaLMもGPTもLLaMAも同じ
+</div>
+
+<div class="term-block" data-title="PaLM">
+PaLM ★★★<br>
+│ Google 5400億パラメータ<br>
+│ Pathways LM PaLM2へ進化<br>
+│ 🎯 Few-shotで高性能 推論能力高い<br>
+│ 試験：PaLMはGoogle
+</div>
+
+<div class="term-block" data-title="GPT-3/4">
+GPT-3/4 ★★★★★<br>
+│ OpenAI 1750億〜 ChatGPT基盤<br>
+│ 試験：GPTはOpenAI
+</div>
+
+<div class="term-block" data-title="LLaMA">
+LLaMA ★★★<br>
+│ Meta オープンソース<br>
+│ 試験：LLaMAはMeta
+</div>
+
+<div class="term-block" data-title="GLUE">
+GLUE ★★★<br>
+│ 自然言語理解の評価ベンチマーク<br>
+│ 2018年 Wangら 9タスク総称<br>
+│ SST-2 MRPC MNLIなど<br>
+│ 📜 BERTが人間超えで話題<br>
+│ 後継SuperGLUE
+</div>
+
+<div class="term-block" data-title="音声認識">
+音声認識 ★★★★★<br>
+│ └─ 音声→文字 ASR G検定王道 必ず出る<br>
+│ 💻 例：Siri Alexa OK Google YouTube自動字幕 Zoom文字起こし<br>
+│ 🎯 評価：WER Word Error Rate 低いほど良い<br>
+│ ⚠️ 課題：雑音 方言 話者依存に弱い
+</div>
+
+<div class="term-block" data-title="音声合成">
+音声合成 ★★★★<br>
+│ └─ 文字→音声 TTS 文字を読み上げる<br>
+│ 💻 例：VOICEVOX 初音ミク Googleマップ案内<br>
+│ 🎯 評価：MOS 5段階主観評価<br>
+│ キーワード：文字→音声 読み上げ
+</div>
+
+<div class="term-block" data-title="話者識別">
+話者識別 ★★★★<br>
+│ └─ 誰が話しているか シラバス表記は話者識別=話者認識<br>
+│ ①識別：事前登録必須。複数人中誰か 会議発言者<br>
+│ ②照合/認証：本人の声を登録しておく。本人か判定 声紋認証<br>
+│ ⚙️ 仕組み：i-vector x-vector 登録声紋と比較<br>
+│ 試験：何を言ったか=音声認識 誰が言ったか=話者識別
+</div>
+
+<div class="term-block" data-title="音声の感情分析">
+音声の感情分析 ★★★<br>
+│ └─ 声から感情<br>
+│ ⚙️ 特徴：ピッチ パワー エネルギー 韻律特徴<br>
+│ 🌐 ビジネス：コールセンター怒り検知 メンタルモニタリング
+</div>
+
+<div class="term-block" data-title="音素">
+音素 ★★★★<br>
+│ └─ 音声の最小単位 物理的な音 これ以上分割不可<br>
+│ 日本語約30個 英語約40個 言語で異なる<br>
+│ 例：「かさ」は/k//a//s//a/の4音素<br>
+│ 音響モデルで音声信号→音素へ変換が基礎<br>
+│ 試験：音声の最小単位 物理的な音 日30英40
+</div>
+
+<div class="term-block" data-title="音韻">
+音韻 ★★★<br>
+│ └─ 音素より抽象的 心理的な音の単位 意味を区別する単位<br>
+│ 音素は物理 音韻は心理的に同じと認識するグループ<br>
+│ 例：助詞「は」は/わ/と発音だが音韻的に同じ扱いも<br>
+│ 試験：音素は物理 音韻は心理 意味を区別
+</div>
+
+<div class="term-block" data-title="スペクトル包絡">
+スペクトル包絡 ★★★<br>
+│ └─ FFTスペクトルの外枠 声の個性 声道形状を表す<br>
+│ 詳細ギザギザを無視し大まかな形 外枠<br>
+│ 話者識別に使われる 包絡の違いで誰か判定<br>
+│ 試験：周波数の大まかな形 声の個性 話者識別に使用
+</div>
+
+<div class="term-block" data-title="A-D変換">
+A-D変換 ★★★★<br>
+│ └─ アナログ電圧変化を一定間隔でサンプリング量子化<br>
+│ サンプリング周波数：1秒何回 CD44.1kHz 音声認識16kHz<br>
+│ 量子化ビット：振幅何段階 16bit=65536段階<br>
+│ キーワード：アナログ→デジタル 最初のステップ
+</div>
+
+<div class="term-block" data-title="PCM">
+PCM パルス符号変調器 ★★★<br>
+│ └─ Pulse Code Modulation 標本化→量子化→符号化 CDはPCM 非圧縮高音質<br>
+│ 試験：A-D変換の代表→PCM CDはPCM
+</div>
+
+<div class="term-block" data-title="FFT">
+FFT 高速フーリエ変換 ★★★★★<br>
+│ └─ Fast Fourier Transform 1975年 Cooley-Tukey高速化<br>
+│ 時間軸波形→周波数成分に分解 25ms窓でスペクトログラム作成<br>
+│ 人の声は複数周波数の重ね合わせ FFTで分離<br>
+│ 試験鉄板：波形を周波数に分解 時間→周波数 基本中の基本
+</div>
+
+<div class="term-block" data-title="フォルマント">
+フォルマント / フォルマント周波数 ★★★★<br>
+│ └─ スペクトル包絡の中で特に強いピークの周波数 共鳴周波数<br>
+│ 第1第2フォルマント位置で母音決まる<br>
+│ あ：800Hz/1200Hz い：300Hz/2300Hz う：300Hz/800Hz<br>
+│ 試験：母音を特徴付ける→フォルマント 共鳴周波数 ピーク
+</div>
+
+<div class="term-block" data-title="メル尺度">
+メル尺度 ★★★★<br>
+│ └─ 人間の聴覚特性模倣 低周波強調 高周波圧縮<br>
+│ 1000Hzと2000Hz差は大きく感じるが10000と11000差は小さく感じる<br>
+│ mel=2595*log10(1+f/700) 1000Hz以下線形以上対数<br>
+│ キーワード：人間の聴覚 高音ほど鈍感
+</div>
+
+<div class="term-block" data-title="MFCC">
+MFCC メル周波数ケプストラム係数 ★★★★★<br>
+│ └─ 一番出る特徴量の王様 G検定最頻出<br>
+│ Mel-Frequency Cepstrum Coefficients ほぼ100%これ使う<br>
+│ 生成5段階丸暗記：<br>
+│ ①波形→A-D変換 PCM<br>
+│ ②窓掛け 25ms ハミング窓<br>
+│ ③FFT 周波数へ<br>
+│ ④メルフィルタバンクでメルスペクトログラム+log 人間耳に近づける<br>
+│ ⑤DCT離散コサイン変換で12-13次元圧縮→MFCC完成 39次元使用一般的<br>
+│ 試験：特徴量といえばMFCC 波形→FFT→メル→対数→DCT
+</div>
+
+<div class="term-block" data-title="HMM">
+HMM（隠れマルコフモデル） ★★★★<br>
+│ └─ 2010年まで主流<br>
+│ 音素遷移を確率モデル化<br>
+│ /k/→/a/→/s/→/a/遷移確率+出力確率<br>
+│ 弱点：精度頭打ち<br>
+│ ディープラーニングに敗北 歴史として頻出<br>
+│ キーワード：伝統的手法 2010年まで主流
+</div>
+
+<div class="term-block" data-title="CTC">
+CTC ★★★★<br>
+│ └─ Connectionist Temporal Classification<br>
+│ 2014年 Graves<br>
+│ 課題：音声100フレーム vs 文字1文字<br>
+│ 長さ不一致を学習可能に<br>
+│ 解決：blankラベル導入<br>
+│ ___あああ___ああ→あ に縮約<br>
+│ アライメント自動学習<br>
+│ 効果：RNN/Transformerで<br>
+│ エンドツーエンド学習可能<br>
+│ DeepSpeech Whisper基礎<br>
+│ 試験：長さが違う系列→CTC blankラベル
+</div>
+
+<div class="term-block" data-title="WaveNet">
+WaveNet ★★★★★<br>
+│ └─ 2016年 DeepMind van den Oord 音声合成で革命<br>
+│ 従来：波形連結型 ロボット声<br>
+│ 新：生波形直接生成 自己回帰<br>
+│ Dilated Causal Convolution<br>
+│ 因果：未来見ない<br>
+│ 拡張：1,2,4,8…指数的拡張で<br>
+│ 広い受容野を少層で実現<br>
+│ 成果：MOSで人間並み 区別困難<br>
+│ 音楽生成にも応用<br>
+│ 試験：音声合成といえばWaveNet<br>
+│ 生波形直接生成 Dilated Causal
+</div>
+
+<div class="term-block" data-title="DQN">
+🧩 DQN ★★★★★<br>
+   └─ 深層強化学習ブームの火付け役 2013年 DeepMind Mnih<br>
+      Q学習+CNN融合 Q値=将来報酬期待値<br>
+      入力：ゲーム画面4枚 出力：各ボタンのQ値<br>
+      工夫1 経験再生：過去(s,a,r,s')数十万件保存 ランダムミニバッチ<br>
+            時系列相関除去 データ再利用<br>
+      工夫2 ターゲットネットワーク：教師計算NWを固定 数千step毎同期<br>
+            目標固定で学習安定化<br>
+      成果：Atari49中43で人間超え<br>
+      試験：DQNの工夫→経験再生とターゲット<br>
+   ├─ 📚 Q学習 / 行動価値関数Q(s,a) / 状態価値関数V(s)<br>
+   │ └─ DQNの基礎 9章シラバス 試験で必ずセット<br>
+   ├─ 📚 ε-greedy方策<br>
+   │ └─ 9章シラバス DQN標準の探索手法<br>
+   ├─ ⚙️ 割引率γ<br>
+   │ └─ Q_target計算で使用
+</div>
+
+<div class="term-block" data-title="ダブルDQN">
+🧩 ダブルDQN ★★★★<br>
+   │ └─ Q値過大評価対策 2015年 van Hasselt<br>
+   │ 問題：max演算でノイズ拾い100点と勘違い<br>
+   │ 解決：選択はメインNW 評価はターゲットNWに分離<br>
+   │ Q_target=r+γ Q_target(s', argmax_a Q_main(s',a))
+</div>
+
+<div class="term-block" data-title="デュエリングネットワーク">
+🧩 デュエリングネットワーク ★★★★<br>
+   │ └─ Q(s,a)=V(s)+A(s,a)に分解 2015年 Wangら<br>
+   │ V：状態自体の良さ 敵いないとV高<br>
+   │ A：その行動が平均よりどれだけ良いか<br>
+   │ 効果：Vを全行動で共有 効率UP<br>
+　　優先度付き経験再生★（2016）<br>
+　　　TD誤差が大きい経験を優先して学習する
+</div>
+
+<div class="term-block" data-title="ノイジーネットワーク">
+🧩 ノイジーネットワーク ★★★<br>
+   │ └─ 探索改良 2017年 Fortunato<br>
+   │ 従来ε-greedyは状態関係なく10%ランダムで無駄<br>
+   │ 重み W=μ+σ⊙ε ノイズ加えて賢い探索<br>
+   │ 不確実な状態でノイズ大 確実でノイズ小<br>
+　　　重みにノイズを加えると、一貫性のある深い探索ができるから、効率が良い<br>
+これがFortunatoらが2017年に証明したこと。
+</div>
+
+<div class="term-block" data-title="Rainbow">
+🧩 Rainbow ★★★★<br>
+   │ └─ DQN改良7つ統合全部盛り 2017年 Hesselら<br>
+   │ ①ダブル②デュエリング③ノイジー④優先度付き経験再生<br>
+   │ ⑤多段階学習nステップ報酬⑥分布型Q値分布学習⑦優先度付きはTD誤差大を優先<br>
+   │ 試験：全部盛り→Rainbow 7つ統合
+</div>
+
+<div class="term-block" data-title="A3C">
+🧩 A3C ★★★★<br>
+   │ └─ Asynchronous Advantage Actor-Critic 2016年 Mnih 非同期並列先駆け<br>
+   │ 複数エージェント16個が別環境で同時プレイ 非同期でグローバルNW更新<br>
+   │ 経験再生不要 CPUだけで高速<br>
+   │ Actor：方策π(a|s) Critic：状態価値V(s) Advantage=Q-Vで分散減少<br>
+   │ └─ 🧩 APE-X ★★★<br>
+   │ └─ A3Cの大規模分散版 2018年 Horganら<br>
+   │ 360個Actorがデータ収集 1つLearnerが優先度付き経験再生で学習<br>
+   │ 学習速度数倍高速化
+</div>
+
+<div class="term-block" data-title="Agent57">
+🧩 Agent57 ★★★<br>
+   │ └─ Atari全57で人間超え初 2020年 DeepMind<br>
+   │ 探索困難ゲーム対策 モンテズマの復讐など報酬0問題<br>
+   │ ①好奇心探索：珍しい状態に内発的報酬 ②長期短期2方策分離
+</div>
+
+<div class="term-block" data-title="PPO">
+🧩 PPO ★★★★★ <br>
+   │ └─ Proximal Policy Optimization 2017年 SchulmanらOpenAI 現主流<br>
+   │ 安定 実装簡単 ハイパラ頑健 初心者でも動く<br>
+   │ 方策急変すると崩壊→比率r=π_new/π_oldを[0.8,1.2]にクリッピングで制限<br>
+   │ OpenAI標準 ChatGPTのRLHFでもPPO使用<br>
+   │ 試験：現在主流→PPO クリッピングで安定<br>
+　　　PPO：離散も連続もOK（汎用性が高い）<br>
+   │ ├─ 📚 方策勾配法 / Actor-Critic<br>
+   │ └─ 🧩 DDPG / SAC★<br>
+   │ └─ 連続値制御代表 <br>
+　　　　　DDPG=決定論的 <br>
+　　　　　SAC=エントロピー正則化で現主流
+</div>
+
+<div class="term-block" data-title="AlphaStar">
+🧩 AlphaStar ★★★★★<br>
+      └─ スタクラ2でプロ超え 2019年 DeepMind<br>
+         リアルタイム 不完全情報 広大マップ 長期戦略<br>
+         自己対戦を数千TPUで数ヶ月 リーグ学習で多様戦略<br>
+         成果：プロ10戦10勝 Top0.2%グランドマスター
+</div>
+
+<div class="term-block" data-title="RLHF">
+🎯 RLHF ★★★★★ <br>
+   └─ 人間フィードバックからの強化学習 ChatGPT核心 2022年 InstructGPT確立<br>
+      流れ3ステップ：<br>
+      ①人間が2回答見て良い方選ぶランキングデータ収集<br>
+      ②人間の好み予測する報酬モデル作成<br>
+      ③その報酬モデルでLLMをPPOで強化学習し高得点回答へ<br>
+      結果：有害回答減少 丁寧な回答に<br>
+      試験：ChatGPT学習方法→RLHF 人間選好→報酬モデル→PPO<br>
+      └─ 💻 InstructGPT / ChatGPT<br>
+         └─ RLHFとセットで試験頻出
+</div>
+
+<div class="term-block" data-title="MARL 複数エージェント">
+🎯 MARL 複数エージェント ★★★★ <br>
+   └─ Multi-Agent RL 複数エージェント環境<br>
+      ├─ 協力：共通報酬 OpenAI Five 5人協力<br>
+      ├─ 競争：ゼロサム AlphaStar 1対1<br>
+      ├─ 混合：自動運転複数台協調<br>
+      ├─ ⚠️ 難しさ：相手も学習する非定常環境 定常仮定崩れる<br>
+      │ └─ これがMARL最大の課題：相手も賢くなるから環境が非定常になる<br>
+      ├─ ⚙️ CTDE ★★★★ <br>
+      │ └─ 考え方：集中学習分散実行<br>
+      │ ├─ 集中学習：学習時は全員の位置・行動・報酬を全部見て学習 コーチが上から<br>
+      │ ├─ 分散実行：実行時は各エージェントが自分の視界だけで行動<br>
+      │ ├─ 手法① MADDPG：連続値制御向け<br>
+      │ └─ 手法② QMIX：協力の報酬分解向け<br>
+      ├─ 🧩 OpenAI Five ★★★★<br>
+      │ └─ Dota2 5対5で世界王者OGに勝利 2019年 OpenAI<br>
+      │ MARL代表例 個人技+5人協力究極の協力タスク<br>
+      │ 自己対戦1日で人間180年分 256GPU数ヶ月<br>
+      │ └─ MARLの最終課題を解いた成功例<br>
+      └─ ⚙️ MADDPG / QMIX / CTDE <br>
+         └─ 試験頻出 CTDE=集中学習分散実行
+</div>
+
+<div class="term-block" data-title="連続値制御">
+⚙️ 連続値制御 ★★★★<br>
+   └─ ロボット制御必須<br>
+      離散：上下左右4択 Atari<br>
+      連続：ハンドル13.5度 アクセル0.7 関節0.3rad<br>
+      DQNは離散のみ 連続対応：DDPG PPO SACエントロピー正則化で主流<br>
+      試験：ロボット制御→連続値 DQNは離散のみ
+</div>
+
+<div class="term-block" data-title="報酬成形">
+⚙️ 報酬成形 ★★★★<br>
+   └─ Reward Shaping 報酬設計工夫<br>
+      ゴール100点他0点のスパース報酬では学べない<br>
+      ゴール近づいたら1点 壁で-1点の密報酬で促進<br>
+      注意：報酬ハッキング ゴール手前ウロウロで稼ぎ<br>
+      対策：ポテンシャルベース F(s)=γΦ(s')-Φ(s)なら最適不変
+</div>
+
+<div class="term-block" data-title="状態表現学習">
+⚙️ 状態表現学習 ★★★<br>
+   └─ 生状態を良い表現に変換して効率化<br>
+      ロボットカメラ84x84x3=21168次元は高次元すぎ<br>
+      →物体位置10次元など低次元に圧縮してから学習<br>
+      手法：オートエンコーダ VAE Contrastiveで事前学習 生画像→潜在z
+</div>
+
+<div class="term-block" data-title="オフライン強化学習">
+⚙️ オフライン強化学習 ★★★★<br>
+   └─ 2024年注目 環境と相互作用せずログだけで学習<br>
+      従来オンラインは試行錯誤失敗しながら<br>
+      問題：自動運転で事故りながら学べない 工場ロボット壊れる<br>
+      解決：人間運転ログ（データセット）100万件で学習 環境相互作用なし<br>
+      課題：分布シフト 外挿誤差 手法：CQL IQL保守的Q学習<br>
+      └─ 🧩 CQL / IQL<br>
+         └─ 試験頻出 オフラインの外挿誤差対策 保守的Q学習
+</div>
+
+<div class="term-block" data-title="残差強化学習">
+🧩 残差強化学習 ★★★<br>
+   └─ シラバス明記 追加<br>
+      従来制御+強化学習の残差を学習<br>
+      既存の良い制御器あり その誤差をRLで補正<br>
+      例：PID制御で大まか制御 残りの微調整をRLで学習<br>
+      効果：学習高速 安全 ロボット応用で現実的
+</div>
+
+<div class="term-block" data-title="sim2real">
+🌐 sim2real ★★★★<br>
+   └─ Simulation to Real シミュで学習→現実で動かす ロボット必須<br>
+      現実1万回転ばせたら壊れる時間かかる危険 シミュなら1秒100回並列化可能<br>
+      MuJoCo Isaac Simで学習→現実転移<br>
+      課題：Reality Gap シミュ摩擦0.5現実0.3で失敗<br>
+      └─ ⚙️ ドメインランダマイゼーション ★★★★<br>
+         └─ sim2realギャップ対策 2017年 OpenAI<br>
+            シミュ条件を毎回ランダムに変える 床色赤青黄 照明明暗 摩擦0.1〜1.0 質量大きさカメラ位置<br>
+            いろんな条件で学習→現実初見にも頑健 現実はランダム化の1つとみなせる<br>
+            実例：OpenAIルービックキューブ解くロボハンド
+</div>
+
+<div class="term-block" data-title="画像生成">
+│ ├─ 画像生成★<br>
+　　　：風景 人物 欠損補完 超解像 データ拡張
+</div>
+
+<div class="term-block" data-title="音声生成">
+│ ├─ 音声生成★<br>
+　　　：TTS WaveNet 音楽生成
+</div>
+
+<div class="term-block" data-title="文章生成">
+│ ├─ 文章生成★<br>
+　　　：GPT要約 対話 生成AI核
+</div>
+
+<div class="term-block" data-title="AutoEncoder オートエンコーダ">
+├─ 🧩 AutoEncoder オートエンコーダ ★★★★<br>
+│ └─ 教師なし代表 入力自身が正解 Encoder x→z圧縮 Decoder z→x'復元<br>
+│ 再構成誤差||x-x'||最小化 zが本質特徴<br>
+│ 用途：次元削減 特徴抽出 異常検知 正常のみ学習 誤差大で異常判定
+</div>
+
+<div class="term-block" data-title="自己回帰">
+├─ 🧩 自己回帰 ★★★★<br>
+│ └─ p(x)=Πp(x_i|x_<i) 1要素ずつ順番生成<br>
+│ 長所尤度正確高品質 短所逐次で遅い並列化困難<br>
+│ PixelCNN WaveNet GPT全て自己回帰<br>
+│ キーワード：順番に 逐次生成
+</div>
+
+<div class="term-block" data-title="GAN">
+├─ 🧩 GAN ★★★★★<br>
+│ └─ 2014年 Goodfellow G検定最頻出<br>
+│ Generator ノイズz→偽G(z) 識別器欺く<br>
+│ Discriminator 真xと偽G(z)真偽判定 警察<br>
+│ min max E[logD(x)]+E[log(1-D(G(z)))] 区別不能に<br>
+│ キーワード：生成器と識別器 敵対的学習<br>
+│ └─ 🧩 DCGAN ★★★★<br>
+│ └─ GANにCNN 2015年 Radford<br>
+│ 全結合→畳み込み バッチ正規化 ReLU/LeakyReLU<br>
+│ 初めて安定64x64高解像度 以降基礎アーキテクチャ
+</div>
+
+<div class="term-block" data-title="pix2pix">
+│ ├─ 🧩 pix2pix ★★★★<br>
+│ │ └─ 条件付きGAN paired 2016年 Isola<br>
+│ │ 学習時にペア必須 線画とカラーのペア必要<br>
+│ │ 線画→カラー 白黒→カラー セグマップ→風景<br>
+│ │ GはU-Net スキップ結合で細部保持 DはPatchGAN局所判定<br>
+│ │ 長所高精度 短所ペア収集コスト高
+</div>
+
+<div class="term-block" data-title="CycleGAN">
+│ └─ 🧩 CycleGAN ★★★★★<br>
+│ └─ 2017年 Zhu ペア不要 馬群とシマウマ群のみで学習<br>
+│ 核心：サイクル一貫性 x→G(x)→F(G(x))≈x L_cyc=||F(G(x))-x||<br>
+│ 行って戻って元に戻る制約で対応保持<br>
+│ 馬↔シマウマ 夏↔冬 写真↔絵画 2G+2D構成<br>
+│ キーワード：ペアなし サイクル一貫性 pix2pixと対比頻出
+</div>
+
+<div class="term-block" data-title="Diffusion Model">
+├─ 🧩 Diffusion Model ★★★★★<br>
+│ └─ 2020年以降生成AI現主流 Stable Diffusion根幹 GAN超え<br>
+│ ①拡散：画像に徐々にノイズ付加 x0→xT完全ノイズ<br>
+│ ②逆拡散：ノイズから徐々に除去し画像生成 U-Netで予測<br>
+│ 長所：安定 高品質 多様 モード崩壊なし 短所：数十ステップで遅い<br>
+│ 試験：現主流はDiffusion
+</div>
+
+<div class="term-block" data-title="NeRF">
+└─ 🧩 NeRF ★★★★<br>
+   └─ Neural Radiance Fields 2020年 3D革命<br>
+      2D数枚→3Dシーン 新視点合成<br>
+      5D入力 位置x,y,z+視線θ,φ→色密度出力 MLP学習 ボリュームレンダリング<br>
+      応用：3D復元 VR AR 自動運転3D地図<br>
+      キーワード：2D→3D 新視点合成
+</div>
+
+<div class="term-block" data-title="事前学習">
+│ ├─ ⚙️ 事前学習 ★★★★★<br>
+│ │ └─ 定義：本番タスクの前に大規模データで汎用特徴を先に学習<br>
+│ │ 例：ImageNet100万枚で「エッジ・目・耳・形」を先に覚える<br>
+│ │ 流れ：事前学習 → 転移 → ファインチューニング が定石<br>
+│ │ キーワード：汎用特徴 先に学習
+</div>
+
+<div class="term-block" data-title="事前学習済みモデル">
+│ ├─ 💻 事前学習済みモデル ★★★★★<br>
+│ │ └─ 定義：事前学習済みの使える状態のモデル<br>
+│ │ 例：画像=ResNet VGG EfficientNet / NLP=BERT GPT / 音声=Wav2Vec<br>
+│ │ 今の常識：HuggingFaceからDLして使う 自分で0から学習はしない<br>
+│ │ キーワード：ResNet BERT ダウンロードして使う
+</div>
+
+<div class="term-block" data-title="転移学習・ファインチューニング 本体">
+│ └─ ⚙️ 転移学習・ファインチューニング 本体 ★★★★★<br>
+│ ├─ 転移学習：別タスクへの知識の流用という考え方全体<br>
+│ ├─ ファインチューニング：その実行方法 新データで追加学習<br>
+│ │ ├─ 特徴抽出型：最終層だけ学習 他層は凍結 データ極小時に有効<br>
+│ │ └─ 全体再学習型：全層を小さい学習率(1/10)で学習 データある程度ある時<br>
+│ └─ 試験：転移学習が概念、ファインチューニングが手法
+</div>
+
+<div class="term-block" data-title="自己教師あり学習">
+│ ├─ 📚 自己教師あり学習 ★★★★★ <br>
+│ │ └─ 定義：ラベルなしデータから自分で教師信号を作って学ぶ<br>
+│ │ 仕組み：①マスク言語モデル 文章の一部を隠して当てる ②画像の穴埋め<br>
+│ │ なぜ主流？：ラベル付け不要 ネット上の無限データをそのまま使える<br>
+│ │ 例：BERT=文章15%隠して当てる / GPT=次の単語当てる / MAE=画像75%隠して復元<br>
+│ │ キーワード：ラベルなし 自分で問題作る BERT GPT 現主流
+</div>
+
+<div class="term-block" data-title="半教師あり学習">
+│ ├─ 📚 半教師あり学習 ★★★★<br>
+│ │ └─ 定義：少量のラベルあり + 大量のラベルなしを混ぜて学ぶ<br>
+│ │ 使い所：ラベル付けコスト高の医療画像など<br>
+│ │ 違い：自己教師あり=ラベル0 半教師あり=ラベル少し使う<br>
+│ │ 手法：Pseudo-Labeling Consistency Regularization<br>
+│ │ キーワード：少量ラベル + 大量ラベルなし
+</div>
+
+<div class="term-block" data-title="Few-shot / One-shot / Zero-shot">
+│ ├─ 🎯 Few-shot / One-shot / Zero-shot ★★★★★<br>
+│ │ ├─ Few-shot：数例(2-5例)で新タスク適応 プロンプトに例を2個入れるだけ<br>
+│ │ ├─ One-shot：1例だけで適応<br>
+│ │ ├─ Zero-shot：例0で適応 指示だけでできる CLIPが代表<br>
+│ │ └─ 試験：GPTのIn-Context LearningはFew-shotの例 31章と32章で対比頻出
+</div>
+
+<div class="term-block" data-title="破滅的忘却">
+│ └─ ⚠️ 破滅的忘却 ★★★★★ <br>
+│ └─ 定義：新タスクを学習すると旧タスクの知識を忘れる<br>
+│ 構造：重みが新しいタスク用に上書きされるから<br>
+│ 人間でいう：フランス語勉強したら英語忘れた<br>
+│ 対策：①学習率小 ②一部層凍結 ③Elastic Weight Consolidation<br>
+│ キーワード：忘れる 上書き 対策は学習率小・凍結
+</div>
+
+<div class="term-block" data-title="基盤モデル">
+├─ 🧩 基盤モデル ★★★★★<br>
+│ └─ 定義：大量データで事前学習された大規模で汎用的なモデル 多タスクに転用可能<br>
+│ 特徴：①大規模 ②汎用的 ③適応性高い Few-shot Zero-shot可能<br>
+│ 例：GPT-3 CLIP DALL-E Flamingo 全て基盤モデル<br>
+│ キーワード：大規模 汎用的 1つで何でも
+</div>
+
+<div class="term-block" data-title="Zero-shot">
+│ ├─ 🎯 Zero-shot ★★★★★ <br>
+│ │ └─ 定義：学習していない未知タスク・未知カテゴリでも推論できる<br>
+│ │ 仕組み：大量の画像-テキスト対応を事前学習 意味空間で近いものを探す<br>
+│ │ 例：CLIPは「カピバラ」を学習してなくても「カピバラという動物」とテキストで言えば画像を当てられる<br>
+│ │ 違い：Few-shot=数例見る One-shot=1例 Zero-shot=0例で当てる<br>
+│ │ キーワード：未知でも推論 例0 CLIP代表
+</div>
+
+<div class="term-block" data-title="マルチタスク学習">
+│ └─ 📚 マルチタスク学習 ★★★★<br>
+│ └─ 定義：1モデルで複数異なるタスクを同時に学習<br>
+│ 仕組み：共通のEncoder + タスク別Head 知識共有で効率化<br>
+│ 利点：①データ効率良い ②汎化性能向上 ③計算効率良い<br>
+│ 例：1モデルで物体検出とキャプション生成とVQAを同時にやる<br>
+│ Unified-IOはこの究極形<br>
+│ キーワード：1モデルで複数タスク 知識共有
+</div>
+
+<div class="term-block" data-title="Unified-IO">
+│ └─ 🧩 Unified-IO ★★★★<br>
+│ └─ 定義：全タスクを「テキスト生成」に統一する構造 2022年 AllenAI<br>
+│ 仕組み：画像も音声も深度も全部トークン化→同じTransformerで処理→テキストで出力<br>
+│ 凄さ：90以上のタスクを1モデルで扱える 画像認識もNLPも同じモデル<br>
+│ 位置づけ：マルチモーダル×マルチタスクの最終形<br>
+│ キーワード：全てトークン化 90タスク 1モデル
+</div>
+
+<div class="term-block" data-title="CLIP">
+│ ├─ 💻 CLIP ★★★★★ <br>
+│ │ └─ Contrastive Language-Image Pre-training<br>
+│ │ 学習：4億枚の画像とテキストペアで対比学習 近いペアは近づけ 違うペアは離す<br>
+│ │ 構造：画像Encoder + テキストEncoder 2つの塔<br>
+│ │ できること：①Zero-shot画像分類 ②画像検索 ③DALL-Eの部品<br>
+│ │ 試験：CLIPといえばZero-shot CLIPといえば4億ペア<br>
+│ │ キーワード：4億ペア 対比学習 Zero-shot 画像とテキスト対応
+</div>
+
+<div class="term-block" data-title="DALL-E / DALL-E 2">
+│ ├─ 💻 DALL-E / DALL-E 2 ★★★★★ <br>
+│ │ └─ 定義：テキストから画像を生成<br>
+│ │ 構造：DALL-E 1= VQ-VAE + GPT / DALL-E 2= CLIP + Diffusion<br>
+│ │ 進化：DALL-E→GLIDE→DALL-E 2→DALL-E 3と高画質化<br>
+│ │ 試験：CLIPが理解担当 DALL-Eが生成担当 兄弟関係<br>
+│ │ キーワード：テキスト→画像 CLIP+Diffusion
+</div>
+
+<div class="term-block" data-title="Flamingo">
+│ └─ 💻 Flamingo ★★★★ <br>
+│ └─ 定義：画像数枚とテキストから対話できる視覚言語モデル 80億パラメータ<br>
+│ 特徴：Few-shotでVQA Image Captioningができる<br>
+│ 例：画像2枚見せて「これは何の共通点？」と聞くと答えられる<br>
+│ 違い：CLIP=対応付け DALL-E=生成 Flamingo=対話理解<br>
+│ キーワード：画像+テキストで対話 Few-shot DeepMind
+</div>
+
+<div class="term-block" data-title="Image Captioning キャプション生成">
+│ ├─ 📚 Image Captioning キャプション生成★★★★★<br>
+│ │ └─ 定義：画像に説明文を付けるタスク<br>
+│ │ 例：犬の写真→「芝生で走るゴールデンレトリバー」と自動生成<br>
+│ │ 構造：CNNで画像特徴抽出→RNN/Transformerで文章生成<br>
+│ │ 応用：視覚障害者支援 画像検索<br>
+│ │ キーワード：画像→テキスト 説明文生成
+</div>
+
+<div class="term-block" data-title="Text-To-Image">
+│ ├─ 📚 Text-To-Image ★★★★★<br>
+│ │ └─ 定義：テキストから画像を生成<br>
+│ │ 例：「宇宙服を着た猫の油絵」→画像生成<br>
+│ │ モデル：DALL-E Stable Diffusion Midjourney Imagen 全てここ<br>
+│ │ 応用：クリエイティブ広告 デザイン<br>
+│ │ キーワード：テキスト→画像 生成AI核
+</div>
+
+<div class="term-block" data-title="Visual Question Answering (VQA)">
+│ └─ 📚 Visual Question Answering (VQA) ★★★★★<br>
+│ └─ 定義：画像についての質問に答えるタスク<br>
+│ 例：画像を見せて「何匹の犬がいる？」「左の人は何してる？」→「2匹」「スマホを見ている」<br>
+│ 難易度：画像理解+言語理解+推論が必要 最も人間に近いタスク<br>
+│ モデル：Flamingo BLIP GPT-4Vが得意<br>
+│ キーワード：画像+質問→答え 推論必要
+</div>
+
+<div class="term-block" data-title="なぜブラックボックスを解釈する必要があるか">
+│ └─ なぜブラックボックスを解釈する必要があるか★<br>
+│ ①医療・金融・司法など責任が重い分野で「なぜその判断？」を説明必要<br>
+│ ②AI Actなど法律で説明義務化 ③バグ・バイアス発見 ④ユーザー信頼獲得<br>
+│ ブラックボックスのままでは社会実装できない → XAIが必須
+</div>
+
+<div class="term-block" data-title="説明可能AI (XAI)">
+├─ 🌐 説明可能AI (XAI) ★★★★★ <br>
+│ └─ Explainable AI<br>
+│ 定義：AIの判断根拠を人間が理解できる形で説明する技術・思想の総称<br>
+│ 2つのアプローチ：<br>
+│ ①透明なモデルを使う：決定木 線形回帰など元から解釈可能<br>
+│ ②ブラックボックスを後から説明：DNNを外部から解釈 本章は主に②<br>
+│ キーワード：ブラックボックスを開く 信頼性 透明性
+</div>
+
+<div class="term-block" data-title="CAM">
+│ ├─ 💻 CAM ★★★★ <br>
+│ │ └─ Class Activation Mapping<br>
+│ │ 仕組み：GAP層の重みを使って「どこを見て判断したか」をヒートマップ化<br>
+│ │ 欠点：アーキテクチャ制約あり GAP層必須 ResNetなどにしか使えない<br>
+│ │ キーワード：GAP必須 ヒートマップ 元祖
+</div>
+
+<div class="term-block" data-title="Grad-CAM">
+│ └─ 💻 Grad-CAM ★★★★★ <br>
+│ └─ Gradient-weighted CAM<br>
+│ 仕組み：最終畳み込み層の勾配を使ってヒートマップ生成<br>
+│ 利点：①GAP不要 どんなCNNでも使える ②クラス判別的 犬と猫どちらを見たか区別<br>
+│ 試験：CAMとの違いは？→ Grad-CAMはGAP不要で汎用的 これが頻出<br>
+│ キーワード：勾配でヒートマップ どんなCNNでもOK CAM上位互換
+</div>
+
+<div class="term-block" data-title="LIME">
+│ ├─ 💻 LIME ★★★★★ <br>
+│ │ └─ Local Interpretable Model-agnostic Explanations<br>
+│ │ 仕組み：解釈したい1つの予測の周辺でデータをわざと扰乱させ、単純な線形モデルで近似<br>
+│ │ 例：この画像を少しずつ変えて「鼻を隠すと犬と認識しなくなる」→鼻が重要とわかる<br>
+│ │ 特徴：①モデル非依存 どんなモデルでもOK ②局所的 1個の予測だけを説明<br>
+│ │ キーワード：局所的 周辺を扰乱 1個の予測を説明
+</div>
+
+<div class="term-block" data-title="Permutation Importance">
+│ ├─ 💻 Permutation Importance ★★★★ <br>
+│ │ └─ 定義：ある特徴量をわざとシャッフルして精度がどれだけ下がるかで重要度を測る<br>
+│ │ 仕組み：年齢をシャッフル→精度激落ち→年齢は重要 年収シャッフル→変化なし→重要でない<br>
+│ │ 利点：シンプル モデル非依存 大局的 全体傾向がわかる<br>
+│ │ 欠点：相関ある特徴量があると過小評価される<br>
+│ │ キーワード：シャッフルして精度低下で測る 全体的 シンプル
+</div>
+
+<div class="term-block" data-title="SHAP">
+│ └─ 💻 SHAP ★★★★★ <br>
+│ └─ SHapley Additive exPlanations ゲーム理論のシャープレイ値が理論的裏付け<br>
+│ 仕組み：各特徴量が予測にどれだけ貢献したかを公平に分配して計算<br>
+│ 強み：①理論的根拠が完璧 ②加法性 全特徴量の貢献度足すと予測値になる ③大局的にも局所的にも使える<br>
+│ LIMEとの違い：LIME=近似で速いが不安定 SHAP=理論的に正確で安定 現場ではSHAPが標準<br>
+│ 試験：SHAPといえばシャープレイ値 SHAPといえば加法性<br>
+│ キーワード：シャープレイ値 理論的に最も正しい 現主流 加法性
+</div>
+
+<div class="term-block" data-title="蒸留">
+│ ├─ 💻 蒸留 ★★★★★ <br>
+│ │ └─ Knowledge Distillation<br>
+│ │ 仕組み：大きい教師モデル(Teacher)の出力を、小さい生徒モデル(Student)が真似て学習<br>
+│ │ ポイント：正解ラベルだけでなく「教師の迷い(ソフトターゲット)」も学ぶ だから高精度<br>
+│ │ 例：BERT(3億)→DistilBERT(6600万) 精度97%維持で速度60%向上<br>
+│ │ キーワード：教師→生徒 ソフトターゲット 大きいモデルから小さいモデルへ
+</div>
+
+<div class="term-block" data-title="プルーニング">
+│ ├─ 💻 プルーニング ★★★★★ <br>
+│ │ └─ Pruning<br>
+│ │ 仕組み：重みの絶対値が小さい(重要でない)ニューロンや結合を削除<br>
+│ │ 2種：①非構造化プルーニング 重み単位で削除 ②構造化プルーニング チャネル単位で削除 実用は②<br>
+│ │ 例：90%の重みを削除しても精度ほぼ維持できることが多い<br>
+│ │ キーワード：不要な重み削除 スパース化 枝刈り
+</div>
+
+<div class="term-block" data-title="量子化">
+│ ├─ 💻 量子化 ★★★★★<br>
+│ │ └─ Quantization<br>
+│ │ 仕組み：32bit浮動小数点(float32)→8bit整数(int8)に変換<br>
+│ │ 効果：サイズ1/4 速度2-4倍 メモリ大幅削減<br>
+│ │ 2種：①学習後量子化(PTQ) 簡単だが少し精度低下 ②量子化-aware学習(QAT) 学習中に量子化考慮 高精度<br>
+│ │ 例：スマホで動く全てのAIはint8量子化されている<br>
+│ │ キーワード：32bit→8bit サイズ1/4 スマホで動く理由
+</div>
+
+<div class="term-block" data-title="宝くじ仮説">
+│ └─ 🧩 宝くじ仮説 ★★★★ <br>
+│ └─ 定義：ランダムな巨大ネットワークの中に、最初から高精度な小さい部分ネットワーク(当たり券)が存在する<br>
+│ 衝撃：当たり券だけ取り出して最初から学習すれば、巨大モデルと同等の精度が高速に得られる<br>
+│ 意味：プルーニングの理論的裏付け 「最初から小さくて良いものがあった」ことを証明<br>
+│ キーワード：当たり券 最初から高精度な部分ネットワークが存在 プルーニングの根拠
+</div>
+
+<div class="term-block" data-title="エッジAI">
+│ └─ 🌐 エッジAI ★★★★★ <br>
+│ └─ 定義：クラウドではなくスマホ・カメラ・車など端末側でAI推論する<br>
+│ なぜ必要？：①低遅延 自動運転は0.1秒が命 ②プライバシー 画像をクラウドに送らない ③オフラインでも動く<br>
+│ 要件：軽量化必須 蒸留+量子化+プルーニング全部盛りが基本<br>
+│ 例：iPhone Face ID Tesla自動運転 工場の異常検知カメラ<br>
+│ キーワード：端末で推論 低遅延 プライバシー 軽量化のゴール
+</div>
+
+<div class="term-block" data-title="CRISP-DM">
+│ ├─ ⚙️ CRISP-DM ★★★★★ <br>
+│ │ └─ Cross Industry Standard Process for Data Mining<br>
+│ │ ①ビジネス理解→②データ理解→③データ準備→④モデリング→⑤評価→⑥展開<br>
+│ │ 特徴：汎用的 ただしAI本番運用の話がない<br>
+│ │ キーワード：6フェーズ ビジネス理解から始まる データマイニング標準
+</div>
+
+<div class="term-block" data-title="CRISP-ML">
+│ ├─ ⚙️ CRISP-ML ★★★★★ <br>
+│ │ └─ CRISP-DM + ML + 運用 + 監視<br>
+│ │ 違い：CRISP-DMに「MLOps・監視・保守」を追加 AIのライフサイクル全体をカバー<br>
+│ │ 試験：CRISP-DMとの違いは？→ CRISP-MLは運用・監視まで含む これが頻出<br>
+│ │ キーワード：CRISP-DMの進化版 MLOps含む AI版
+</div>
+
+<div class="term-block" data-title="PoC">
+│ ├─ 💻 PoC ★★★★★ <br>
+│ │ └─ 定義：本格開発の前に小さく試して「本当にできるか」を検証<br>
+│ │ 流れ：PoCで精度確認→Goなら本開発 PoCで失敗→撤退で損失最小<br>
+│ │ 失敗パターン：PoC止まり 本番化できない PoCと本番は別物と理解する<br>
+│ │ キーワード：小さく試す 本格前の検証 PoC止まりに注意
+</div>
+
+<div class="term-block" data-title="MLOps">
+│ └─ ⚙️ MLOps ★★★★★ <br>
+│ └─ Machine Learning Operations DevOpsのML版<br>
+│ 定義：モデルの開発→デプロイ→監視→再学習を自動化・継続的に回す仕組み<br>
+│ なぜ必要？：モデルは腐る ドリフトする 監視しないと精度劣化して事故る<br>
+│ 要素：CI/CD モデル監視 自動再学習 実験管理<br>
+│ 試験：MLOpsとは？→運用・監視・継続的改善 これが頻出<br>
+│ キーワード：運用自動化 モデルは腐る 監視・再学習 DevOpsのML版
+</div>
+
+<div class="term-block" data-title="ウォーターフォール">
+│ ├─ ⚙️ ウォーターフォール ★★★ <br>
+│ │ └─ 要件定義→設計→実装→テスト→運用と順番に滝のように進む 古典的<br>
+│ │ 長所：計画明確 短所：変更に弱い AIには不向き AIは試行錯誤多いため
+</div>
+
+<div class="term-block" data-title="アジャイル">
+│ └─ ⚙️ アジャイル ★★★★★ <br>
+│ └─ 小さく作って→試して→直してを高速で繰り返す スクラムが代表<br>
+│ なぜAIに向く？：AIは不確実性高い 最初に完璧な要件作れない アジャイルでPoCを回す<br>
+│ キーワード：反復的 高速で回す AIはアジャイルが基本
+</div>
+
+<div class="term-block" data-title="Python">
+│ ├─ 💻 Python ★★★★★ <br>
+　　　　　AI開発の標準言語<br>
+│ │ └─ 理由：ライブラリ豊富 NumPy Pandas Scikit-learn PyTorch TensorFlow全てPython
+</div>
+
+<div class="term-block" data-title="Jupyter Notebook">
+│ ├─ 💻 Jupyter Notebook ★★★★ <br>
+│ │ └─ コードと結果とグラフを1画面で試せる データサイエンティストの必須ツール
+</div>
+
+<div class="term-block" data-title="Docker">
+│ ├─ 💻 Docker ★★★★ <br>
+│ │ └─ 「私のPCでは動くのに…」を解決 環境をコンテナで丸ごと配布 再現性確保
+</div>
+
+<div class="term-block" data-title="Web API">
+│ ├─ 💻 Web API ★★★★ <br>
+│ │ └─ 作ったAIモデルをWeb経由で他システムから呼べるようにする REST APIが主流
+</div>
+
+<div class="term-block" data-title="クラウド">
+│ └─ 💻 クラウド ★★★★★ <br>
+│ └─ AWS GCP Azure GPUを従量課金で借りられる 自前でGPU買う時代は終わり
+</div>
+
+<div class="term-block" data-title="AIのビジネス活用">
+│ ├─ 🎯 AIのビジネス活用 ★★★★★<br>
+│ │ └─ 定義：AIを業務改善・新規事業に使うこと<br>
+│ │ ポイント：AIありきでなく課題ありき 「何を解決するか」から始める
+</div>
+
+<div class="term-block" data-title="BPR">
+│ ├─ 🎯 BPR ★★★★ <br>
+│ │ └─ 定義：AI導入を機に業務プロセス自体を根本的に作り直す<br>
+│ │ 例：AIチャットボット導入→単に置き換えでなく 問い合わせフロー自体を再設計<br>
+│ │ キーワード：業務自体を作り直す AI導入とセット
+</div>
+
+<div class="term-block" data-title="ステークホルダーのニーズ">
+│ ├─ 🎯 ステークホルダーのニーズ ★★★★<br>
+│ │ └─ AIプロジェクトは関係者が多い 現場・経営・顧客・法務 全員のニーズ把握が必須
+</div>
+
+<div class="term-block" data-title="データサイエンティスト">
+│ ├─ 🎯 データサイエンティスト ★★★<br>
+│ │ └─ データ分析・モデル構築の専門家 ただしビジネス理解・エンジニアリングも求められる
+</div>
+
+<div class="term-block" data-title="産学連携">
+│ ├─ 🌐 産学連携 ★★★<br>
+│ │ └─ 企業と大学が共同でAI研究 最新論文をビジネスに活かす
+</div>
+
+<div class="term-block" data-title="オープン・イノベーション">
+│ ├─ 🌐 オープン・イノベーション ★★★★<br>
+│ │ └─ 自社だけでなく他社・スタートアップ・大学の技術を組み合わせて革新
+</div>
+
+<div class="term-block" data-title="他企業や他業種との連携">
+│ └─ 🌐 他企業や他業種との連携 ★★★<br>
+│ └─ 1社ではデータも人材も足りない 複数社でデータ共有・共同開発が主流に
+</div>
+
+<div class="term-block" data-title="アノテーション">
+│ ├─ 💻 アノテーション ★★★★★ <br>
+│ │ └─ 定義：生データにラベル付けする作業 教師データ作成<br>
+│ │ 例：画像に「猫」と付ける 音声に文字起こし 文章に感情ラベル<br>
+│ │ 課題：①コスト莫大 ②人によってブレる ③品質が精度を決める<br>
+│ │ 対策：アノテーションツール クラウドソーシング ガイドライン整備<br>
+│ │ キーワード：ラベル付け 教師データ作成 コスト大 品質が命
+</div>
+
+<div class="term-block" data-title="コーパス">
+│ ├─ 💻 コーパス ★★★★ <br>
+│ │ └─ Corpus 大量の文章を集めたデータベース<br>
+│ │ 例：Wikipediaコーパス 青空文庫コーパス 対訳コーパス(日英ペア)<br>
+│ │ 違い：オープンデータセットよりテキスト特化 コーパスといえば言語<br>
+│ │ キーワード：言語データの集まり NLPの燃料
+</div>
+
+<div class="term-block" data-title="オープンデータセット">
+│ └─ 💻 オープンデータセット ★★★★ <br>
+│ └─ 定義：誰でも使える公開データセット<br>
+│ 例：ImageNet COCO MNIST GLUE Wikipedia<br>
+│ 利点：①すぐ試せる ②再現性確保 ③ベンチマークとして比較可能<br>
+│ 注意：商用利用可否 ライセンス確認必須 CC BYなど<br>
+│ キーワード：公開データ すぐ使える ライセンス確認
+</div>
+
+<div class="term-block" data-title="データリーケージ">
+│ └─ 💻 データリーケージ ★★★★★ <br>
+│ └─ Data Leakage 情報漏洩<br>
+│ 定義：本来知り得ない未来の情報やテストデータの情報が訓練データに混入<br>
+│ 例1：テストデータを混ぜて学習→精度100%に見えるが本番でボロ負け<br>
+│ 時系列で未来の株価を使って過去の予測モデルを作る<br>
+│ 例2：患者IDが訓練とテストに重複→モデルがIDを覚えてしまう<br>
+│ 結果：過大評価 本番で全く動かない 最悪のバグ<br>
+│ 対策：時系列は時間で分割 IDでグループ分割 特徴量生成のタイミング注意<br>
+│ キーワード：テスト情報混入 過大評価 本番で失敗 最悪のミス
+</div>
+
+<div class="term-block" data-title="平均">
+│ ├─ 📈 平均 ★★★★★ <br>
+　　　　算術平均 全データ足して割る 外れ値に弱い
+</div>
+
+<div class="term-block" data-title="中央値">
+│ ├─ 📈 中央値 ★★★★ <br>
+　　　　　Median 真ん中の値 外れ値に強い
+</div>
+
+<div class="term-block" data-title="最頻値">
+│ ├─ 📈 最頻値 ★★★ <br>
+　　　　　 Mode 最も頻出する値
+</div>
+
+<div class="term-block" data-title="分散">
+│ ├─ 📈 分散 ★★★★★ <br>
+　　　　　データのばらつき 平均からの二乗差の平均 大きいほどバラバラ
+</div>
+
+<div class="term-block" data-title="標準偏差">
+│ ├─ 📈 標準偏差 ★★★★★ <br>
+　　　　√分散 単位が元と同じで直感的 68-95-99.7%ルール
+</div>
+
+<div class="term-block" data-title="度数分布">
+│ ├─ 📈 度数分布 ★★★ <br>
+　　　　ヒストグラムのこと どの値が何回出たか
+</div>
+
+<div class="term-block" data-title="外れ値">
+│ ├─ 📈 外れ値 ★★★★ <br>
+　　　　　平均を歪ませる異常値 中央値やロバストな手法で対処
+</div>
+
+<div class="term-block" data-title="移動平均">
+│ └─ 📈 移動平均 ★★★ <br>
+　　　　　時系列を平滑化 株価チャートの基本 ノイズ除去
+</div>
+
+<div class="term-block" data-title="確率変数">
+│ ├─ 📈 確率変数 ★★★★<br>
+　　　　　 偶然で値が決まる変数 サイコロの出目など
+</div>
+
+<div class="term-block" data-title="確率分布">
+│ ├─ 📈 確率分布 ★★★★★ <br>
+　　　　　確率変数がどう分布するかの法則全体
+</div>
+
+<div class="term-block" data-title="確率密度">
+│ ├─ 📈 確率密度 ★★★ <br>
+　　　　　連続値の分布の濃さ 正規分布の曲線の高さ
+</div>
+
+<div class="term-block" data-title="条件付き確率">
+│ ├─ 📈 条件付き確率 ★★★★★<br>
+　　　　　 P(A|B) Bが起きた時のAの確率 ベイズの基本
+</div>
+
+<div class="term-block" data-title="期待値">
+│ ├─ 📈 期待値 ★★★★ <br>
+　　　　　平均の理論値 サイコロなら3.5
+</div>
+
+<div class="term-block" data-title="正規分布">
+│ ├─ 🔔 正規分布 ★★★★★ <br>
+　　　　　ガウス分布 山形 平均±σに68%が入る<br>
+│ │ └─ 自然界の多くがこれ 身長 テストの点数 AIの初期重みも正規分布から
+</div>
+
+<div class="term-block" data-title="ベルヌーイ分布">
+│ ├─ 🎲 ベルヌーイ分布 ★★★★ <br>
+　　　　　0/1が1回 コイン投げ1回
+</div>
+
+<div class="term-block" data-title="二項分布">
+│ ├─ 🎲 二項分布 ★★★★ <br>
+　　　　　ベルヌーイをn回 コインn回の表の回数
+</div>
+
+<div class="term-block" data-title="ポアソン分布">
+│ └─ 🎲 ポアソン分布 ★★★ <br>
+　　　　　まれな事象の回数 1時間のアクセス数 地震の回数
+</div>
+
+<div class="term-block" data-title="最小二乗法">
+│ ├─ 📈 最小二乗法 ★★★★★<br>
+ 　　　　　回帰の基本 誤差の二乗和を最小に 線形回帰の解法
+</div>
+
+<div class="term-block" data-title="最尤法">
+│ ├─ 📈 最尤法 ★★★★★<br>
+　　　　　尤度を最大にするパラメータを探す 現代MLの基本理念
+</div>
+
+<div class="term-block" data-title="帰無仮説">
+│ ├─ 📈 帰無仮説 ★★★★<br>
+　　　　　 H0 棄却したい仮説 「差がない」という仮説
+</div>
+
+<div class="term-block" data-title="対立仮説">
+│ ├─ 📈 対立仮説 ★★★★ <br>
+　　　　　H1 主張したい仮説 「差がある」<br>
+│ │ └─ p値<0.05で帰無仮説棄却→対立仮説採択が有意差あり
+</div>
+
+<div class="term-block" data-title="相互情報量">
+│ └─ 📈 相互情報量 ★★★★ <br>
+　　　　　2変数の関連度 相関係数より非線形も捉える
+</div>
+
+<div class="term-block" data-title="共分散">
+│ ├─ 📈 共分散 ★★★★ <br>
+　　　　　2変数が一緒に増えるか 符号だけでは強さ不明
+</div>
+
+<div class="term-block" data-title="相関係数">
+│ ├─ 📈 相関係数 ★★★★★ <br>
+　　　　　共分散を正規化 -1〜1 0.8なら強い正の相関 線形のみ
+</div>
+
+<div class="term-block" data-title="偏相関係数">
+│ ├─ 📈 偏相関係数 ★★★★ <br>
+　　　　　第3変数の影響を除いた相関 疑似相関を見破る<br>
+│ │ └─ アイス売上と溺死数は相関あるが真の原因は気温 気温を除くと相関消える
+</div>
+
+<div class="term-block" data-title="疑似相関">
+│ ├─ ⚠️ 疑似相関 ★★★★★ <br>
+　　　　　因果がないのに相関あるように見える 気温が隠れた原因<br>
+│ │ └─ 試験：「相関は因果を意味しない」これが頻出
+</div>
+
+<div class="term-block" data-title="ユークリッド距離">
+│ ├─ 📈 ユークリッド距離 ★★★★★ <br>
+　　　　　直線距離 √((x1-x2)^2...) k-meansの標準
+</div>
+
+<div class="term-block" data-title="マハラノビス距離">
+│ ├─ 📈 マハラノビス距離 ★★★★ <br>
+　　　　　分散を考慮した距離 外れ値検出に強い 単位違ってもOK
+</div>
+
+<div class="term-block" data-title="コサイン類似度">
+│ └─ 📈 コサイン類似度 ★★★★★ <br>
+　　　　　ベクトルの向きの近さ 文書類似度・推薦で主流 -1〜1<br>
+│ └─ 例：TF-IDFベクトルの類似度はコサインで測る 長さでなく方向が大事
+</div>
+
+<div class="term-block" data-title="個人情報">
+📜 個人情報★<br>
+定義：生存個人に関する情報で特定個人を識別できるもの<br>
+事例：氏名+住所、顔写真、メールアドレス、位置情報、Cookieでも他と組み合わせて個人特定できれば個人情報<br>
+試験：防犯カメラの顔は個人情報か→はい
+</div>
+
+<div class="term-block" data-title="個人識別符号">
+📜 個人識別符号★<br>
+定義：個人を識別する符号<br>
+事例：運転免許証番号、マイナンバー、指紋・顔認証データ、パスポート番号<br>
+個人情報との違い：個人情報は広い概念、個人識別符号は符号に限定
+</div>
+
+<div class="term-block" data-title="要配慮個人情報">
+📜 要配慮個人情報★<br>
+定義：差別・偏見を生む恐れがあり特に配慮が必要な情報<br>
+事例：病歴、犯罪歴、人種、信条、性的指向、健康診断結果<br>
+ルール：原則本人の同意が必要、オプトアウト不可<br>
+試験：健康アプリの病歴データを取得→要配慮なので同意必須
+</div>
+
+<div class="term-block" data-title="個人データ">
+📜 個人データ★<br>
+定義：個人情報DBを構成する個人情報<br>
+例：Excelの顧客リストで検索できる状態のもの<br>
+個人情報との違い：紙のメモは個人情報だが個人データではない場合も
+</div>
+
+<div class="term-block" data-title="保有個人データ">
+📜 保有個人データ★<br>
+定義：開示請求等の対象になる個人データ<br>
+要件：6ヶ月以上保有など<br>
+試験：開示請求が来たら→保有個人データなら開示義務あり
+</div>
+
+<div class="term-block" data-title="利用目的">
+📜 利用目的★<br>
+ルール：取得時に特定・公表・通知が必要<br>
+事例：ECサイトで「商品発送のため」と特定→その後マーケティングに使うのは目的外利用でNG、再同意必要
+</div>
+
+<div class="term-block" data-title="第三者提供">
+📜 第三者提供★<br>
+ルール：原則本人同意必要<br>
+例外：委託、事業承継、共同利用、オプトアウト手続き<br>
+試験：AI開発会社に顧客データを提供→第三者提供に当たる、同意必要か？
+</div>
+
+<div class="term-block" data-title="委託">
+📜 委託★<br>
+定義：業務を外部に委託すること<br>
+特徴：第三者提供には当たらないが監督義務あり<br>
+事例：クラウドサーバーに顧客データを預ける→委託、委託先の安全管理を監督する必要あり、契約書に安全管理措置明記
+</div>
+
+<div class="term-block" data-title="匿名加工情報">
+📜 匿名加工情報★<br>
+定義：特定個人を復元できないように加工した情報<br>
+特徴：公表すれば第三者提供に本人の同意不要<br>
+加工基準：氏名削除、住所は都道府県まで、特異な記述削除、IDは削除<br>
+事例：病院が患者データを匿名加工して製薬会社に提供→同意不要で可能
+</div>
+
+<div class="term-block" data-title="仮名加工情報">
+📜 仮名加工情報★<br>
+定義：他の情報と照合しない限り個人特定できないように加工<br>
+特徴：2022年改正で新設、内部分析・利用は同意不要で可能だが第三者提供は原則禁止、連絡先等の削除必要<br>
+違い：匿名加工は第三者提供OK、仮名加工は内部利用OKというすみ分け<br>
+事例：ECの購買履歴を仮名加工して社内でレコメンドAI学習→同意不要でOK
+</div>
+
+<div class="term-block" data-title="GDPR">
+🌐 GDPR★<br>
+定義：EU一般データ保護規則<br>
+特徴：域外適用あり、日本企業でもEU住民のデータを扱えば適用、制裁金は最大2000万ユーロまたは全世界売上4%<br>
+日本法との違い：同意の要件が厳格、データポータビリティ権、忘れられる権利あり<br>
+試験：EU向けサービスで個人情報取得→GDPRも意識する必要あり
+</div>
+
+<div class="term-block" data-title="著作物">
+📜 著作物★<br>
+定義：思想・感情を創作的に表現したもの<br>
+AIとの関係：AIが自律的に生成したものは著作物ではない、人間が創作的寄与すれば著作物になる可能性<br>
+事例：Midjourneyに「猫」とだけ打って出た絵→創作性なしで著作物ではない可能性、細かくプロンプト工夫・加筆修正すれば著作物になる可能性
+</div>
+
+<div class="term-block" data-title="創作性">
+📜 創作性★<br>
+定義：個性が表れていること、誰がやっても同じにならない程度の個性<br>
+試験：他人の写真をそのまま学習→創作性なし、自分のアイデアで構図を工夫→創作性あり
+</div>
+
+<div class="term-block" data-title="著作権">
+📜 著作権★<br>
+定義：著作物を独占できる権利<br>
+AI生成物論点：誰が著作権者か？プロンプトを考えた人？AI開発者？学習データ提供者？→現在は人間の創作的寄与が重要と解釈<br>
+事例：AI生成画像を無断で商用利用→もし著作物なら著作権侵害、著作物でなければ侵害ではない
+</div>
+
+<div class="term-block" data-title="AI生成物">
+📜 AI生成物★<br>
+定義：AIが生成した画像・文章・音楽<br>
+論点：著作権の有無、学習元の著作権侵害、生成物が既存著作物に類似した場合の侵害<br>
+試験：AI生成画像が既存の漫画キャラにそっくり→類似性・依拠性あれば著作権侵害になる可能性
+</div>
+
+<div class="term-block" data-title="著作権侵害">
+📜 著作権侵害★<br>
+要件：類似性+依拠性<br>
+AI学習：学習段階では30条の4で適法になりやすいが、生成段階で既存著作物に類似すれば侵害になる可能性
+</div>
+
+<div class="term-block" data-title="利用規約">
+📜 利用規約★<br>
+定義：データセットやWebサイトの利用条件<br>
+注意：著作権法上適法でも利用規約違反は契約違反になる<br>
+事例：Twitterの利用規約でスクレイピング禁止→著作権はOKでも契約違反で訴えられる可能性
+</div>
+
+<div class="term-block" data-title="著作権法30条の4">
+📜 著作権法30条の4 ★★★★<br>
+条文：著作物に表現された思想・感情を自ら享受しない目的の利用は著作権侵害にならない<br>
+制度趣旨：AI学習・情報解析を促進するため2018年改正<br>
+事例：大量の画像を集めてAIに学習させる→人間が楽しむためではなくAI学習のためなので30条の4で適法<br>
+ただし：学習データに海賊版が含まれる場合や、生成物が著作物に類似する場合は別途侵害の可能性<br>
+試験で頻出：AI開発のための情報解析は30条の4で適法か→はい原則適法
+</div>
+
+<div class="term-block" data-title="発明">
+📜 発明★<br>
+定義：自然法則を利用した技術的思想の創作<br>
+AI関係：AI自体は発明者になれない、AIを使った発明は人間の発明として特許になる可能性<br>
+事例：AIで新薬候補を発見→人間が課題設定・データ選択していれば発明に該当
+</div>
+
+<div class="term-block" data-title="発明者">
+📜 発明者★<br>
+ルール：人間に限る、米国でもAIは発明者になれない判決<br>
+試験：AIが発明者と出願→拒絶される
+</div>
+
+
+<div class="term-block" data-title="新規性">
+📜 新規性★<br>
+定義：公知でないこと、世界で初めてであること<br>
+注意：学会発表・論文公開前に出願が必要、公開後だと新規性喪失<br>
+事例：学会で発表した翌日に特許出願→新規性なしで拒絶
+</div>
+
+<div class="term-block" data-title="進歩性">
+📜 進歩性★<br>
+定義：当業者が容易に発明できないこと<br>
+事例：既存技術A+Bを単に組み合わせただけ→進歩性なし、AIで最適化しただけ→進歩性なしと判断されることも
+</div>
+
+<div class="term-block" data-title="特許権">
+📜 特許権★<br>
+特徴：20年独占、アイデアではなく実施を独占、登録が必要<br>
+著作権との違い：著作権は創作で自動発生、特許は出願・審査必要、保護期間も違う<br>
+試験：アルゴリズム自体は特許になるか→ビジネスモデルは特許になりにくいが技術的工夫があれば可能性
+</div>
+
+<div class="term-block" data-title="職務発明">
+📜 職務発明★<br>
+定義：従業員が職務で行った発明<br>
+ルール：契約で会社帰属可能、ただし相当の対価・報奨金が必要<br>
+事例：社員が業務中にAIアルゴリズム発明→就業規則で会社帰属と定めていれば会社帰属、報奨金支払い必要
+</div>
+
+<div class="term-block" data-title="知的財産権">
+📜 知的財産権★<br>
+総称：特許・著作権・商標・意匠などの総称<br>
+すみ分け：特許=技術、著作権=表現、営業秘密=秘密管理
+</div>
+
+<div class="term-block" data-title="営業秘密">
+📜 営業秘密★<br>
+3要件：①秘密管理性（秘密として管理している）②有用性（事業に有用）③非公知性（公知でない）<br>
+事例：顧客リストにパスワードかけてアクセス制限→秘密管理性あり営業秘密に該当、ウェブサイトで公開している顧客リスト→非公知性なしで営業秘密ではない<br>
+効果：不正取得・不正使用は差止・損害賠償請求可能<br>
+AIとの関係：学習データ・モデルは営業秘密に該当することが多い
+</div>
+
+<div class="term-block" data-title="限定提供データ">
+📜 限定提供データ★<br>
+定義：ID・パスワード等で限定提供されるデータ<br>
+制度趣旨：2018年新設、ビッグデータ保護のため、営業秘密ほど厳格な秘密管理不要だが限定提供されていることが要件<br>
+事例：有料でAPI提供している気象データ→限定提供データ、無料で公開している気象データ→該当しない<br>
+効果：不正取得は違法
+</div>
+
+<div class="term-block" data-title="競争制限">
+📜 競争制限★<br>
+論点：AIによる価格カルテル、アルゴリズムが勝手に談合<br>
+事例：競合のEC2社が同じ価格最適化AIを導入、AIが自動的に高値で協調→人間が意図しなくても独禁法違反の可能性
+</div>
+
+<div class="term-block" data-title="公正競争阻害性">
+📜 公正競争阻害性★<br>
+論点：プラットフォームの優越的地位濫用、抱き合わせ<br>
+事例：OS提供会社が自社AIアシスタントを抱き合わせ→公正競争阻害の可能性
+</div>
+
+<div class="term-block" data-title="AI・データの利用に関する契約ガイドライン">
+📜 AI・データの利用に関する契約ガイドライン★<br>
+概要：経産省が公表、AI開発は4段階（①導入検討②PoC③本開発④運用）に分けて契約すべきと提言<br>
+試験：AI開発の進め方はウォーターフォールではなくPoCを挟むのが推奨
+</div>
+
+<div class="term-block" data-title="PoC（契約）">
+📜 PoC★<br>
+定義：Proof of Concept 実現可能性検証<br>
+目的：本開発前に精度が出るか、小規模データで試す<br>
+契約：PoCは準委任、失敗しても報酬発生が一般的
+</div>
+
+<div class="term-block" data-title="請負契約 vs 準委任契約">
+📜 請負契約 vs 準委任契約★<br>
+請負：完成責任あり、成果物完成で報酬、瑕疵担保責任あり<br>
+準委任：完成責任なし、努力義務、善管注意義務、AI開発は不確実なので準委任が多い<br>
+事例：精度90%のモデルを作る契約→請負なら90%未達で債務不履行、準委任なら最善尽くせば債務不履行ではない<br>
+試験：AI開発は請負か準委任か→原則準委任が推奨
+</div>
+
+<div class="term-block" data-title="NDA">
+📜 NDA★<br>
+定義：秘密保持契約<br>
+ポイント：秘密情報の定義、目的外使用禁止、期間、漏洩時の措置を明記<br>
+AIでは学習データ・モデルが秘密情報
+</div>
+
+<div class="term-block" data-title="精度保証">
+📜 精度保証★<br>
+論点：AIは100%精度保証できない<br>
+契約実務：精度保証しない、目標精度は努力目標とする、と明記することが多い<br>
+試験：精度100%保証する契約は危険
+</div>
+
+<div class="term-block" data-title="保守契約">
+📜 保守契約★<br>
+定義：運用後のバグ修正・再学習・ドリフト対応の契約<br>
+AI特有：データドリフトで精度低下するので保守が重要
+</div>
+
+<div class="term-block" data-title="SaaS">
+■ 7章 AIサービス提供契約 ★★★★<br>
+📜 SaaS★<br>
+定義：クラウド経由でAIサービス提供<br>
+特徴：利用規約で提供、SLAで可用性保証、精度保証はしないことが多い
+</div>
+
+<div class="term-block" data-title="利用規約（SaaS）">
+📜 利用規約★<br>
+SaaSでは個別契約ではなく利用規約で提供されることが多い、ユーザーは規約に同意して利用
+</div>
+
+<div class="term-block" data-title="データ利用権">
+📜 データ利用権★<br>
+論点：顧客が入力したデータでAIが再学習する場合、そのデータの利用権は誰か<br>
+契約で：顧客データは顧客帰属、匿名化して再学習に使う場合はサービス提供者利用可能、など明記必要
+</div>
+
+<div class="term-block" data-title="精度保証（SaaS）">
+📜 精度保証（SaaS）★<br>
+SaaSでも精度は保証しない、誤認識の責任は負わない、と免責条項を入れることが多い、可用性はSLAで保証
+</div>
+
+<div class="term-block" data-title="AI倫理">
+📜 AI倫理★<br>
+定義：AIが守るべき倫理原則<br>
+代表例：OECD AI原則（人間中心、公平性、透明性、頑健性、説明責任）、日本のAI利活用ガイドライン<br>
+試験：AI倫理で共通して議論される事項は？→人間中心、公平性、プライバシー、安全性、透明性、説明責任
+</div>
+
+<div class="term-block" data-title="AIガバナンス">
+📜 AIガバナンス★<br>
+定義：倫理を実現するための組織体制・プロセス・ルール<br>
+例：倫理委員会設置、倫理アセスメント実施、モニタリング体制<br>
+倫理との違い：倫理=原則、ガバナンス=それを実現する仕組み
+</div>
+
+<div class="term-block" data-title="価値原則">
+📜 価値原則★<br>
+定義：AIが尊重すべき根本価値<br>
+例：人間中心、人間の尊厳、持続可能性、多様性・包摂性<br>
+OECD5原則：①包括的成長②人間中心③透明性④頑健性・安全性⑤説明責任
+</div>
+
+<div class="term-block" data-title="ハードロー">
+📜 ハードロー★<br>
+定義：法律、罰則あり、強制力あり<br>
+例：個人情報保護法、GDPR、著作権法、EU AI Act（2024年成立の世界初AI包括規制）<br>
+特徴：違反すると罰金・制裁金
+</div>
+
+<div class="term-block" data-title="ソフトロー">
+📜 ソフトロー★<br>
+定義：ガイドライン・倫理指針・業界自主規制、罰則なし<br>
+例：総務省AI利活用ガイドライン、経産省契約ガイドライン、企業のAIポリシー<br>
+特徴：強制力はないが事実上の規範、取引先から遵守求められることも<br>
+試験：ソフトローとハードローの違いは？→罰則の有無
+</div>
+
+<div class="term-block" data-title="リスクベースアプローチ">
+📜 リスクベースアプローチ ★★★★★<br>
+定義：リスクの高低で規制の強弱を変える考え方<br>
+EU AI Actの核：①許容できないリスク（禁止：人間の信用スコアで差別など）②高リスク（厳格規制：採用AI、信用審査AIなど）③限定的リスク（透明性義務：生成AIはAI生成と明示）④最小リスク（規制なし）<br>
+事例：採用AIは高リスク→学習データの品質管理、ログ保存、人間の監視義務あり、チャットボットは限定的リスク→AIであることを明示すればOK<br>
+試験頻出：EU AI Actはリスクベースアプローチを採用
+</div>
+
+<div class="term-block" data-title="プライバシー・バイ・デザイン">
+📜 プライバシー・バイ・デザイン★<br>
+定義：設計段階からプライバシー配慮を組み込む考え方 7原則<br>
+7原則：①事前対策②デフォルトでプライバシー保護③設計に組み込む④全機能性（プライバシーと利便性の両立）⑤全ライフサイクル保護⑥透明性⑦ユーザ中心<br>
+事例：カメラ画像AIを開発する時に、最初から顔をぼかす処理を入れる、取得前にプライバシー影響評価を行う<br>
+試験：後付けではなく設計段階から配慮するのがPbD
+</div>
+
+<div class="term-block" data-title="カメラ画像利活用ガイドブック">
+📜 カメラ画像利活用ガイドブック★<br>
+定義：総務省・経産省が公表、防犯カメラ・AIカメラのプライバシー配慮<br>
+内容：①事前に利用目的を掲示②顔の特定を避ける措置③第三者提供時は配慮④問い合わせ窓口設置<br>
+事例：商店街の防犯カメラで来店者分析AI→入口に「カメラで分析しています」と掲示、顔は特定せず人数カウントのみ<br>
+試験：カメラ画像でプライバシー配慮すべき事項は？→掲示、特定回避
+</div>
+
+<div class="term-block" data-title="アルゴリズムバイアス">
+📜 アルゴリズムバイアス★<br>
+定義：AIが差別的な結果を出すこと<br>
+代表事例：①米Amazon採用AIが女性を低評価（過去の採用データが男性偏重）②COMPAS再犯予測AIが黒人を高リスク判定③顔認識AIが有色人種の認識精度低い<br>
+原因：学習データの偏り、代理変数の使用、目的関数の偏り<br>
+試験頻出：バイアスの具体例を説明できるか
+</div>
+
+<div class="term-block" data-title="データの偏り">
+📜 データの偏り★<br>
+定義：学習データが特定属性に偏っている<br>
+例：医師画像データが男性ばかり→女性医師を認識できない、英語データばかりで学習→日本語の精度低い
+</div>
+
+<div class="term-block" data-title="サンプリングバイアス">
+📜 サンプリングバイアス★<br>
+定義：収集過程での偏り<br>
+例：昼間だけカメラでデータ収集→夜間のデータなし、スマホアプリ利用者だけアンケート→高齢者の意見なし
+</div>
+
+<div class="term-block" data-title="センシティブ属性">
+📜 センシティブ属性★<br>
+定義：差別に繋がりやすい属性<br>
+例：人種、性別、宗教、性的指向、政治信条、病歴<br>
+ルール：原則直接入力すべきでない、公平性配慮で削除・補正が必要<br>
+試験：センシティブ属性をそのまま学習に使うのは公平性上NG
+</div>
+
+<div class="term-block" data-title="代理変数">
+📜 代理変数 ★★★★<br>
+定義：センシティブ属性と相関する変数、直接センシティブ属性を使わなくても代理で差別してしまう<br>
+代表例：①郵便番号→人種の代理（米国で特定人種が特定地域に住む）②年収・学歴→性別の代理③顔写真→人種・性別の代理<br>
+事例：性別を削除しても、趣味や職歴から性別を推測して差別してしまう<br>
+対応：代理変数も特定して除去・補正が必要、相関分析で発見<br>
+試験頻出：代理変数の例として郵便番号
+</div>
+
+<div class="term-block" data-title="公平性の定義">
+📜 公平性の定義★<br>
+定義：公平性には複数の定義があり両立不可能<br>
+主要定義：①Demographic Parity（人口比で平等、男女で採用率同じ）②Equalized Odds（真陽性率が平等）③Equal Opportunity（機会の平等）<br>
+ジレンマ：Demographic Parityを満たすとEqualized Oddsが崩れることがある、どの定義を採用するかは社会合意が必要<br>
+試験：公平性の定義は1つではない
+</div>
+
+<div class="term-block" data-title="公平性対応技術">
+📜 公平性対応技術★<br>
+①前処理：データの偏り補正（アンダーサンプリング、オーバーサンプリング、重み付け）<br>
+②学習時：公平性制約付き学習（公平性を目的関数に入れる）<br>
+③後処理：閾値調整（グループごとに閾値変える）<br>
+事例：男女で採用閾値を変えて公平性確保
+</div>
+
+<div class="term-block" data-title="Adversarial Attack / Adversarial Examples">
+⚠️ Adversarial Attack / Adversarial Examples ★★<br>
+定義：人間には分からない微小ノイズでAIを誤認識させる攻撃<br>
+手口：画像に1ピクセルだけ変える、人間には同じに見えるがAIはパンダをテナガザルと誤認識<br>
+種類：①白箱攻撃（モデル内部を知っている）②黒箱攻撃（APIを叩いて推測）<br>
+事例：自動運転の停止標識にシールを貼る→AIが速度標識と誤認識して止まらない、顔認証にメガネをかける→他人と誤認識<br>
+対策：Adversarial Training（敵対的サンプルで再学習）、入力の平滑化、検出モデル<br>
+試験：Adversarial Examplesとは人間には分からない微小な摂動で誤認識させるサンプル
+</div>
+
+<div class="term-block" data-title="データ汚染 Data Poisoning">
+⚠️ データ汚染 Data Poisoning★<br>
+定義：学習データに悪意あるデータを混入させて精度低下・バックドア仕込み<br>
+手口：Wikipediaを改ざんしてAIに誤った知識を学習させる、大量の誤ラベルデータを混入<br>
+違い：Adversarial Attackは推論時攻撃、データ汚染は学習時攻撃<br>
+事例：スパムフィルタの学習データに正常メールをスパムとして混入→正常メールがスパム判定される
+</div>
+
+<div class="term-block" data-title="モデル汚染">
+⚠️ モデル汚染★<br>
+定義：学習済みモデルにバックドアを仕込む<br>
+手口：特定トリガー（例：特定シール）があると誤動作するようにモデル改ざん<br>
+事例：特定パターンのマスクをすると顔認証を突破できるモデルを配布
+</div>
+
+<div class="term-block" data-title="データ窃取 Data Extraction">
+⚠️ データ窃取 Data Extraction★<br>
+定義：APIを大量に叩いて学習データを復元する攻撃<br>
+手口：生成AIに「学習データを教えて」とプロンプトインジェクション、言語モデルから個人情報を引き出す<br>
+事例：ChatGPTに住所を聞くと学習データの住所を答えてしまう
+</div>
+
+<div class="term-block" data-title="モデル窃取 Model Stealing">
+⚠️ モデル窃取 Model Stealing★<br>
+定義：APIからモデルをコピーする攻撃<br>
+手口：大量の入力と出力のペアを集めて類似モデルを学習、モデル抽出攻撃<br>
+事例：有料画像認識APIを大量に叩いて同じ性能の無料モデルを作成
+</div>
+
+<div class="term-block" data-title="セキュリティ・バイ・デザイン">
+📜 セキュリティ・バイ・デザイン★<br>
+定義：設計段階からセキュリティ配慮を組み込む<br>
+例：最初から入力バリデーション、ログ保存、権限管理を設計
+</div>
+
+<div class="term-block" data-title="ディープフェイク">
+⚠️ ディープフェイク★<br>
+定義：AIで偽の動画・音声・画像生成<br>
+悪用例：①フェイクポルノ（有名人の顔をアダルト動画に合成）②なりすまし詐欺（社長の声をAI生成して送金指示）③政治的偽動画（選挙前に候補者の偽発言動画）<br>
+対策：検出AI、透かし技術、メディアリテラシー<br>
+試験：ディープフェイクのリスクは肖像権・名誉毀損・詐欺
+</div>
+
+<div class="term-block" data-title="フェイクニュース">
+⚠️ フェイクニュース★<br>
+定義：AIで大量の偽記事・偽レビュー生成<br>
+悪用例：LLMで大量の偽ニュースサイト生成、SNSで自動拡散、選挙介入<br>
+対策：ファクトチェック、生成AIの透かし、プラットフォームの規制<br>
+民主主義への影響：フィルターバブルと組み合わさり世論操作
+</div>
+
+<div class="term-block" data-title="説明可能性 Explainability">
+📜 説明可能性 Explainability★<br>
+定義：なぜAIがその判断をしたか人間が理解できること<br>
+必要性：①GDPRで自動決定の説明を求める権利②医療・金融・採用など高リスク領域で必須③ブラックボックスでは責任追及できない<br>
+技術：LIME、SHAP、Grad-CAM<br>
+事例：融資AIが否決した理由を「年収と勤続年数が基準未満」と説明<br>
+試験：説明可能性が必要なユースケースは医療・金融・採用・司法など人命・人生に影響する領域
+</div>
+
+<div class="term-block" data-title="ブラックボックス">
+📜 ブラックボックス★<br>
+定義：内部が見えないAI<br>
+例：ディープラーニングは数百万パラメータでなぜその出力になったか人間が追えない<br>
+問題：責任所在不明、バイアス検出困難<br>
+対策：説明可能AI（XAI）
+</div>
+
+<div class="term-block" data-title="データの来歴 Data Provenance / Data Lineage">
+📜 データの来歴 Data Provenance / Data Lineage★<br>
+定義：データがどこから来たか追跡可能にすること<br>
+必要性：学習データに違法データ・偏りデータが混入していないか確認、著作権・プライバシー問題追跡<br>
+事例：学習データのURL・取得日・ライセンスを記録
+</div>
+
+<div class="term-block" data-title="エコーチェンバー">
+📜 エコーチェンバー★<br>
+定義：同じ意見ばかり聞いて先鋭化する現象<br>
+メカニズム：SNSで同じ思想の人同士がフォロー、反対意見をブロック→意見が極端化<br>
+AIとの関係：レコメンドAIが同じ意見を推薦して加速<br>
+事例：ワクチン反対派コミュニティで反対意見ばかり見てさらに反対が強まる
+</div>
+
+<div class="term-block" data-title="フィルターバブル">
+📜 フィルターバブル★<br>
+定義：AIのレコメンドで自分好みだけ見て視野が狭くなる<br>
+提唱：Eli Pariser<br>
+違い：エコーチェンバーは人間が自ら同じ意見に閉じる、フィルターバブルはAIが自動的に好みだけ見せる<br>
+事例：YouTubeで陰謀論動画を見ると次々陰謀論が推薦される、Amazonで同じジャンルばかり推薦<br>
+問題：多様な意見に触れられず民主主義の健全な議論が阻害
+</div>
+
+<div class="term-block" data-title="フェイクニュース（民主主義文脈）">
+📜 フェイクニュース（民主主義文脈）★<br>
+定義：偽情報で世論操作<br>
+AIとの関係：生成AIで大量生成、レコメンドAIで拡散加速、フィルターバブルで信じやすくなる<br>
+事例：2016年米大統領選での偽ニュース拡散
+</div>
+
+<div class="term-block" data-title="気候変動">
+📜 気候変動★<br>
+論点：AIの電力消費がCO2排出に繋がる、持続可能なAIが求められる<br>
+OECD原則にも持続可能性あり
+</div>
+
+<div class="term-block" data-title="モデル学習の電力消費">
+📜 モデル学習の電力消費 ★★★★<br>
+データ：GPT-3学習で約1300MWh、CO2約550トン（自動車1台の生涯排出に匹敵）、大規模モデルは学習だけでなく推論でも大量電力<br>
+対策：①モデル軽量化（蒸留・量子化・プルーニング）②効率的アーキテクチャ③再生可能エネルギー使用④学習回数削減（転移学習）<br>
+試験：環境保護で問われるのは学習時の電力消費
+</div>
+
+<div class="term-block" data-title="AIとの協働">
+📜 AIとの協働★<br>
+定義：AIに置き換えではなく人間と協働<br>
+概念：Human-in-the-loop、人間が最終判断、AIは補助<br>
+事例：医師がAIの診断結果を参考に最終診断、AIは見落とし防止<br>
+理想：AIは単純作業、人間は創造的・共感的作業
+</div>
+
+<div class="term-block" data-title="スキルの喪失 Deskilling">
+📜 スキルの喪失 Deskilling★<br>
+定義：AIに任せすぎて人間のスキルが失われる<br>
+事例：自動運転に任せすぎて運転スキル低下、カーナビに任せすぎて道を覚えられない、AI翻訳に任せすぎて語学力低下<br>
+対策：人間のスキル維持訓練、AIは補助に留める
+</div>
+
+<div class="term-block" data-title="労働力不足">
+📜 労働力不足★<br>
+両面性：①AIで労働力不足を補う期待（介護ロボット、農業AI）②AIで雇用喪失の懸念（事務作業・コールセンター）<br>
+試験：AIは雇用を奪うだけでなく補う側面もある
+</div>
+
+<div class="term-block" data-title="インクルージョン">
+📜 インクルージョン★<br>
+定義：多様な人がAIの恩恵を受けられるようにする、デジタルデバイド解消<br>
+例：障害者向けAI（音声読み上げ、画像説明）、高齢者向けUI、途上国言語対応
+</div>
+
+<div class="term-block" data-title="軍事利用">
+📜 軍事利用★<br>
+定義：自律型致死兵器システム LAWS Lethal Autonomous Weapons Systems<br>
+論点：人間が関与せずAIが殺傷判断するのは倫理的に許容できるか、国際規制の議論中<br>
+事例：ドローンがAIで自動的に敵を識別・攻撃<br>
+試験：軍事利用はAI倫理で禁止すべきかが議論
+</div>
+
+<div class="term-block" data-title="死者への敬意">
+📜 死者への敬意★<br>
+定義：故人のデータ・クローンAIの倫理<br>
+論点：故人の声・顔をAIで再現して良いか、遺族の同意必要か、故人の尊厳<br>
+事例：故人の声でAIが歌う、故人チャットボット、死者の肖像をAI生成
+</div>
+
+<div class="term-block" data-title="人間の自律性">
+📜 人間の自律性★<br>
+定義：AIの推薦に操られて人間の自由意志が失われる懸念<br>
+例：レコメンドに操られて同じ商品ばかり買う、ナッジで無意識に誘導される、AI恋人に依存して人間関係を築けなくなる<br>
+対策：多様な選択肢提示、説明可能性、オプトアウト可能に
+</div>
+
+<div class="term-block" data-title="AIポリシー">
+📜 AIポリシー★<br>
+定義：企業が定めるAI利活用の社内ポリシー・ガイドライン<br>
+内容：①AI利用の原則②禁止事項③データ管理④責任者⑤教育<br>
+事例：社内で生成AI利用時のルール（顧客データを入力禁止、出力は人間が確認）<br>
+試験：企業はAIポリシーを定めるべき
+</div>
+
+<div class="term-block" data-title="倫理アセスメント">
+📜 倫理アセスメント★<br>
+定義：AI開発・運用前に倫理リスクをチェックするプロセス<br>
+手法：チェックリスト、影響評価、外部有識者レビュー<br>
+タイミング：企画段階、開発段階、運用前の3回実施が推奨<br>
+例：採用AI導入前に公平性・プライバシー・説明可能性を評価
+</div>
+
+<div class="term-block" data-title="人間の関与">
+📜 人間の関与★<br>
+3段階：①Human-in-the-loop（人間が判断に毎回関与、医療診断など高リスク）②Human-on-the-loop（人間が監視、異常時介入、自動運転など）③Human-in-command（人間が全体を統括、最終責任は人間）<br>
+事例：融資AIはHuman-in-the-loopで人間が最終承認
+</div>
+
+<div class="term-block" data-title="ダイバーシティ">
+📜 ダイバーシティ★<br>
+定義：開発チームの多様性がバイアス防止に繋がる<br>
+理由：男性ばかりのチームだと女性視点が抜ける、特定人種ばかりだと他民族への配慮不足<br>
+対策：多様な属性（性別・人種・年齢・専門性）のメンバーで開発、外部レビュー
+</div>
+
+<div class="term-block" data-title="トレーサビリティ">
+📜 トレーサビリティ★<br>
+定義：AIの判断過程を追跡可能にすること<br>
+要素：①データの来歴②モデルのバージョン管理③学習過程のログ④判断のログ<br>
+必要性：問題発生時に原因追及、責任所在明確化、監査対応<br>
+事例：融資否決時にどのデータ・どのモデルバージョンで判断したか追跡できる
+</div>
+
+<div class="term-block" data-title="再現性">
+📜 再現性★<br>
+定義：同じデータ・同じ条件で同じ結果が出ること<br>
+科学の基本：再現性がないと科学的信頼性なし<br>
+AIでの課題：乱数シード・非決定的処理で再現しないことも、再現性確保のためシード固定・バージョン管理必要
+</div>
+
+<div class="term-block" data-title="モニタリング">
+📜 モニタリング★<br>
+定義：運用後のAIを継続監視して劣化・バイアス検出<br>
+監視項目：①精度劣化（データドリフト）②バイアス発生③不正利用④プライバシー侵害<br>
+手法：ダッシュボードで精度・公平性指標を常時監視、閾値超えたらアラート<br>
+事例：コロナで購買行動変化→需要予測AIの精度低下をモニタリングで検出→再学習
+</div>
+
+<div class="term-block" data-title="AIに対する監査">
+📜 AIに対する監査★<br>
+定義：第三者がAIを監査する仕組み<br>
+種類：①内部監査（社内監査部門）②外部監査（監査法人・専門機関）③規制当局監査<br>
+監査項目：公平性、透明性、安全性、プライバシー、法令遵守<br>
+EU AI Act：高リスクAIは外部監査・認証が義務化方向<br>
+事例：採用AIの公平性を外部監査法人が監査
+</div>
+
+
+</div><!-- /.wrap -->
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const selectTerm = document.getElementById("selectTerm");
+const clearBtn = document.getElementById("clearBtn");
+const blocks = document.querySelectorAll(".term-block");
+
+// 検索入力時にプルダウンの候補を更新
+searchInput.addEventListener("input", function(){
+  const keyword = this.value.toLowerCase();
+  selectTerm.innerHTML = `<option value="">ここから用語を選択</option>`;
+
+  blocks.forEach(function(block){
+    const text = block.textContent.toLowerCase();
+    const title = block.dataset.title;
+    if(text.includes(keyword)){
+      const opt = document.createElement("option");
+      opt.value = title;
+      opt.textContent = title;
+      selectTerm.appendChild(opt);
+    }
+  });
+});
+
+// プルダウンで選択したら該当ブロックだけ表示
+selectTerm.addEventListener("change", function(){
+  const selectedTitle = this.value;
+  blocks.forEach(function(block){
+    if(block.dataset.title === selectedTitle || selectedTitle === ""){
+      block.style.display = "block";
+    }else{
+      block.style.display = "none";
+    }
+  });
+});
+
+// クリアボタンの処理
+clearBtn.addEventListener("click", function(){
+  searchInput.value = "";
+  selectTerm.innerHTML = `<option value="">ここから用語を選択</option>`;
+  selectTerm.value = "";
+  blocks.forEach(function(block){
+    block.style.display = "block";
+  });
+});
+</script>
+
+</body>
+</html>
