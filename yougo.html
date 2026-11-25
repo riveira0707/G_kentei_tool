@@ -9,9 +9,58 @@
 body{padding:30px 20px;background:#f4f7f6;}
 .wrap{max-width:700px;margin:0 auto;}
 
+/* 上部ボタン行 */
+.top-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-bottom:20px;
+}
+
 /* メインに戻るボタン */
-.back{display:inline-block;margin-bottom:20px;padding:10px 16px;border-radius:8px;border:2px solid #b8b8b8;background:#e6e6e6;color:#374b46;text-decoration:none;}
-.back:hover{background:#d9d9d9;}
+.top-actions .back{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:8px;
+  border:2px solid #b8b8b8;
+  background:#e6e6e6;
+  color:#374b46;
+  text-decoration:none;
+  font-size:14px;
+  line-height:1.2;
+  transition:0.2s;
+  vertical-align:middle;
+}
+.top-actions .back:hover{
+  background:#d9d9d9;
+}
+.top-actions .back:active{
+  transform:scale(0.97);
+}
+
+/* 混同行列早見表ボタン */
+.top-actions .matrix-link{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:8px;
+  border:2px solid #b4c4c0;
+  background:#dde8e4;
+  color:#374b46;
+  font-size:14px;
+  line-height:1.2;
+  text-decoration:none;
+  transition:0.2s;
+  vertical-align:middle;
+}
+.top-actions .matrix-link:hover{
+  background:#c5d8d2;
+  border-color:#8fa8a2;
+}
+.top-actions .matrix-link:active{
+  transform:scale(0.97);
+}
+
 
 /* タイトル */
 h1{text-align:center;margin-bottom:30px;color:#374b46;font-size:22px;}
@@ -76,10 +125,16 @@ h1{text-align:center;margin-bottom:30px;color:#374b46;font-size:22px;}
 </head>
 <body>
 
+<body>
+
 <div class="wrap">
 
-<a href="index.html" class="back">← メインに戻る</a>
-<h1>G検定　シラバス用語確認ツール</h1>
+  <div class="top-actions">
+    <a href="index.html" class="back">← メインに戻る</a>
+    <a href="混同行列.html" class="matrix-link">混同行列早見表</a>
+  </div>
+
+  <h1>G検定　シラバス用語確認ツール</h1>
 
 <!-- 検索入力欄 + クリアボタン -->
 <div id="searchRow">

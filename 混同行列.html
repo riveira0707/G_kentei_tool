@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>混同行列：F値・正解率・適合率・再現率（第一種/第二種過誤）</title>
+<style>
+:root{
+  --bg:#F2F5F7;
+  --code-bg:#18262F;
+  --code-ink:#E7EEF2;
+  --accent:#F2B81C;
+  --ok:#4FC3AC;
+  --ng:#F07FB0;
+  --muted:#9AAAB4;
+  --highlight:#F2B81C;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#10181D;--code-bg:#19252C;--code-ink:#E7EEF2;}
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  transition:background 0.2s;
+}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+
+/* 用語一覧に戻るボタン（四角っぽい・角丸あり） */
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin:0 0 12px;
+  padding:10px 16px;
+  border-radius:8px;
+  border:2px solid #b4c4c0;
+  background:#dde8e4;
+  color:#374b46;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.2s;
+}
+.back-link:hover{
+  background:#c5d8d2;
+  border-color:#8fa8a2;
+}
+.back-link:active{
+  transform:scale(0.97);
+}
+
+/* コードブロック風 */
+.code{
+  background:var(--code-bg);
+  color:var(--code-ink);
+  border-radius:12px;
+  padding:16px;
+  margin:0 0 16px;
+  overflow-x:auto;
+  font-family:ui-monospace,Menlo,Consolas,"MS Gothic",monospace;
+  font-size:.95rem;
+  line-height:1.9;
+  transition:box-shadow 0.25s ease, border 0.2s;
+  border:2px solid transparent;
+}
+
+/* 強調表示（クリック連動用） */
+.code.highlighted{
+  border-color:var(--highlight);
+  box-shadow:0 0 0 3px rgba(242,184,28,0.3);
+}
+
+/* 自動スクロールで一時的に強く光らせる */
+.code.flash{
+  border-color:var(--accent);
+  box-shadow:0 0 0 5px rgba(242,184,28,0.8);
+}
+
+table{
+  border-collapse:separate;
+  border-spacing:6px;
+  width:100%;
+  text-align:center;
+}
+th{
+  color:var(--muted);
+  font-weight:400;
+  font-size:.85rem;
+}
+td{
+  border-radius:8px;
+  padding:10px 6px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform 0.1s, filter 0.2s, box-shadow 0.2s;
+  user-select:none;
+  position:relative;
+}
+td:hover{
+  filter:brightness(1.2);
+  transform:scale(1.02);
+}
+td:active{
+  transform:scale(0.98);
+}
+
+/* クリックされたセルの視覚効果 */
+td.active-cell{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  box-shadow:0 0 12px rgba(242,184,28,0.6);
+}
+
+td small{
+  display:block;
+  font-weight:400;
+  font-size:.8rem;
+  color:var(--code-ink);
+}
+td.ok{background:#16382F;color:var(--ok);}
+td.ng{background:#43202F;color:var(--ng);}
+
+/* セル内の過誤ラベル */
+td .err-label{
+  display:block;
+  font-weight:400;
+  font-size:.7rem;
+  color:var(--code-ink);
+  opacity:.85;
+  margin-top:2px;
+}
+
+.t{color:var(--accent);font-weight:700;}
+.c{color:var(--muted);}
+.g{color:var(--ok);font-weight:700;}
+.p{color:var(--ng);font-weight:700;}
+.e{color:var(--accent);font-weight:700;}
+pre{
+  margin:0;
+  font:inherit;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* 説明ブロック内のマーカー */
+.tp-ref, .fp-ref, .fn-ref, .tn-ref, .f1-ref {
+  transition: background 0.3s, color 0.3s;
+  border-radius:4px;
+  padding:0 2px;
+}
+/* 説明ブロック自体の強調 */
+.code.highlighted .tp-ref,
+.code.highlighted .fp-ref,
+.code.highlighted .fn-ref,
+.code.highlighted .tn-ref,
+.code.highlighted .f1-ref {
+  background:var(--accent);
+  color:#18262F;
+}
+
+/* 例題内の TP/FP/FN/TN/F値 をクリック可能に */
+.ref-clickable{
+  cursor:pointer;
+  border-bottom:1px dashed var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.ref-clickable:hover{
+  background:var(--accent);
+  color:#18262F;
+  border-bottom-color:var(--accent);
+}
+
+/* 補足例題の枠（控えめなトーン） */
+.supplement{
+  opacity:.92;
+}
+
+/* クリックのヒント */
+.hint{
+  text-align:center;
+  color:var(--muted);
+  font-size:0.85rem;
+  margin-bottom:12px;
+}
+
+/* 見出し位置合わせ用 */
+.anchor-heading{
+  display:inline-block;
+}
+
+/* スマホ調整 */
+@media (max-width:600px){
+  .back-link{
+    font-size:12px;
+    padding:8px 12px;
+  }
+}
+</style>
+</head>
+<body>
+<main>
+  <!-- 用語一覧に戻るボタン -->
+  <a href="yougo.html" class="back-link">← 用語一覧に戻る</a>
+
+  <div class="hint">▼ TP / FP / FN / TN をクリック → 対応する枠へ<br>例題内の TP / FP / FN / TN / F値 をクリック → 該当セクションへ逆ジャンプ ▼</div>
+
+  <!-- 混同行列テーブル：クリック可能 -->
+  <div class="code" id="matrix-block">
+    <table>
+      <tr><th></th><th>予測：陽性</th><th>予測：陰性</th></tr>
+      <tr>
+        <th>実際：陽性</th>
+        <td class="ok" id="cell-tp" data-target="tp">TP<small>陽性を当てた</small></td>
+        <td class="ng" id="cell-fn" data-target="fn">FN<small>見逃し</small><span class="err-label">第二種過誤</span></td>
+      </tr>
+      <tr>
+        <th>実際：陰性</th>
+        <td class="ng" id="cell-fp" data-target="fp">FP<small>誤検知</small><span class="err-label">第一種過誤</span></td>
+        <td class="ok" id="cell-tn" data-target="tn">TN<small>陰性を当てた</small></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- F値 -->
+  <div class="code" id="desc-f1">
+    <pre><span class="t anchor-heading" id="anchor-f1">【F値（F1スコア）】</span> 適合率と再現率のバランスを測る指標
+  F1 ＝ 2 × 適合率 × 再現率 ÷ (適合率＋再現率)
+     ＝ 2 × TP ÷ (2TP＋FP＋FN)
+  <span class="c">（適合率と再現率の調和平均）</span>
+
+  <span class="g">F値を上げる ＝ <span class="p f1-ref">FP（第一種過誤）と FN（第二種過誤）の両方</span>を下げる</span>
+  <span class="c">理由：適合率・再現率のどちらかが極端に低いと F値も低くなる。
+  片方だけを上げる（例：FP だけ下げる）とトレードオフで
+  もう片方が下がることがあるため、両方のバランスが重要。</span></pre>
+  </div>
+
+  <!-- 正解率 -->
+  <div class="code" id="desc-accuracy">
+    <pre><span class="t anchor-heading" id="anchor-accuracy">【正解率（Accuracy）】</span> 全体のうち、予測が当たった割合
+  (TP＋TN) ÷ (TP＋FP＋FN＋TN)
+  <span class="c">（分母：全体。陽性・陰性を問わず全件）</span>
+
+  <span class="g">正解率を上げる ＝ <span class="p">FP と FN の両方</span>を下げる</span>
+  <span class="c">理由：分子が TP＋TN なので、誤り（FP・FN）が減ると値が大きくなる。
+  ただしクラス不均衡（陽性が極端に少ない等）では、正解率が高くても
+  見逃しだらけのことがあるため、適合率・再現率・F値も併用する。</span>
+
+  <span class="c">※ FP は<span class="e">第一種過誤</span>、FN は<span class="e">第二種過誤</span>とも呼ぶ。</span></pre>
+  </div>
+
+  <!-- 適合率：工場の例をメイン、医療は補足 -->
+  <div class="code" id="desc-precision">
+    <pre><span class="t anchor-heading" id="anchor-precision">【適合率（Precision）】</span> AIが「陽性」と言ったうち、本当に陽性だった割合
+  TP ÷ (TP＋FP)
+  <span class="c">（分母：左の列）</span>
+
+  <span class="g">適合率を上げる ＝ <span class="p fp-ref">FP（誤検知・第一種過誤）</span>を下げる</span>
+  <span class="c">理由：分母に FP が入っているから。FP が減ると値が大きくなる。
+  （TP を下げると、分子が減るので適合率はむしろ下がる点に注意）</span>
+
+  <span class="t">【例題① 工場の検品ライン】</span>
+  陽性 ＝ 「不良品」とAIが判定
+
+  <span class="g tp-ref ref-clickable" data-jump-cell="tp">TP</span>：不良品を「不良」と判定して取り除く
+  <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>：不良品を「良品」と判定して出荷（<span class="p">流出・第二種過誤</span>）
+  <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>：良品を「不良」と判定して取り除く（<span class="p">無駄な廃棄・第一種過誤</span>）
+  <span class="g tn-ref ref-clickable" data-jump-cell="tn">TN</span>：良品を「良品」と判定して出荷
+
+  良品の廃棄ロスを減らしたい
+    → FP を下げる → <span class="g">適合率</span>を上げる
+
+  <span class="c">※ 適合率は「陽性と言った中に誤検知を混ぜない」指標。
+    工場では良品を不良と誤判定する無駄な廃棄（FP）を抑える場面が代表的。</span></pre>
+  </div>
+
+  <!-- 適合率の補足（医療の例は該当行のみ簡潔に） -->
+  <div class="code supplement">
+    <pre><span class="t">【補足：医療診断支援システムでも同じ構図】</span>
+  陽性 ＝ 「病気あり」とAIが判定
+
+  健康な人への不要な精密検査を減らしたい
+    → <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>（健康な人を「病気あり」と判定＝誤検知・第一種過誤）を下げる
+    → <span class="g">適合率</span>を上げる
+
+  <span class="c">※ ただし診断支援は見逃し（FN・第二種過誤）が重大なので、
+    実際は再現率が重視されやすい。</span></pre>
+  </div>
+
+  <!-- 再現率：医療の例をメイン、工場は補足 -->
+  <div class="code" id="desc-recall">
+    <pre><span class="t anchor-heading" id="anchor-recall">【再現率（Recall）】</span> 本当に陽性だったうち、AIが拾えた割合
+  TP ÷ (TP＋FN)
+  <span class="c">（分母：上の行）</span>
+
+  <span class="g">再現率を上げる ＝ <span class="p fn-ref">FN（見逃し・第二種過誤）</span>を下げる</span>
+  <span class="c">理由：分母に FN が入っているから。FN が減ると値が大きくなる。
+  （TP を下げると、分子が減るので再現率はむしろ下がる点に注意）</span>
+
+  <span class="t">【例題① 医療診断支援システム】</span>
+  陽性 ＝ 「病気あり」とAIが判定
+
+  <span class="g tp-ref ref-clickable" data-jump-cell="tp">TP</span>：病気の人を「病気あり」と判定
+  <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>：病気の人を「異常なし」と判定（<span class="p">見逃し・第二種過誤</span>）
+  <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>：健康な人を「病気あり」と判定（<span class="p">誤検知・第一種過誤</span>）
+  <span class="g tn-ref ref-clickable" data-jump-cell="tn">TN</span>：健康な人を「異常なし」と判定
+
+  見逃しを防ぎたい
+    → FN を下げる → <span class="g">再現率</span>を上げる
+
+  <span class="c">※ 診断支援は見逃しが重大なので、再現率が重視されやすい。</span></pre>
+  </div>
+
+  <!-- 再現率の補足（工場の例は該当行のみ簡潔に） -->
+  <div class="code supplement">
+    <pre><span class="t">【補足：工場の検品ラインでも同じ構図】</span>
+  陽性 ＝ 「不良品」とAIが判定
+
+  不良品の流出を防ぎたい
+    → <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>（不良品を「良品」と判定して出荷＝流出・第二種過誤）を下げる
+    → <span class="g">再現率</span>を上げる
+
+  <span class="c">※ 厳しく判定すると再現率は上がるが適合率は下がりやすい
+    （トレードオフ）。両立の指標が F値。</span></pre>
+  </div>
+</main>
+
+<script>
+  (function() {
+    // 混同行列セル → 強調ブロック
+    const TARGET_BLOCK = {
+      tp: 'desc-accuracy',
+      fp: 'desc-precision',
+      fn: 'desc-recall',
+      tn: 'desc-accuracy'
+    };
+
+    // 例題内の参照 → 強調ブロック（F値含む）
+    const REF_BLOCK = {
+      tp: 'desc-accuracy',
+      fp: 'desc-precision',
+      fn: 'desc-recall',
+      tn: 'desc-accuracy',
+      f1: 'desc-f1'
+    };
+
+    const cells = {
+      tp: document.getElementById('cell-tp'),
+      fp: document.getElementById('cell-fp'),
+      fn: document.getElementById('cell-fn'),
+      tn: document.getElementById('cell-tn')
+    };
+
+    const allCodeBlocks = document.querySelectorAll('.code');
+    let activeTarget = null;
+
+    function clearHighlights() {
+      allCodeBlocks.forEach(block => block.classList.remove('highlighted', 'flash'));
+      Object.values(cells).forEach(cell => {
+        if (cell) cell.classList.remove('active-cell');
+      });
+    }
+
+    function setActiveCell(target) {
+      const cell = cells[target];
+      if (cell) cell.classList.add('active-cell');
+    }
+
+    function flashBlock(el) {
+      if (!el) return;
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 700);
+    }
+
+    // ブロック（枠）の上端が画面の一番上に来るようにスクロール
+    function scrollBlockToTop(blockId) {
+      const block = document.getElementById(blockId);
+      if (!block) return;
+      const rect = block.getBoundingClientRect();
+      const currentScroll = window.pageYOffset;
+      const targetY = currentScroll + rect.top - 8;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+
+    function jumpToSection(target) {
+      const blockId = TARGET_BLOCK[target];
+      if (!blockId) return;
+
+      clearHighlights();
+      const blockEl = document.getElementById(blockId);
+      if (blockEl) blockEl.classList.add('highlighted');
+      setActiveCell(target);
+      scrollBlockToTop(blockId);
+      if (blockEl) flashBlock(blockEl);
+      activeTarget = target;
+    }
+
+    function jumpToRef(key) {
+      const blockId = REF_BLOCK[key];
+      if (!blockId) return;
+
+      clearHighlights();
+      const blockEl = document.getElementById(blockId);
+      if (blockEl) blockEl.classList.add('highlighted');
+      scrollBlockToTop(blockId);
+      if (blockEl) flashBlock(blockEl);
+      activeTarget = key;
+    }
+
+    function bindMatrixCell(cell, target) {
+      if (!cell) return;
+      cell.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeTarget === target) {
+          clearHighlights();
+          activeTarget = null;
+        } else {
+          jumpToSection(target);
+        }
+      });
+    }
+
+    bindMatrixCell(cells.tp, 'tp');
+    bindMatrixCell(cells.fp, 'fp');
+    bindMatrixCell(cells.fn, 'fn');
+    bindMatrixCell(cells.tn, 'tn');
+
+    document.querySelectorAll('.ref-clickable').forEach(el => {
+      const target = el.getAttribute('data-jump-cell');
+      if (!target) return;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        jumpToRef(target);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      const isMatrixCell = e.target.closest('td[data-target]');
+      const isRef = e.target.closest('.ref-clickable');
+      if (!isMatrixCell && !isRef) {
+        clearHighlights();
+        activeTarget = null;
+      }
+    });
+
+    clearHighlights();
+  })();
+</script>
+</body>
+</html>
