@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>正規化のイメージ：なぜ必要か・サンプル・チャンネルから違いまで</title>
+<style>
+:root{
+  --bg:#0F171C;
+  --panel:#16222A;
+  --panel2:#1C2B34;
+  --ink:#EAF1F4;
+  --muted:#93A6B0;
+  --line:#2C3D47;
+  --ok:#4FC3AC;
+  --hl:#F2B81C;
+  --ng:#F07FB0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.7;
+}
+main{max-width:920px;margin:0 auto;padding:18px 14px 60px}
+
+/* 用語一覧に戻るボタン */
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:0 0 14px;padding:10px 16px;border-radius:10px;
+  border:2px solid var(--line);background:var(--panel);color:var(--ink);
+  font-size:14px;font-weight:700;text-decoration:none;transition:.18s;
+}
+.back-link:hover{border-color:var(--hl);background:var(--panel2)}
+.back-link:active{transform:scale(.97)}
+
+h1{font-size:1.2rem;margin:0 0 6px}
+h2{font-size:1.02rem;margin:30px 0 10px;border-left:5px solid var(--hl);padding-left:10px}
+h3{font-size:.94rem;margin:0 0 8px;color:var(--hl)}
+p{margin:6px 0}
+.lead{color:var(--muted);font-size:.9rem}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:16px;
+  padding:16px;margin:12px 0;
+}
+.card2{background:var(--panel2)}
+.note{font-size:.82rem;color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;color:var(--ok)}
+.ok{color:var(--ok);font-weight:700}
+
+/* ===== なぜ必要か：ビフォーアフター ===== */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.why-box{
+  background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px;
+}
+.why-box h4{margin:0 0 8px;font-size:.86rem}
+.why-box.before h4{color:var(--ng)}
+.why-box.after h4{color:var(--ok)}
+.bars{display:flex;align-items:flex-end;gap:5px;height:74px;padding:4px 0}
+.bars i{flex:1;border-radius:4px 4px 0 0;display:block}
+.before .bars i{background:var(--ng)}
+.after .bars i{background:var(--ok)}
+.why-list{margin:8px 0 0;padding-left:1.1em;font-size:.86rem}
+.why-list li{margin:4px 0}
+
+/* ===== 用語：サンプル ===== */
+.example-row{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch}
+.example{
+  flex:1;min-width:220px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:14px;padding:12px;
+}
+.img-sample{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.img-sample .c{
+  height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;color:#17242C;
+}
+.c.r{background:#F07FB0}
+.c.g{background:#4FC3AC}
+.c.b{background:#7FA8FF}
+
+/* ===== 全体像テンソル ===== */
+.tensor-box{overflow-x:auto}
+.tensor{min-width:660px}
+.col-head{
+  display:flex;gap:10px;margin-left:76px;margin-bottom:6px;
+  font-size:.8rem;color:var(--muted);
+}
+.col-head span{width:72px;text-align:center}
+.rows{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:10px}
+.row-tag{width:66px;text-align:right;font-size:.8rem;font-weight:700;color:var(--muted)}
+.cells{display:flex;gap:10px}
+.cell{
+  width:72px;border-radius:10px;padding:6px;background:#22323B;
+  border:2px solid transparent;display:flex;flex-direction:column;gap:4px;align-items:center;
+  transition:.15s;
+}
+.cell .bar{width:100%;height:12px;border-radius:4px;background:#3A4E59;transition:.15s}
+.cell .cap{font-size:.65rem;color:var(--muted)}
+.axis-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-size:.84rem}
+.axis-legend span{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--panel2);
+}
+.badge-n{color:#F2B81C;font-weight:700}
+.badge-c{color:#4FC3AC;font-weight:700}
+.badge-s{color:#7FA8FF;font-weight:700}
+
+/* ===== 正規化タブ ===== */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.tab{
+  border:2px solid var(--line);background:var(--panel);color:var(--ink);
+  border-radius:12px;padding:10px 14px;font-weight:700;font-size:.9rem;
+  cursor:pointer;transition:.15s;
+}
+.tab:hover{border-color:var(--hl)}
+.tab.active{background:var(--hl);color:#17242C;border-color:var(--hl)}
+
+/* 図（色＝まとまり） */
+.ch{
+  width:72px;border-radius:10px;padding:6px;
+  border:2px solid transparent;
+  display:flex;flex-direction:column;gap:4px;align-items:center;
+  cursor:pointer;transition:.18s;background:#22323B;
+}
+.ch .px{width:100%;height:14px;border-radius:4px;transition:.18s;background:#2E404A}
+.ch-label{font-size:.66rem;color:var(--muted);margin-top:2px}
+.ch:hover{transform:scale(1.04)}
+.ch.dim{opacity:.18}
+.ch.active{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+
+.ch.g0 .px{background:#F2B81C}
+.ch.g1 .px{background:#4FC3AC}
+.ch.g2 .px{background:#7FA8FF}
+.ch.g3 .px{background:#F07FB0}
+.ch.g4 .px{background:#C79BFF}
+.ch.g5 .px{background:#FF9A62}
+
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.82rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:14px;height:14px;border-radius:4px;display:inline-block}
+
+.info{
+  background:var(--panel2);border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;margin-top:16px;
+}
+.info h2{font-size:1rem;margin:0 0 8px;color:var(--hl);border:none;padding:0}
+.info p{margin:6px 0;font-size:.9rem}
+.info .key{color:var(--hl);font-weight:700}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.mini{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.mini h3{font-size:.92rem}
+.mini p{margin:4px 0;font-size:.84rem}
+.mini .muted{color:var(--muted)}
+
+table{border-collapse:collapse;width:100%;font-size:.86rem;margin-top:8px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:rgba(242,184,28,.14)}
+
+@media (max-width:700px){
+  .grid2{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .tensor{min-width:620px}
+  .cell,.ch{width:62px}
+  .col-head span{width:62px}
+  .back-link{font-size:12px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+<main>
+  <!-- 用語一覧に戻るボタン -->
+  <a href="yougo.html" class="back-link">← 用語一覧に戻る</a>
+
+  <h1>正規化のイメージ：なぜ必要か・サンプル・チャンネルから違いまで</h1>
+  <p class="lead">上から順に読むと、なぜやるのか → データの形 → 正規化の違いへ進みます。</p>
+
+  <!-- ===== 0. なぜ正規化するのか ===== -->
+  <h2>⓪ そもそも、なぜ正規化するの？</h2>
+  <div class="card">
+    <p><b>ひとことで：値のクセ（偏りやばらつき）をならして、学習を安定・スムーズにするため。</b></p>
+    <p>層を通るたびに値が極端に大きくなったり小さくなったりすると、学習が進みにくくなります。そこで<b>平均0・分散1にそろえて</b>、次の層が扱いやすい状態にしてあげます。</p>
+
+    <div class="why-grid">
+      <div class="why-box before">
+        <h4>正規化しないと…</h4>
+        <div class="bars">
+          <i style="height:12%"></i><i style="height:88%"></i><i style="height:20%"></i>
+          <i style="height:95%"></i><i style="height:8%"></i><i style="height:70%"></i>
+        </div>
+        <ul class="why-list">
+          <li>値の大小がバラバラで偏る</li>
+          <li>学習が不安定・遅くなりがち</li>
+          <li>極端な値で勾配が暴れやすい</li>
+        </ul>
+      </div>
+      <div class="why-box after">
+        <h4>正規化すると…</h4>
+        <div class="bars">
+          <i style="height:45%"></i><i style="height:55%"></i><i style="height:48%"></i>
+          <i style="height:60%"></i><i style="height:42%"></i><i style="height:52%"></i>
+        </div>
+        <ul class="why-list">
+          <li>平均0・分散1にそろう</li>
+          <li>学習が安定しやすい</li>
+          <li>学習を速く進めやすい</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">※ どの正規化もやっていることは同じで、<b>「どの範囲の値をまとめて平均・分散するか」</b>だけが違います（このあと説明します）。</p>
+  </div>
+
+  <!-- ===== 1. サンプル ===== -->
+  <h2>① サンプル ＝ モデルに入れる「1件分」のデータ</h2>
+  <div class="card">
+    <p><b>サンプル</b>とは、モデルに与えるデータ1件のことです。画像なら<b>画像1枚</b>、文章なら<b>文1つ</b>、音声なら<b>1区間</b>が1サンプルです。</p>
+    <p>いくつかまとめて処理するとき、その<b>まとめた件数</b>を<b>バッチサイズ</b>と呼びます。つまり <span class="ok">バッチサイズ ＝ サンプル数</span> です。</p>
+
+    <div class="example-row">
+      <div class="example">
+        <h3>サンプル1（画像1枚）</h3>
+        <div class="img-sample">
+          <div class="c r">R</div><div class="c g">G</div><div class="c b">B</div>
+        </div>
+        <p class="note">1枚の画像の中に R・G・B の3つの「種類」がある。</p>
+      </div>
+      <div class="example">
+        <h3>サンプル2（画像1枚）</h3>
+        <div class="img-sample">
+          <div class="c r">R</div><div class="c g">G</div><div class="c b">B</div>
+        </div>
+        <p class="note">もう1枚。これでサンプル数＝2（バッチサイズ2）。</p>
+      </div>
+    </div>
+    <p class="note">※ 分かりやすいように、1サンプル＝1枚の画像として説明しています。</p>
+  </div>
+
+  <!-- ===== 2. チャンネル ===== -->
+  <h2>② チャンネル ＝ 1サンプルの中の「種類」の軸</h2>
+  <div class="card">
+    <p><b>チャンネル</b>は、1サンプルの中にある<b>データの種類</b>の数です。</p>
+    <table>
+      <tr><th>例</th><th>チャンネル数 C</th><th>中身</th></tr>
+      <tr><td>カラー画像</td><td>3</td><td>赤・緑・青（R/G/B）</td></tr>
+      <tr><td>白黒画像</td><td>1</td><td>明るさだけ</td></tr>
+      <tr><td>CNN の途中</td><td>モデル構造で決まる（例：64）</td><td>特徴マップが64枚</td></tr>
+    </table>
+    <p>大事なのは <span class="ok">チャンネル数はモデルの構造で決まる</span> という点です。人がその場で決めるものではありません。</p>
+  </div>
+
+  <!-- ===== 3. 空間 ===== -->
+  <h2>③ 空間（H×W）＝ 画像の縦横のような広がり</h2>
+  <div class="card">
+    <p>画像なら<b>縦×横のピクセル</b>が空間です。下の図では、各チャンネルの中の<b>横棒</b>が空間方向の値を表しています。</p>
+  </div>
+
+  <!-- ===== 4. 全体像 ===== -->
+  <h2>④ ぜんぶ並べるとこうなる（N × C × 空間）</h2>
+  <div class="card tensor-box">
+    <div class="tensor">
+      <div class="col-head">
+        <span>C1</span><span>C2</span><span>C3</span><span>C4</span>
+      </div>
+      <div class="rows" id="rows"></div>
+    </div>
+    <div class="axis-legend">
+      <span><i class="badge-n">N</i> サンプル（行）＝ バッチサイズ</span>
+      <span><i class="badge-c">C</i> チャンネル（列）＝ モデル構造で決まる</span>
+      <span><i class="badge-s">H×W</i> 空間（各マスの中の棒）</span>
+    </div>
+    <p class="note" style="margin-top:12px">
+      この形を頭に入れると、正規化の違いは「<b>行・列・マスのどこをまとめて平均するか</b>」だけになります。
+    </p>
+  </div>
+
+  <!-- ===== 5. 正規化の違い ===== -->
+  <h2>⑤ 正規化の違い：色＝平均・分散をとる「まとまり」</h2>
+  <p class="lead">同じ色のマスが <b>1回の平均・分散の計算単位</b>です。マスにカーソルを合わせると、同じまとまりだけが残ります。</p>
+
+  <div class="tabs">
+    <button class="tab active" data-mode="batch">バッチ正規化</button>
+    <button class="tab" data-mode="layer">レイヤー正規化</button>
+    <button class="tab" data-mode="instance">インスタンス正規化</button>
+    <button class="tab" data-mode="group">グループ正規化</button>
+  </div>
+
+  <div class="card tensor-box">
+    <div class="tensor">
+      <div class="col-head">
+        <span>C1</span><span>C2</span><span>C3</span><span>C4</span>
+      </div>
+      <div class="rows" id="samples"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="info" id="info"></div>
+
+  <div class="grid2">
+    <div class="mini">
+      <h3>なぜ違うの？</h3>
+      <p><b>バッチ</b>：同じチャンネルを全サンプル分まとめる（縦の帯）。</p>
+      <p><b>レイヤー</b>：1サンプル内の全チャンネルをまとめる（横1行）。</p>
+      <p><b>インスタンス</b>：1サンプル・1チャンネルだけをまとめる（1マス）。</p>
+      <p class="muted">平均・分散をとる範囲が違うだけで、計算は同じ。</p>
+    </div>
+    <div class="mini">
+      <h3>バッチサイズの影響</h3>
+      <p><b>バッチ正規化は受ける</b>：サンプルが少ないと平均・分散が不安定。</p>
+      <p><b>レイヤー / インスタンス / グループは受けない</b>：1サンプル内で完結する。</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="mini">
+      <h3>どこで使う？</h3>
+      <p><b>Batch Norm</b> → CNN（画像分類）</p>
+      <p><b>Layer Norm</b> → RNN / Transformer / LLM</p>
+      <p><b>Instance Norm</b> → 画像スタイル変換 / GAN</p>
+      <p><b>Group Norm</b> → 物体検出 / セグメンテーション</p>
+    </div>
+    <div class="mini">
+      <h3>用語の対応</h3>
+      <p><b>バッチサイズ ＝ サンプル数</b>（図の行数）</p>
+      <p><b>チャンネル数 C はモデル構造で決まる</b>（図の列数）</p>
+      <p><b>グループ数 G は人が決める</b>（Group Norm のとき）</p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  const N = 3;   // サンプル数
+  const C = 4;   // チャンネル数
+  const G = 2;   // グループ数（Group Norm）
+  const groupSize = C / G;
+
+  const COLORS = ['#F2B81C','#4FC3AC','#7FA8FF','#F07FB0','#C79BFF','#FF9A62'];
+
+  const rowsEl = document.getElementById('rows');       // ④ 全体像
+  const samplesEl = document.getElementById('samples'); // ⑤ 正規化図
+  const legendEl = document.getElementById('legend');
+  const infoEl = document.getElementById('info');
+
+  let mode = 'batch';
+
+  // ④ 全体像の図
+  function buildOverview(){
+    rowsEl.innerHTML = '';
+    for(let n=0;n<N;n++){
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const tag = document.createElement('div');
+      tag.className = 'row-tag';
+      tag.textContent = 'サンプル' + (n+1);
+      row.appendChild(tag);
+
+      const cells = document.createElement('div');
+      cells.className = 'cells';
+
+      for(let c=0;c<C;c++){
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        for(let i=0;i<4;i++){
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          cell.appendChild(bar);
+        }
+        const cap = document.createElement('div');
+        cap.className = 'cap';
+        cap.textContent = 'C' + (c+1);
+        cell.appendChild(cap);
+        cells.appendChild(cell);
+      }
+      row.appendChild(cells);
+      rowsEl.appendChild(row);
+    }
+  }
+
+  // ⑤ 正規化の図（色＝まとまり）
+  function buildSamples(){
+    samplesEl.innerHTML = '';
+    for(let n=0;n<N;n++){
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const tag = document.createElement('div');
+      tag.className = 'row-tag';
+      tag.textContent = 'サンプル' + (n+1);
+      row.appendChild(tag);
+
+      const chs = document.createElement('div');
+      chs.className = 'cells';
+
+      for(let c=0;c<C;c++){
+        const ch = document.createElement('div');
+        ch.className = 'ch';
+        ch.dataset.n = n;
+        ch.dataset.c = c;
+
+        for(let i=0;i<4;i++){
+          const px = document.createElement('div');
+          px.className = 'px';
+          ch.appendChild(px);
+        }
+        const lab = document.createElement('div');
+        lab.className = 'ch-label';
+        lab.textContent = 'C' + (c+1);
+        ch.appendChild(lab);
+
+        ch.addEventListener('mouseenter', ()=> highlightGroup(n, c));
+        ch.addEventListener('mouseleave', ()=> clearDim());
+
+        chs.appendChild(ch);
+      }
+      row.appendChild(chs);
+      samplesEl.appendChild(row);
+    }
+  }
+
+  function clearDim(){
+    document.querySelectorAll('#samples .ch').forEach(ch=>ch.classList.remove('dim','active'));
+  }
+
+  function highlightGroup(n, c){
+    clearDim();
+    document.querySelectorAll('#samples .ch').forEach(ch=>{
+      const cn = Number(ch.dataset.n);
+      const cc = Number(ch.dataset.c);
+      let same = false;
+
+      if(mode === 'batch'){
+        same = (cc === c);
+      }else if(mode === 'layer'){
+        same = (cn === n);
+      }else if(mode === 'instance'){
+        same = (cn === n && cc === c);
+      }else if(mode === 'group'){
+        const gTarget = Math.floor(c / groupSize);
+        const gThis = Math.floor(cc / groupSize);
+        same = (cn === n && gThis === gTarget);
+      }
+
+      ch.classList.add(same ? 'active' : 'dim');
+    });
+  }
+
+  function paint(){
+    document.querySelectorAll('#samples .ch').forEach(ch=>{
+      ch.className = 'ch';
+      const n = Number(ch.dataset.n);
+      const c = Number(ch.dataset.c);
+      let groupIndex = 0;
+
+      if(mode === 'batch'){
+        groupIndex = c;
+      }else if(mode === 'layer'){
+        groupIndex = n;
+      }else if(mode === 'instance'){
+        groupIndex = (n * C + c) % COLORS.length;
+      }else if(mode === 'group'){
+        groupIndex = Math.floor(c / groupSize);
+      }
+      ch.classList.add('g' + (groupIndex % COLORS.length));
+    });
+  }
+
+  function render(){
+    paint();
+    legendEl.innerHTML = '';
+
+    if(mode === 'batch'){
+      for(let c=0;c<C;c++){
+        legendEl.insertAdjacentHTML('beforeend',
+          `<span><i class="sw" style="background:${COLORS[c%COLORS.length]}"></i> C${c+1} の縦1列が1まとまり</span>`);
+      }
+      infoEl.innerHTML =
+        '<h2>バッチ正規化（Batch Norm）</h2>' +
+        '<p><span class="key">同じ色の縦の帯</span>が1まとまり。＝ <b>同じチャンネルを、全サンプル分まとめて</b>平均・分散。</p>' +
+        '<p>サンプル数（バッチサイズ）を使うので、<b>サンプルが少ないと不安定</b>になりやすい。</p>' +
+        '<p class="mono">CNN（画像分類）でよく使われる</p>';
+    }
+
+    if(mode === 'layer'){
+      for(let n=0;n<N;n++){
+        legendEl.insertAdjacentHTML('beforeend',
+          `<span><i class="sw" style="background:${COLORS[n%COLORS.length]}"></i> サンプル${n+1} の横1行が1まとまり</span>`);
+      }
+      infoEl.innerHTML =
+        '<h2>レイヤー正規化（Layer Norm）</h2>' +
+        '<p><span class="key">横1行が同じ色</span>＝ <b>1サンプル内の全チャンネルをまとめて</b>平均・分散。</p>' +
+        '<p>サンプルごとに独立して計算するので、<b>バッチサイズに影響されない</b>。</p>' +
+        '<p class="mono">RNN / Transformer / LLM で使われる</p>';
+    }
+
+    if(mode === 'instance'){
+      legendEl.insertAdjacentHTML('beforeend',
+        `<span><i class="sw" style="background:${COLORS[0]}"></i> 1マス（1サンプル×1チャンネル）ごとに別のまとまり</span>`);
+      infoEl.innerHTML =
+        '<h2>インスタンス正規化（Instance Norm）</h2>' +
+        '<p><span class="key">1マスごとに色が違う</span>＝ <b>1サンプル・1チャンネルの中だけ</b>で平均・分散。</p>' +
+        '<p>サンプルごとに独立なので、<b>バッチサイズに影響されない</b>。</p>' +
+        '<p class="mono">画像スタイル変換 / GAN で使われる</p>';
+    }
+
+    if(mode === 'group'){
+      for(let g=0;g<G;g++){
+        legendEl.insertAdjacentHTML('beforeend',
+          `<span><i class="sw" style="background:${COLORS[g%COLORS.length]}"></i> グループ${g+1}（C${g*groupSize+1}〜C${(g+1)*groupSize}）</span>`);
+      }
+      infoEl.innerHTML =
+        '<h2>グループ正規化（Group Norm）</h2>' +
+        '<p><span class="key">同じ色のグループ</span>が1まとまり。＝ <b>1サンプル内で C を G 個に分け、グループ内をまとめて</b>平均・分散（図は C=4 を G=2 に分割）。</p>' +
+        '<p><b>グループ数 G は人が決める</b>。サンプルごとに独立なので、<b>バッチサイズに影響されない</b>。</p>' +
+        '<p class="mono">物体検出 / セグメンテーション で使われる</p>';
+    }
+  }
+
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      mode = tab.dataset.mode;
+      render();
+    });
+  });
+
+  buildOverview();
+  buildSamples();
+  render();
+})();
+</script>
+</body>
+</html>

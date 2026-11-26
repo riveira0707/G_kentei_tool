@@ -64,6 +64,31 @@ main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
   line-height:1.9;
   transition:box-shadow 0.25s ease, border 0.2s;
   border:2px solid transparent;
+  position:relative;
+}
+
+/* 枠内の先頭へ戻るボタン */
+.top-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin:0 0 12px;
+  padding:8px 14px;
+  border-radius:8px;
+  border:2px solid #b4c4c0;
+  background:#dde8e4;
+  color:#374b46;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.2s;
+}
+.top-link:hover{
+  background:#c5d8d2;
+  border-color:#8fa8a2;
+}
+.top-link:active{
+  transform:scale(0.97);
 }
 
 /* 強調表示（クリック連動用） */
@@ -196,6 +221,10 @@ pre{
     font-size:12px;
     padding:8px 12px;
   }
+  .top-link{
+    font-size:12px;
+    padding:8px 12px;
+  }
 }
 </style>
 </head>
@@ -204,9 +233,9 @@ pre{
   <!-- 用語一覧に戻るボタン -->
   <a href="yougo.html" class="back-link">← 用語一覧に戻る</a>
 
-  <div class="hint">▼ TP / FP / FN / TN をクリック → 対応する枠へ<br>例題内の TP / FP / FN / TN / F値 をクリック → 該当セクションへ逆ジャンプ ▼</div>
+  <div class="hint">▼ TP / FP / FN / TN をクリック → 対応する枠へ<br></div>
 
-  <!-- 混同行列テーブル：クリック可能 -->
+  <!-- 混同行列テーブル：クリック可能（先頭へ戻るボタンなし） -->
   <div class="code" id="matrix-block">
     <table>
       <tr><th></th><th>予測：陽性</th><th>予測：陰性</th></tr>
@@ -225,6 +254,7 @@ pre{
 
   <!-- F値 -->
   <div class="code" id="desc-f1">
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
     <pre><span class="t anchor-heading" id="anchor-f1">【F値（F1スコア）】</span> 適合率と再現率のバランスを測る指標
   F1 ＝ 2 × 適合率 × 再現率 ÷ (適合率＋再現率)
      ＝ 2 × TP ÷ (2TP＋FP＋FN)
@@ -238,6 +268,7 @@ pre{
 
   <!-- 正解率 -->
   <div class="code" id="desc-accuracy">
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
     <pre><span class="t anchor-heading" id="anchor-accuracy">【正解率（Accuracy）】</span> 全体のうち、予測が当たった割合
   (TP＋TN) ÷ (TP＋FP＋FN＋TN)
   <span class="c">（分母：全体。陽性・陰性を問わず全件）</span>
@@ -250,8 +281,9 @@ pre{
   <span class="c">※ FP は<span class="e">第一種過誤</span>、FN は<span class="e">第二種過誤</span>とも呼ぶ。</span></pre>
   </div>
 
-  <!-- 適合率：工場の例をメイン、医療は補足 -->
+  <!-- 適合率：迷惑メールフィルターをメイン、工場検品は補足 -->
   <div class="code" id="desc-precision">
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
     <pre><span class="t anchor-heading" id="anchor-precision">【適合率（Precision）】</span> AIが「陽性」と言ったうち、本当に陽性だった割合
   TP ÷ (TP＋FP)
   <span class="c">（分母：左の列）</span>
@@ -260,36 +292,37 @@ pre{
   <span class="c">理由：分母に FP が入っているから。FP が減ると値が大きくなる。
   （TP を下げると、分子が減るので適合率はむしろ下がる点に注意）</span>
 
-  <span class="t">【例題① 工場の検品ライン】</span>
-  陽性 ＝ 「不良品」とAIが判定
+  <span class="t">【例題① 迷惑メール（スパム）フィルター】</span>
+  陽性 ＝ 「スパム」とAIが判定
 
-  <span class="g tp-ref ref-clickable" data-jump-cell="tp">TP</span>：不良品を「不良」と判定して取り除く
-  <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>：不良品を「良品」と判定して出荷（<span class="p">流出・第二種過誤</span>）
-  <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>：良品を「不良」と判定して取り除く（<span class="p">無駄な廃棄・第一種過誤</span>）
-  <span class="g tn-ref ref-clickable" data-jump-cell="tn">TN</span>：良品を「良品」と判定して出荷
+  <span class="g tp-ref ref-clickable" data-jump-cell="tp">TP</span>：スパムを「スパム」と判定して迷惑メールフォルダへ
+  <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>：スパムを「正常」と判定して受信トレイへ（<span class="p">見逃し・第二種過誤</span>）
+  <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>：正常メールを「スパム」と判定して迷惑メールフォルダへ（<span class="p">誤検知・第一種過誤</span>）
+  <span class="g tn-ref ref-clickable" data-jump-cell="tn">TN</span>：正常メールを「正常」と判定して受信トレイへ
 
-  良品の廃棄ロスを減らしたい
+  正常メールをスパム扱いしてほしくない
     → FP を下げる → <span class="g">適合率</span>を上げる
 
   <span class="c">※ 適合率は「陽性と言った中に誤検知を混ぜない」指標。
-    工場では良品を不良と誤判定する無駄な廃棄（FP）を抑える場面が代表的。</span></pre>
+    スパムフィルターでは、重要な正常メールをスパム扱いする誤検知（FP）を抑える場面が代表的。</span></pre>
   </div>
 
-  <!-- 適合率の補足（医療の例は該当行のみ簡潔に） -->
+  <!-- 適合率の補足（工場の検品ライン） -->
   <div class="code supplement">
-    <pre><span class="t">【補足：医療診断支援システムでも同じ構図】</span>
-  陽性 ＝ 「病気あり」とAIが判定
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
+    <pre><span class="t">【補足：工場の検品ラインでも同じ構図】</span>
+  陽性 ＝ 「不良品」とAIが判定
 
-  健康な人への不要な精密検査を減らしたい
-    → <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>（健康な人を「病気あり」と判定＝誤検知・第一種過誤）を下げる
+  良品の廃棄ロスを減らしたい
+    → <span class="p fp-ref ref-clickable" data-jump-cell="fp">FP</span>（良品を「不良」と判定＝誤検知・第一種過誤）を下げる
     → <span class="g">適合率</span>を上げる
 
-  <span class="c">※ ただし診断支援は見逃し（FN・第二種過誤）が重大なので、
-    実際は再現率が重視されやすい。</span></pre>
+  <span class="c">※ 工場では良品を不良と誤判定する無駄な廃棄（FP）を抑える場面が代表的。</span></pre>
   </div>
 
-  <!-- 再現率：医療の例をメイン、工場は補足 -->
+  <!-- 再現率：医療の例をメイン、不正利用検知は補足 -->
   <div class="code" id="desc-recall">
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
     <pre><span class="t anchor-heading" id="anchor-recall">【再現率（Recall）】</span> 本当に陽性だったうち、AIが拾えた割合
   TP ÷ (TP＋FN)
   <span class="c">（分母：上の行）</span>
@@ -312,17 +345,19 @@ pre{
   <span class="c">※ 診断支援は見逃しが重大なので、再現率が重視されやすい。</span></pre>
   </div>
 
-  <!-- 再現率の補足（工場の例は該当行のみ簡潔に） -->
+  <!-- 再現率の補足（クレジットカード不正利用検知） -->
   <div class="code supplement">
-    <pre><span class="t">【補足：工場の検品ラインでも同じ構図】</span>
-  陽性 ＝ 「不良品」とAIが判定
+    <a href="#" class="top-link" data-scroll-top>↑ 先頭へ戻る</a>
+    <pre><span class="t">【補足：クレジットカード不正利用検知システムでも同じ構図】</span>
+  陽性 ＝ 「不正利用」とAIが判定
 
-  不良品の流出を防ぎたい
-    → <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>（不良品を「良品」と判定して出荷＝流出・第二種過誤）を下げる
+  不正利用の見逃しを防ぎたい
+    → <span class="p fn-ref ref-clickable" data-jump-cell="fn">FN</span>（不正利用を「正常」と判定して決済を通す＝見逃し・第二種過誤）を下げる
     → <span class="g">再現率</span>を上げる
 
-  <span class="c">※ 厳しく判定すると再現率は上がるが適合率は下がりやすい
-    （トレードオフ）。両立の指標が F値。</span></pre>
+  <span class="c">※ 厳しく判定すると再現率は上がるが、正常な決済まで止める
+    誤検知（FP・第一種過誤）が増え、適合率は下がりやすい（トレードオフ）。
+    両立の指標が F値。</span></pre>
   </div>
 </main>
 
@@ -435,10 +470,20 @@ pre{
       });
     });
 
+    // 枠内の「先頭へ戻る」ボタン
+    document.querySelectorAll('[data-scroll-top]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
     document.addEventListener('click', (e) => {
       const isMatrixCell = e.target.closest('td[data-target]');
       const isRef = e.target.closest('.ref-clickable');
-      if (!isMatrixCell && !isRef) {
+      const isTopLink = e.target.closest('[data-scroll-top]');
+      if (!isMatrixCell && !isRef && !isTopLink) {
         clearHighlights();
         activeTarget = null;
       }
